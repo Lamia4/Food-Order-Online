@@ -8,9 +8,9 @@ function Home() {
     return (
         <div>
             <Nav/>
-            <Slider/>
+            {/* <Slider/>
             <h1>Home</h1>
-            <Footer/>
+            <Footer/> */}
         </div>
     )
 }
