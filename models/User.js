@@ -19,6 +19,10 @@ const OrderListItemSchema = mongoose.Schema({
 		type: Number,
 		default: 0,
 	},
+    count: {
+        type: Number,
+        default: 0,
+    }
 }, { _id: false });
 
 const UserSchema = mongoose.Schema({
@@ -39,6 +43,34 @@ const UserSchema = mongoose.Schema({
 }, { versionKey: false });
 
 const User = mongoose.model("User", UserSchema);
+
+async function register (nameP, emailP, passwordP) {
+	const SALT_ROUNDS = 12;
+	console.log("before hash");
+	const newBcrypt = bcrypt.hashSync(passwordP, SALT_ROUNDS);
+	console.log(newBcrypt);
+	const user = new User({
+		name: nameP,
+		email: emailP,
+        password: newBcrypt
+	});
+	console.log("before save");
+	return await user.save();
+}
+
+async function authenticate (email, password) {
+
+	const findUser = await User.findOne({ email: email });
+	
+	if(!findUser) throw new Error("User not found");
+
+	const isAuthenticated = bcrypt.compareSync(password, findUser.password);
+
+	if(!isAuthenticated) throw new Error("password incorrect");
+	
+	return findUser;
+
+};
 
 async function emailExist (emailP) {
 	return await User.exists({ email: emailP })
@@ -67,19 +99,10 @@ async function updateById(id, userObject){
 	);
 }
 
-async function authenticate (email, password) {
 
-	const findUser = await User.findOne({ email: email });
-	
-	if(!findUser) throw new Error("User not found");
 
-	const isAuthenticated = bcrypt.compareSync(password, findUser.password);
 
-	if(!isAuthenticated) throw new Error("password incorrect");
-	
-	return findUser;
 
-};
 
 // try {
 //     authenticate();
@@ -88,22 +111,10 @@ async function authenticate (email, password) {
 // }
 
 
-async function createUser (nameP, emailP, passwordP) {
-	const SALT_ROUNDS = 12;
-	console.log("before hash");
-	const newBcrypt = bcrypt.hashSync(passwordP, SALT_ROUNDS);
-	console.log(newBcrypt);
-	const user = new User({
-		name: nameP,
-		email: emailP,
-        password: newBcrypt,
-	});
-	console.log("before save");
-	return await user.save();
-}
+
 
 export default { 
-    createUser, 
+    register, 
     addFoodToOrderList, 
     deleteById,
     readOne, 

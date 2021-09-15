@@ -3,6 +3,7 @@ import express from "express";
 import database from "./lib/database.js";
 import cookieParser from "cookie-parser";
 import userRouter from "./router/userRouter.js";
+import authenticateRouter from "./router/authenticateRouter.js";
 
 
 dotenv.config();
@@ -22,3 +23,4 @@ server.use(express.urlencoded({extended: true}));
 server.use(cookieParser());
 
 server.use("/user", userRouter);
+server.use("/user", authenticateRouter);

@@ -14,17 +14,17 @@ export default {
 
     register: async function (req, res, next) {
         try {
-            if(await User.emailExist(req.body.email)){
-
-                const err = new Error("user already exists");
-                err.type = "exists";
-                throw err;
-            }
-            const result = await User.createUser(
-                req.body.name,
-                req.body.email,
-                req.body.password
+            const { name, email, password } = req.body;
+            const user = await User.emailExist(email)
+            if(user) return res.status(400).send("the email already exist");
+            if(password.length < 6) return res.status(400).send("password must be at least 6 characters")
+            const result = await User.register(
+                name,
+                email,
+                password
             );
+            if(result.role) return result.role +=1;
+            console.log(result.role);
             res.json(result);
         } catch (error) {
             next(error);
