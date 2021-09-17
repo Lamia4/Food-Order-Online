@@ -6,9 +6,10 @@ import { BrowserRouter,NavLink, Route, Switch } from 'react-router-dom';
 
 import Slider from "../pages/Slider.jsx"
 import About from "../pages/About.jsx"
-import Categories from "../components/Categories.js"
-import Contact from "../pages/Contact.jsx"
-import Login from "../pages/Login.jsx"
+import Categories from "../components/Categories.js";
+import Contact from "../pages/Contact.jsx";
+import Login from "../pages/Login.jsx";
+import Pizza from "../pages/Pizza.js";
 
 
 function Nav() {
@@ -44,6 +45,8 @@ function Nav() {
             <Route path="/contact" component={ Contact } />
             <Route path="/about" component={ About } />
             <Route path="/login" component={ Login } />
+            <Route path="/pizza" component={ Pizza } />
+          
             
             
             </Switch>
