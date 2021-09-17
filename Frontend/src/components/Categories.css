@@ -3,45 +3,6 @@
         justify-content: center;
     }
 }
-.imgEkleme{
-   
-    background-image: url("../img/kebab.jpg"); 
-
-    background-position: center ;
-    background-repeat: no-repeat ;;
-    background-size:cover ;
-    height: 100%;  
-}
-
-.categoryCol{
-    height: 50vh;
-}
-
-.categoryContainer{
-  flex: 1;
-  /* margin: 3px; */
-  height: 50vh;
-  position: relative;
-  width: 100%;
-  background-color: red;
-}
-.categoryImg{
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-    
-}
-.categoryInfo{
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
 .categoryButton{
     border: none;
@@ -51,11 +12,14 @@
     font-weight:600;
     text-transform: uppercase;
 }
+.categoryCard{
+    position: relative;
+}
 .cardBody{
     position: absolute;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 100%;   
     display: flex;
     flex-direction: column;
     align-items: center;
