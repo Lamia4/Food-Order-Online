@@ -1,46 +1,43 @@
-import React from 'react';
-import { NavBa } from 'react-bootstrap';
-
+import React, { useState } from 'react';
 import logo from "../img/logo.png"
 import login from "../img/login.png"
 import shopping from "../img/shopping.png"
 import "./Nav.css";
-import { BrowserRouter,NavLink, Route, Switch } from 'react-router-dom';
-
-import Slider from "../pages/Slider.jsx"
-import About from "../pages/About.jsx"
-import Categories from "../pages/Categories.jsx"
-import Contact from "../pages/Contact.jsx"
-import Login from "../pages/Login.jsx"
-import Shopping from "../pages/Shopping"
+import { NavLink } from 'react-router-dom';
+import { Container, Collapse, Navbar, NavbarToggler } from "reactstrap";
 
 
 
 function NavBar() {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen)
     return (
 
-        <BrowserRouter>
-            <div className="nav">
+        
+            <div className="navbar">
+            <Container fluid className="p-2" style={{justifyItems: "stretch"}}>
+            <Navbar color="danger" dark expand="md" fixed="top" className="mr-2">
                 <div id="logo">
-                <a to="/" exact activeClassName="active">
+                <a to="/" exact ClassName="active">
                 <img src= {logo} alt="logo"/>
                 </a>
-                <h1><NavLink to="/" exact activeClassName="active">PIZZA</NavLink></h1>
-                    
-                </div>
-
-                <div>
-
-                <ul className="menu">
+                <NavLink to="/" exact ClassName="active">PIZZA</NavLink>
+                <NavbarToggler onClick={toggle}/>
+                <Collapse isOpen={isOpen} navbar style={{justifyContent: "space-between", justifyItems: "center"}}>
+                <ul className="menu" style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "center", padding: "10px 0"}}>
                     <li><NavLink to="/" exact activeClassName="active">Home</NavLink></li>
                     <li><NavLink to="/categories" exact activeClassName="active">Categories</NavLink></li>
                     <li><NavLink to="/contact" exact activeClassName="active">Contact</NavLink></li>
                     <li><NavLink to="/about" exact activeClassName="active">About</NavLink></li>
-                   
                 </ul>
+                </Collapse>
+                    
+                </div>
+                
+                <div>
+
                 
                 </div>
-
                 <div id="login">
 
                 <a href="/shopping" id="shopping"><img src= {shopping} alt="shopping"/>
@@ -52,23 +49,17 @@ function NavBar() {
                 
 
                 </div>
+                </Navbar>
+            </Container>    
+
+
 
             </div>
             
 
-            <Switch>
-            <Route exact path="/" component={ Slider } />
-            <Route path="/categories" component={ Categories }/>
-            <Route path="/contact" component={ Contact } />
-            <Route path="/about" component={ About } />
-            <Route path="/login" component={ Login } />
-            <Route path="/shopping" component={ Shopping } />
             
-            
-            </Switch>
 
-      
-            </BrowserRouter>
+    
 
             
        
