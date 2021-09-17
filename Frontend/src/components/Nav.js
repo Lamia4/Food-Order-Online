@@ -5,7 +5,7 @@ import logo from "../img/logo.png"
 import login from "../img/login.png"
 import shopping from "../img/shopping.png"
 import "./Nav.css";
-import { BrowserRouter,NavLink, Route, Switch } from 'react-router-dom';
+import { BrowserRouter,NavLink, Route, Switch, Link } from 'react-router-dom';
 
 import Slider from "../pages/Slider.jsx"
 import About from "../pages/About.jsx"
@@ -13,6 +13,7 @@ import Categories from "../pages/Categories.jsx"
 import Contact from "../pages/Contact.jsx"
 import Login from "../pages/Login.jsx"
 import Shopping from "../pages/Shopping"
+import Register from "../pages/Register"
 
 
 
@@ -22,9 +23,9 @@ function NavBar() {
         <BrowserRouter>
             <div className="nav">
                 <div id="logo">
-                <a to="/" exact activeClassName="active">
+                <Link to="/" exact activeClassName="active">
                 <img src= {logo} alt="logo"/>
-                </a>
+                </Link>
                 <h1><NavLink to="/" exact activeClassName="active">PIZZA</NavLink></h1>
                     
                 </div>
@@ -63,8 +64,7 @@ function NavBar() {
             <Route path="/about" component={ About } />
             <Route path="/login" component={ Login } />
             <Route path="/shopping" component={ Shopping } />
-            
-            
+            <Route path="/register" component={ Register } />
             </Switch>
 
       
