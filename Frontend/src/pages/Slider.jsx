@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import"./startSeite.css"
 
 function Slider() {
     return (
-        <div>
+        <div className="startSeite">
             Slider
         </div>
     )
