@@ -31,7 +31,7 @@ function NavBar() {
                 </Collapse>
                 <NavItem>
                 <NavLink to="/shopping" ClassName="shopping" ><img style={{height: "5vh"}} src= {shopping} alt="shopping"/></NavLink> 
-                <NavLink to="/shopping" ClassName="shopping" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink> 
+                <NavLink to="/shopping" ClassName="loginIcon" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink> 
                 </NavItem>
                 </Navbar>
             </Container>    
