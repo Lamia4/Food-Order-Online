@@ -6,7 +6,7 @@ import { BrowserRouter,NavLink, Route, Switch } from 'react-router-dom';
 
 import Slider from "../pages/Slider.jsx"
 import About from "../pages/About.jsx"
-import Categories from "../pages/Categories.jsx"
+import Categories from "../components/Categories.js"
 import Contact from "../pages/Contact.jsx"
 import Login from "../pages/Login.jsx"
 
