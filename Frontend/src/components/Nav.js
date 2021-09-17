@@ -7,6 +7,14 @@ import { NavLink } from 'react-router-dom';
 import { Container, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from "reactstrap";
 
 
+import Slider from "../pages/Slider.jsx"
+import About from "../pages/About.jsx"
+import Categories from "../components/Categories.js";
+import Contact from "../pages/Contact.jsx";
+import Login from "../pages/Login.jsx";
+
+
+
 
 function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +44,17 @@ function NavBar() {
                 </Navbar>
             </Container>    
             </div>
+
+
+            <Switch>
+            <Route exact path="/" component={ Slider } />
+            <Route path="/categories" component={ Categories }/>
+            <Route path="/contact" component={ Contact } />
+            <Route path="/about" component={ About } />
+            <Route path="/login" component={ Login } />
+            
+          
+
             
 
             

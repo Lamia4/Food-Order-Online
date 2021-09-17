@@ -1,4 +1,5 @@
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home.js";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Slider from "./pages/Slider.jsx"
