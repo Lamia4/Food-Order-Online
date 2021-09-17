@@ -4,7 +4,7 @@ import login from "../img/login.png"
 import shopping from "../img/shopping.png"
 import "./Nav.css";
 import { NavLink } from 'react-router-dom';
-import { Container, Collapse, Navbar, NavbarToggler } from "reactstrap";
+import { Container, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from "reactstrap";
 
 
 
@@ -17,43 +17,24 @@ function NavBar() {
             <div className="navbar">
             <Container fluid className="p-2" style={{justifyItems: "stretch"}}>
             <Navbar color="danger" dark expand="md" fixed="top" className="mr-2">
-                <div id="logo">
-                <a to="/" exact ClassName="active">
-                <img src= {logo} alt="logo"/>
-                </a>
-                <NavLink to="/" exact ClassName="active">PIZZA</NavLink>
+                <NavbarBrand className="logo"><img src= {logo} alt="logo"/></NavbarBrand>
                 <NavbarToggler onClick={toggle}/>
-                <Collapse isOpen={isOpen} navbar style={{justifyContent: "space-between", justifyItems: "center"}}>
-                <ul className="menu" style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "center", padding: "10px 0"}}>
-                    <li><NavLink to="/" exact activeClassName="active">Home</NavLink></li>
-                    <li><NavLink to="/categories" exact activeClassName="active">Categories</NavLink></li>
-                    <li><NavLink to="/contact" exact activeClassName="active">Contact</NavLink></li>
-                    <li><NavLink to="/about" exact activeClassName="active">About</NavLink></li>
-                </ul>
+                <Collapse isOpen={isOpen} navbar>
+                    <Nav navbar>
+                        <NavItem >
+                            <NavLink to="/" className="navItems">Home</NavLink>
+                            <NavLink to="/categories" className="navItems">Categories</NavLink>
+                            <NavLink to="/contact" className="navItems">Contact</NavLink>
+                            <NavLink to="/about" className="navItems">About</NavLink>
+                        </NavItem>
+                    </Nav>
                 </Collapse>
-                    
-                </div>
-                
-                <div>
-
-                
-                </div>
-                <div id="login">
-
-                <a href="/shopping" id="shopping"><img src= {shopping} alt="shopping"/>
-                </a>
-
-                <a href="/login"><img src= {login} alt="login"/>
-                </a>
-
-                
-
-                </div>
+                <NavItem>
+                <NavLink to="/shopping" ClassName="shopping" ><img style={{height: "5vh"}} src= {shopping} alt="shopping"/></NavLink> 
+                <NavLink to="/shopping" ClassName="shopping" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink> 
+                </NavItem>
                 </Navbar>
             </Container>    
-
-
-
             </div>
             
 

@@ -1,28 +1,28 @@
-.nav{
+/* .nav{
     height: 60px;
     width: 100%;
     background-color: #E1A351;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+} */
 
-#logo{
+/* #logo{
     display: flex;
    
     align-items: center;
     margin: 0 0 0 30px; 
 
-}
+} */
 
-#logo img{
+.logo img{
    
-    height: auto;
-    width: 40px;
+    height: 5vh;
+    width: 5vw;
     margin: 5px;
     
 }
-
+/* 
 .nav h1{
     color: #fff;
   
@@ -45,11 +45,16 @@
     color: #fff;
     text-decoration: none;
 
-}
+} */
 
-#login img{
+/* .login img{
     height: auto;
     width: 40px;
     margin-right: 30px;
 
+} */
+
+.navItems {
+    text-decoration: none;
+    color: #fff;
 }
