@@ -1,4 +1,4 @@
-@media (max-width:767px){
+@media (max-width:576px){
     .smCenter {
         justify-content: center;
     }
@@ -26,8 +26,12 @@
     justify-content: center;
 }
 
-.cardBody h1{
+.cardBody a{
+    text-decoration: none;
+    color: white;
+    
+}
+.cardBody a h1{
     text-transform: uppercase;
     background-color:gray;
-    padding: 10px;
 }
