@@ -10,7 +10,11 @@ import Categories from "../components/Categories.js"
 import Contact from "../pages/Contact.jsx"
 import Login from "../pages/Login.jsx"
 
-<BrowserRouter>
+
+function Nav() {
+    return (
+
+        <BrowserRouter>
             <div className="nav">
                 <div id="logo">
                 <a to="/" exact activeClassName="active">
