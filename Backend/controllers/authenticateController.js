@@ -12,7 +12,7 @@ export default {
                     maxAge: 60 * 1000,
                     httpOnly: true,
                 })
-                res.send({token})
+                res.send({token, ...authenticatedUser._doc})
             }
             else {
                 res.send("authentication failed")
