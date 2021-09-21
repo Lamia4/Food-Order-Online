@@ -3,7 +3,9 @@ import React from 'react'
 function Shopping() {
     return (
         <div>
-            Shopping
+            <div>
+                
+            </div>
         </div>
     )
 }

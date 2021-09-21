@@ -12,7 +12,6 @@ function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen)
     return (
-
         <div className="navbar">
             <Container fluid className="navContainer p-2 justify-content-space-between">
             <Navbar dark expand="sm" fixed="top" className="justify-content-space-between navbarBg">

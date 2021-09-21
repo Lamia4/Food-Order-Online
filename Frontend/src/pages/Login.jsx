@@ -1,13 +1,17 @@
-import React, { useState} from 'react';
-import "./Login.css";
-import { useHistory } from "react-router-dom";
+
+import React, {useState}from 'react';
+import {Input, Form , FormGroup,} from 'reactstrap';
+
+
+import {Link,useHistory} from 'react-router-dom';
+import "./Login.css"
 
 
 function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory();
+    const history = useHistory();  
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -16,13 +20,13 @@ function Login() {
             method: 'POST',
             body: JSON.stringify({email, password}),
             headers: {
-            'Content-type': "application/json"// The type of data you're sending
+            'Content-type': "application/json"
             }
             }).then(response => response.json())
             .then(data => {
-            console.log(data)
-            history.push("/")
-            return data
+            console.log(data);
+            history.push("/") ;
+            return data;
             });
             
             
@@ -32,19 +36,24 @@ function Login() {
     };
 
     return(
-      
-        
-    <div class="contact-section">
 
-    <h1>Login</h1>
-    {/* <div class="border"></div> */}
+ <Form className="contact-form">
 
-    <form class="contact-form" action="index.html" method="post" onSubmit={handleLogin}>
-    <input type="text" class="contact-form-text" placeholder="User Name or Email" value={email} onChange={(e) => setEmail(e.target.value) }/>
-    <input type="password" class="contact-form-text" placeholder="Your password" value={password} onChange={(e) => setPassword(e.target.value) }/>
-    <input type="submit" class="contact-form-btn" value="Send"/>
-    </form>
-    </div>
+ <h1>login</h1>
+
+   <FormGroup className="row">
+
+      <Input type="text" className="contact-form-text" placeholder="User Name or Email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
+      <Input type="password" className="contact-form-text" placeholder="Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+      <p>Einer neuer User erstelen <Link to="/register" exact >Register.</Link></p>
+
+      <input type="submit" class="contact-form-btn" value="Send" onClick={handleLogin}/>
+
+</FormGroup>
+
+  
+ </Form>
+
 
     );
 }
