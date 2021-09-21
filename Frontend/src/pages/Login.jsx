@@ -1,9 +1,9 @@
 
-import React, {useState, useHistory}from 'react';
+import React, {useState}from 'react';
 import {Input, Form , FormGroup,} from 'reactstrap';
 
 
-import {Link} from 'react-router-dom';
+import {Link,useHistory} from 'react-router-dom';
 import "./Login.css"
 
 
@@ -11,7 +11,7 @@ function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory();
+    const history = useHistory();  
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -24,9 +24,9 @@ function Login() {
             }
             }).then(response => response.json())
             .then(data => {
-            console.log(data)
-            history.push("/")
-            return data
+            console.log(data);
+            history.push("/") ;
+            return data;
             });
             
             
@@ -41,13 +41,13 @@ function Login() {
 
  <h1>login</h1>
 
-   <FormGroup className="row" onSubmit={handleLogin}>
+   <FormGroup className="row">
 
       <Input type="text" className="contact-form-text" placeholder="User Name or Email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
       <Input type="password" className="contact-form-text" placeholder="Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
       <p>Einer neuer User erstelen <Link to="/register" exact >Register.</Link></p>
 
-      <input type="submit" class="contact-form-btn" value="Send"/>
+      <input type="submit" class="contact-form-btn" value="Send" onClick={handleLogin}/>
 
 </FormGroup>
 
