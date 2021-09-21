@@ -15,8 +15,6 @@ function Register() {
       <Input type="password" className="contact-form-text" placeholder="Password"/>
       <input type="submit" class="contact-form-btn" value="Send"/>
 
-
-
   </FormGroup>
 
        
