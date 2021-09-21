@@ -8,12 +8,14 @@ import Contact from "./pages/Contact.jsx"
 import Login from "./pages/Login.jsx";
 import Shopping from "./pages/Shopping";
 import Register from "./pages/Register.jsx";
+import Nav from "./components/Nav.js";
 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <Nav/>
           <Switch>
             <Route exact path="/" component={ Home } />
             <Route path="/categories" component={ Categories }/>
