@@ -2,7 +2,6 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home.js";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Slider from "./pages/Slider.jsx"
 import About from "./pages/About.jsx"
 import Categories from "./components/Categories.js";
 import Contact from "./pages/Contact.jsx"
@@ -14,9 +13,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Home/>
           <Switch>
-            <Route exact path="/" component={ Slider } />
+            <Route exact path="/" component={ Home } />
             <Route path="/categories" component={ Categories }/>
             <Route path="/contact" component={ Contact } />
             <Route path="/about" component={ About } />
