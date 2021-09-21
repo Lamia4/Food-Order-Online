@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import userRouter from "./router/userRouter.js";
 import authenticateRouter from "./router/authenticateRouter.js";
 import cors from "cors";
+import fileUpload from "express-fileupload";
 
 
 
@@ -24,6 +25,9 @@ server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({extended: true}));
 server.use(cookieParser());
+server.use(fileUpload({
+    useTempFiles:true
+}));
 
 server.use("/user", userRouter);
 server.use("/user", authenticateRouter);

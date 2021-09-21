@@ -25,10 +25,11 @@ const OrderListItemSchema = mongoose.Schema({
     }
 }, { _id: false });
 
-const UserSchema = mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     name:  {
         type: String,
         required: true,
+		trim: true
     },
     email: {
         type: String,
@@ -39,8 +40,18 @@ const UserSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-    orderList: [OrderListItemSchema],
-}, { versionKey: false });
+	role: {
+		type: Number,
+		default: 0
+	},
+	cart: {
+		type: Array,
+		default: []
+	}
+},
+{
+	timestamps: true
+});
 
 const User = mongoose.model("User", UserSchema);
 
