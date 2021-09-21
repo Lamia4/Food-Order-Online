@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import getToken from "../lib/token.js";
 
 export default {
 
@@ -16,19 +17,30 @@ export default {
         try {
             const { name, email, password } = req.body;
             const user = await User.emailExist(email)
-            if(user) return res.status(400).send("the email already exist");
-            if(password.length < 6) return res.status(400).send("password must be at least 6 characters")
-            const result = await User.register(
+            if(user) return res.status(400).json({msg: "the email already exist"});
+            if(password.length < 6) return res.status(400).json({msg: "password must be at least 6 characters"})
+            const newUser = await User.register(
                 name,
                 email,
                 password
             );
-            if(result.role) return result.role +=1;
-            console.log(result.role);
-            res.json(result);
+            const accessToken = getToken.createToken({id :newUser._id});
+            const refreshToken = getToken.refreshToken({id :newUser._id});
+
+            res.cookie("refreshToken", refreshToken, {
+                httpOnly: true,
+                path: "user/refresh_token"
+            })
+            res.json({tokenNewUser: accessToken, newUser: newUser});
         } catch (error) {
-            next(error);
+            return res.status(500).json({msg: err.message});
         }
+    },
+
+    refreshToken: async (req, res) => {
+        const refresh_token = req.cookies.refreshToken;
+        if(!refresh_token) return res.status(400).json({msg: "please login or register!"});
+        res.json({refresh_token})
     },
 
     update: async function (req, res, next) {
@@ -59,4 +71,5 @@ export default {
             next(error);
         }
     }
+
 };
