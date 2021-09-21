@@ -22,13 +22,27 @@ export default {
     return token
 },
 
-checkToken: function (token) {
+checkToken: function (user) {
 
-    return jwt.verify(token, process.env.SECRET, { algorithm: ["HS256"]}, (error, payload) => {
+    return jwt.verify(user, process.env.SECRET, { algorithm: ["HS256"]}, (error, payload) => {
         if(error) throw new Error ("invalid token");
 
         return payload;
     })
 
+},
+
+refreshToken: function (user) {
+
+    return jwt.sign(user, process.env.SECRET, { algorithm: "HS256",
+    expiresIn: "60s"} )
+},
+
+checkRefreshToken: function (user) {
+    return jwt.verify(user, process.env.REFRESH_TOKEN_SECRET, { algorithm: ["HS256"]}, (error, payload) => {
+
+        return payload;
+    })
 }
+
 }

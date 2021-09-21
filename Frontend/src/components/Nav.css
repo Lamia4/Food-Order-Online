@@ -56,5 +56,30 @@
 
 .navItems {
     text-decoration: none;
-    color: #fff;
+    color: rgb(41, 16, 16);
+    margin: 20px;
+}
+
+.navItems:hover {
+
+    color: grey;
+    background-color: white;
+    padding: 5px 0px;
+    transition: all 0.2s ease-in-out
+}
+
+.navIcons {
+
+    list-style-type: none;
+}
+
+.navMenu {
+    
+    line-height: 8vh;
+    font-size: 18px;
+}
+
+.navContainer {
+    height: 8vh;
+    background-color: rgb(152, 163, 127);
 }
