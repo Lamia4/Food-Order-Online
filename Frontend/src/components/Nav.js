@@ -14,10 +14,7 @@ import Login from "../pages/Login.jsx"
 
 function Nav() {
     return (
-
-        <BrowserRouter>
-            
-        
+              
         <div className="navbar">
             <Container fluid className="navContainer p-2 justify-content-space-between">
             <Navbar dark expand="sm" fixed="top" className="justify-content-space-between navbarBg">
@@ -53,21 +50,7 @@ function Nav() {
                 </NavItem>
                 </Navbar>
             </Container>    
-        </div>
-
-            <Switch>
-            <Route exact path="/" component={ Slider } />
-            <Route path="/categories" component={ Categories }/>
-            <Route path="/contact" component={ Contact } />
-            <Route path="/about" component={ About } />
-            <Route path="/login" component={ Login } />           
-            </Switch>
-
-      
-            </BrowserRouter>
-
-            
-       
+        </div>     
     )
 }
 
