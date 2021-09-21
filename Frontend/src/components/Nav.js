@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from "../img/logo.png"
 import login from "../img/login.png"
 import shopping from "../img/shopping.png";
 import "./Nav.css";
-import { BrowserRouter,NavLink, Route, Switch } from 'react-router-dom';
-
-import Slider from "../pages/Slider.jsx"
-import About from "../pages/About.jsx"
-import Categories from "../components/Categories.js"
-import Contact from "../pages/Contact.jsx"
-import Login from "../pages/Login.jsx"
+import { NavLink } from 'react-router-dom';
+import { Container, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from "reactstrap";
 
 
-function Nav() {
+function NavBar() {
+
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen)
     return (
-              
+
         <div className="navbar">
             <Container fluid className="navContainer p-2 justify-content-space-between">
             <Navbar dark expand="sm" fixed="top" className="justify-content-space-between navbarBg">
@@ -54,4 +52,4 @@ function Nav() {
     )
 }
 
-export default Nav
+export default NavBar
