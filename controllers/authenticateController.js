@@ -10,13 +10,18 @@ export default {
             if(!authenticatedUser) return res.status(400).json({msg: "user is not authenticated"})
                 const token = await getToken.createToken({id: authenticatedUser._id});
                 const refreshToken = getToken.refreshToken({id :authenticatedUser._id});
+                res.cookie("token", token, {
+                    maxAge: 60 * 1000,
+                    httpOnly: true,
+                    path: "/user/token"
+                });
                 res.cookie("refreshToken", refreshToken, {
                     maxAge: 60 * 1000,
                     httpOnly: true,
                     path: "/user/refresh_token"
                 })
                 
-                res.send({refreshToken, ...authenticatedUser._doc});
+                res.send({token, refreshToken, ...authenticatedUser._doc});
             
         } catch (error) {
             return res.status(500).json({msg: err.message});

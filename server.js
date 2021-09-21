@@ -31,3 +31,5 @@ server.use(fileUpload({
 
 server.use("/user", userRouter);
 server.use("/user", authenticateRouter);
+//server.use("/products", verifyToken, productRouter);
+// verifyToken nur bei Bestellung abschicken oder bei der Bezahlung
