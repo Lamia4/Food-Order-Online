@@ -10,6 +10,7 @@ function Home() {
             {/* <Slider/>
             <h1>Home</h1>
             <Footer/> */}
+            <Footer/>
         </div>
     )
 }
