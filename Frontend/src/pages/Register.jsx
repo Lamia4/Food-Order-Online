@@ -1,5 +1,5 @@
 import React from 'react';
-import {Input, Form , FormGroup,} from 'reactstrap';
+import {Input, Form , FormGroup,Button} from 'reactstrap';
 
 function Register() {
     return (
@@ -13,7 +13,8 @@ function Register() {
 
       <Input type="email" className="contact-form-text" placeholder="Email"/>
       <Input type="password" className="contact-form-text" placeholder="Password"/>
-      <input type="submit" class="contact-form-btn" value="Send"/>
+      {/* <Button type="submit" class="contact-form-btn" value="Send"/> */}
+      <Button type="submit" className="contact-form-btn">Send</Button>
 
   </FormGroup>
 

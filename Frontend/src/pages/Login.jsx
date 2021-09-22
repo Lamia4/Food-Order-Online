@@ -1,6 +1,6 @@
 
 import React, {useState}from 'react';
-import {Input, Form , FormGroup,} from 'reactstrap';
+import {Input, Form , FormGroup,Button} from 'reactstrap';
 
 
 import {Link,useHistory} from 'react-router-dom';
@@ -47,7 +47,10 @@ function Login() {
       <Input type="password" className="contact-form-text" placeholder="Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
       <p>Einer neuer User erstelen <Link to="/register" exact >Register.</Link></p>
 
-      <input type="submit" class="contact-form-btn" value="Send" onClick={handleLogin}/>
+      {/* <input type="submit" class="contact-form-btn" value="Send" onClick={handleLogin}/> */}
+      <Button type="submit" className="contact-form-btn" onClick={handleLogin}>Send</Button>
+      
+
 
 </FormGroup>
 

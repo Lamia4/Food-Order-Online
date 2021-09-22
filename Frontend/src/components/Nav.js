@@ -25,7 +25,7 @@ function NavBar() {
                                 <NavLink to="/" className="navItems">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to="/categories" className="navItems">Categories</NavLink>
+                                <a href="#Categories" className="navItems">Categories</a>
                             </NavItem>
                             <NavItem>
                                 <NavLink to="/contact" className="navItems">Contact</NavLink>
