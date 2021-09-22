@@ -8,8 +8,9 @@ function Home() {
     return (
         <div>
             
-           <Slider/>
-           <Categories></Categories>
+            <Slider/>
+            <Categories/>
+            <Footer/>
 
         </div>
     )
