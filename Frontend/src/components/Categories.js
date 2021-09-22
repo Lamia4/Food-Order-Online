@@ -12,6 +12,7 @@ function Categories() {
         <div>
             <Container >
                 <Row className="smCenter justify-content-md-space-between productRow mt-3">
+                    <a id="Categories"><h1>Categories</h1></a>
                     <Col xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-2">
                         <Card className="d-flex" style={{color:"black", height:"100%"}}  inverse >
                                <CardImg src={Hamburger} style={{height
