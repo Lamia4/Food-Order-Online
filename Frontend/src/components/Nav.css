@@ -15,6 +15,10 @@
 
 } */
 
+.navbar{
+    padding: 0 ;
+}
+
 .logo img{
    
     height: 5vh;
