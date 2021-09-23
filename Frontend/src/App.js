@@ -26,6 +26,7 @@ function App() {
             <Route path="/contact" component={ Contact } />
             <Route path="/about" component={ About } />
             <Route path="/login" component={ Login } />
+            <Route path="/register" component={ Register } />
             <Route path="/shopping" component={ Shopping } /> 
             <Route path="/hamburger" component={ Hamburger } />        
             <Route path="/pizza" component={ Pizza } />        
