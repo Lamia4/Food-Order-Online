@@ -4,7 +4,7 @@ import login from "../img/login.png"
 import shopping from "../img/shopping.png";
 import "./Nav.css";
 import { NavLink } from 'react-router-dom';
-import { Container, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem } from "reactstrap";
+import { Container, Collapse, Navbar, NavbarToggler, NavItem } from "reactstrap";
 
 
 function NavBar() {
@@ -12,42 +12,35 @@ function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen)
     return (
-        <div className="navbar">
-            <Container fluid className="navContainer p-2 justify-content-space-between">
-            <Navbar dark expand="sm" fixed="top" className="justify-content-space-between navbarBg">
-                <NavbarBrand className="logo">
-                    <img src= {logo} alt="logo"/>
-                </NavbarBrand>
-                <NavbarToggler onClick={toggle}/>
-                    <Collapse isOpen={isOpen} navbar className="justify-content-center">
-                        <Nav navbar className="navMenu">
-                            <NavItem>
-                                <NavLink to="/" className="navItems">Home</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <a href="#Categories" className="navItems">Categories</a>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink to="/contact" className="navItems">Contact</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink to="/about" className="navItems">About</NavLink>
-                            </NavItem>
-                        </Nav>
-                    </Collapse>
-                <NavItem className="navIcons">
-                    <NavLink to="/shopping" className="shopping" >
-                        <img style={{height: "5vh"}} src= {shopping} alt="shopping"/>
+        <header>
+            <Container fluid className="p-0" style={{justifyItems: 'stretch'}}>
+                <Navbar style={{backgroundColor:"darkorange"}} dark expand="md" fixed="top" className="py-3 px-0">
+                    <NavLink className="logo" to="/">
+                        <h1>Logo</h1>  
                     </NavLink>
-                </NavItem>
-                <NavItem className="navIcons">
-                    <NavLink to="/login" className="loginIcon">
-                        <img style={{height: "5vh"}} src= {login} alt="login"/>
-                    </NavLink> 
-                </NavItem>
+
+                    <NavbarToggler onClick={toggle} />
+
+                    <Collapse className="collapseRight" isOpen={isOpen} navbar style={{justifyContent: "space-between", justifyItems: "center"}}>
+                        <NavItem className="navIcons">
+                            <NavLink to="/login" className="loginIcon">
+                                
+                            </NavLink> 
+                        </NavItem>
+                        <nav style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "center", padding: "10px 0"}}>
+                            <NavLink style={{marginRight:"20px"}} className="" exact to="/">Home</NavLink>
+                            <NavLink style={{marginRight:"20px"}} to="/">Categories</NavLink>
+                            <NavLink style={{marginRight:"20px"}} to="/contact">Contact</NavLink>
+                            <NavLink  to="/about">About</NavLink>
+                        </nav>
+                        <nav className="navCenter" style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "flex-end"}}>
+                            <NavLink  to="/login" style={{marginRight:"20px"}} className="" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink>
+                            <NavLink style={{marginRight:"20px"}} to="/shopping"><img style={{height: "5vh"}} src= {shopping} alt="shopping"/></NavLink>
+                        </nav>
+                    </Collapse>    
                 </Navbar>
-            </Container>    
-        </div>     
+        </Container>
+        </header>     
     )
 }
 
