@@ -49,9 +49,9 @@ function Categories() {
                                <CardImg src={Cookie} style={{height:"55vh"}}/> 
                                <CardBody className="cardBody">
                                     <CardTitle>
-                                        <h1>Pizza</h1> 
+                                        <h1>Dessert</h1> 
                                     </CardTitle>
-                                    <Link to="/pizza" >
+                                    <Link to="/dessert" >
                                         <Button className="categoryButton">See more</Button>
                                     </Link>
                                 </CardBody>
