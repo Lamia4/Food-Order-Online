@@ -10,7 +10,7 @@ function Home() {
             
             <Slider/>
             <Categories/>
-            <Footer/>
+            
 
         </div>
     )

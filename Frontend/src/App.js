@@ -9,12 +9,13 @@ import Login from "./pages/Login.jsx";
 import Shopping from "./pages/Shopping";
 import Register from "./pages/Register.jsx";
 import Nav from "./components/Nav.js";
-
+import Footer from "./components/Footer.js";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <main>
       <Nav/>
           <Switch>
             <Route exact path="/" component={ Home } />
@@ -25,6 +26,8 @@ function App() {
             <Route path="/shopping" component={ Shopping } /> 
             <Route path="/register" component={ Register } />        
           </Switch>
+          </main>
+          <Footer/>
       </BrowserRouter>
 
     </div>
