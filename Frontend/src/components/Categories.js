@@ -10,12 +10,13 @@ import "./Categories.css"
 function Categories() {
     return (
         <div>
-            <Container >
+            <Container className=" cardContainer">
                 <Row className="smCenter justify-content-md-space-between productRow mt-3">
-                    <a id="Categories"><h1>Categories</h1></a>
+                    <a className="headerCategories" id="Categories"><h1>Categories</h1></a>
                     <Col xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-2">
+                       <div className="categoryCard">
                         <Card className="d-flex" style={{color:"black", height:"100%"}}  inverse >
-                               <CardImg src={Hamburger} style={{height
+                               <CardImg  src={Hamburger} style={{height
                             :"100%"}}/>
                                 <CardBody className="cardBody">
                                     <CardTitle>
@@ -24,10 +25,12 @@ function Categories() {
                                     <Link to="/hamburger"><Button className="categoryButton">See more</Button></Link>
                                 </CardBody>
                         </Card>
+                        </div>
                     </Col>
                     <Col xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-2">
+                    <div className="categoryCard">
                         <Card className="d-flex" style={{color:"black", height:"100%"}} inverse >
-                               <CardImg src={Pizza2} style={{height
+                               <CardImg  src={Pizza2} style={{height
                             :"100%"}}/> 
                                <CardBody className="cardBody">
                                     <CardTitle>
@@ -38,18 +41,22 @@ function Categories() {
                                     </Link>
                                 </CardBody>
                         </Card>
+                    </div>
                     </Col>
-                    <Col  xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-2">
-                        <Card className="d-flex " style={{color:"black", height:"100%"}}  inverse >
-                               <CardImg src={Cookie} style={{height
-                            :"100%"}}/>
-                                <CardBody className="cardBody">
-                                    <CardTitle className="mb-3">
-                                        <h1>Dessert</h1> 
+                    <Col xs ={10} md={6} lg={4} style={{height:"55vh"}} className="">
+                    <div className="categoryCard">
+                        <Card className="d-flex" style={{color:"black", height:"55vh"}} inverse >
+                               <CardImg src={Cookie} style={{height:"55vh"}}/> 
+                               <CardBody className="cardBody">
+                                    <CardTitle>
+                                        <h1>Pizza</h1> 
                                     </CardTitle>
-                                    <Link to="/dessert"><Button className="categoryButton">See more</Button></Link>
+                                    <Link to="/pizza" >
+                                        <Button className="categoryButton">See more</Button>
+                                    </Link>
                                 </CardBody>
                         </Card>
+                    </div>
                     </Col>
                 </Row>
       </Container>

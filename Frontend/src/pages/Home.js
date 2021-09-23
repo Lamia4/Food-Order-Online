@@ -6,7 +6,7 @@ import Categories from "../components/Categories.js";
 
 function Home() {
     return (
-        <div>
+        <div style={{position:"relative"}}>
             
             <Slider/>
             <Categories/>

@@ -3,6 +3,28 @@
         justify-content: center;
     }
 }
+.cardContainer{
+    margin-top: 70px !important;
+    margin-bottom: 50px;
+}
+.headerCategories{
+    width: 98.5%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: #fff;
+    color: gray; 
+    border: none;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.headerCategories:hover{
+    color: gray;
+    cursor: default;
+}
+.headerCategories h1{
+    margin-bottom: 10px;
+}
 
 .categoryButton{
     border: none;
@@ -14,8 +36,15 @@
 }
 .categoryCard{
     position: relative;
+    height: 55vh;
+    opacity: 0.6;
+}
+.categoryCard:hover{
+    opacity: 1;
+    transition:0.5s all ease-in-out;
 }
 .cardBody{
+    /* background-color: red; */
     position: absolute;
     top: 0;
     width: 100%;
@@ -30,4 +59,5 @@
     text-transform: uppercase;
     background-color:gray;
     padding: 10px;
-}       
+}
+    
