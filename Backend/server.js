@@ -6,6 +6,9 @@ import userRouter from "./router/userRouter.js";
 import authenticateRouter from "./router/authenticateRouter.js";
 import cors from "cors";
 import fileUpload from "express-fileupload";
+import categoryRouter from "./router/categoryRouter.js";
+import uploadRouter from "./router/uploadRouter.js";
+import productRouter from "./router/productRouter.js";
 
 
 
@@ -31,5 +34,8 @@ server.use(fileUpload({
 
 server.use("/user", userRouter);
 server.use("/user", authenticateRouter);
+server.use("/api", categoryRouter);
+server.use("/api", uploadRouter);
+server.use("/api", productRouter);
 //server.use("/products", verifyToken, productRouter);
 // verifyToken nur bei Bestellung abschicken oder bei der Bezahlung

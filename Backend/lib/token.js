@@ -12,7 +12,7 @@ export default {
     
         const options = {
             algorithm: "HS256",
-            expiresIn: "30s"
+            expiresIn: "500s"
         };
     
         const token = jwt.sign(user, secret, options);
@@ -38,11 +38,11 @@ refreshToken: function (user) {
     expiresIn: "60s"} )
 },
 
-checkRefreshToken: function (user) {
-    return jwt.verify(user, process.env.REFRESH_TOKEN_SECRET, { algorithm: ["HS256"]}, (error, payload) => {
+// checkRefreshToken: function (user) {
+//     return jwt.verify(user, process.env.REFRESH_TOKEN_SECRET, { algorithm: ["HS256"]}, (error, payload) => {
 
-        return payload;
-    })
-}
+//         return payload;
+//     })
+// }
 
 }
