@@ -10,6 +10,9 @@ import Shopping from "./pages/Shopping";
 import Register from "./pages/Register.jsx";
 import Nav from "./components/Nav.js";
 import Footer from "./components/Footer.js";
+import Pizza from "./pages/Pizza.js";
+import Hamburger from "./pages/Hamburger.js";
+import Dessert from "./pages/Dessert.js";
 
 function App() {
   return (
@@ -23,8 +26,11 @@ function App() {
             <Route path="/contact" component={ Contact } />
             <Route path="/about" component={ About } />
             <Route path="/login" component={ Login } />
+            <Route path="/register" component={ Register } />
             <Route path="/shopping" component={ Shopping } /> 
-            <Route path="/register" component={ Register } />        
+            <Route path="/hamburger" component={ Hamburger } />        
+            <Route path="/pizza" component={ Pizza } />        
+            <Route path="/dessert" component={ Dessert } />        
           </Switch>
           </main>
           <Footer/>
