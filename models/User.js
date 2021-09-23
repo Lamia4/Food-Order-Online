@@ -102,6 +102,10 @@ async function readOne (id) {
 	return await User.findById(id);
 };
 
+async function findById (id) {
+	return await User.findById(id);
+};
+
 async function updateById(id, userObject){
 	return await User.findByIdAndUpdate(
 		id, 
@@ -131,5 +135,6 @@ export default {
     readOne, 
     updateById,
 	emailExist,
-	authenticate 
+	authenticate ,
+	findById
 };

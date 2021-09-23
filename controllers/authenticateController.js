@@ -11,7 +11,7 @@ export default {
                 const token = await getToken.createToken({id: authenticatedUser._id});
                 const refreshToken = getToken.refreshToken({id :authenticatedUser._id});
                 res.cookie("token", token, {
-                    maxAge: 60 * 1000,
+                    maxAge: 200 * 1000,
                     httpOnly: true,
                     path: "/user/token"
                 });
@@ -23,13 +23,27 @@ export default {
                 
                 res.send({token, refreshToken, ...authenticatedUser._doc});
             
-        } catch (error) {
+        } catch (err) {
             return res.status(500).json({msg: err.message});
         }
     },
     logout : async function (req, res) {
-        res.clearCookie("token");
-        res.send("du bist ausgeloggt");
+        try {
+            res.clearCookie("refreshToken", {path: "/user/refresh_token"});
+            return res.json({msg: "You are logged out"})
+            
+        } catch (err) {
+            return res.status(500).json({msg: err.message});
+        }
+    },
+    getUser: async function (req, res){
+        try {
+            const user = await User.findById(req.user.name.id);
+            if(!user) return res.status(400).json({msg: "User does not exist"})
+            res.json(user)
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
     }
 
 }
