@@ -1,0 +1,51 @@
+
+.contact{
+    
+}
+.col1{
+    color:#fff;
+    background-color: #2a2c35;
+}
+.col1 ul{
+    padding-left: 0;
+}
+
+.col1 ul li{
+    list-style: none;
+    padding: 10px 0;
+    font-size: 16px;
+    color: rgb(151, 142, 142);
+
+}
+
+.col1 ul li span{
+    list-style: none;
+    padding: 15px;
+    font-size: 1.1erm;
+    padding:2px ;
+    color: #fff;
+
+}
+
+
+
+.col1 ul li img{
+    width: 45px;
+    padding: 10px;
+    margin-right:10px;
+    border: 2px solid rgb(80, 72, 72);
+    border-radius: 10px;
+
+}
+
+
+.col2{
+    padding: 0;
+    color:#fff;
+    background-color: #1d1e23;
+}
+
+
+.col2 img{
+   width: 100%; 
+}
