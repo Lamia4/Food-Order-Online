@@ -1,14 +1,11 @@
 import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema({
-    product_id:{
-        type: String,
-        unique: true,
-        required: true
-    },
+    
     title:{
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     price:{
         type: Number,
@@ -23,8 +20,9 @@ const ProductSchema = new mongoose.Schema({
         required: true
     },
     category:{
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "Category"
     },
     checked:{
         type: Boolean,
