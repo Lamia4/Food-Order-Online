@@ -10,7 +10,7 @@ import Donut5 from "../img/donut5.jpg";
 function Dessert() {
     return (
         <div>
-            <Container >
+            <Container className="menuItem " >
                     <Row className="smCenter justify-content-center productRow mt-3">
                         <Col xs ={10}sm={9} md={12} lg={9} style={{height:""}} className=" mb-2  menuColumn">
                             <Card className="border-2 d-flex flex-md-row" style={{height:"100%"}}>

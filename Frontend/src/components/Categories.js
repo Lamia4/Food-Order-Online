@@ -1,67 +1,56 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
 import { Container, Card, CardTitle, Button, CardImg,Row,Col,CardBody } from 'reactstrap';
 import {Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Hamburger from "../img/hamburger.jpg";
-import Pizza2 from "../img/pizza2.jpg";
-import Cookie from "../img/cookie.jpg";
-import "./Categories.css"
+import "./Categories.css";
+import getCategories from '../API/getCategories';
 
 function Categories() {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        getCategories()
+        .then(categories => {
+            setCategories(categories);
+        })
+
+    },[]);
     return (
         <div>
             <Container className=" cardContainer">
                 <Row className="smCenter justify-content-md-space-between productRow mt-3">
                     <a className="headerCategories" id="Categories"><h1>Categories</h1></a>
-                    <Col xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-2">
-                       <div className="categoryCard">
-                        <Card className="d-flex" style={{color:"black", height:"100%"}}  inverse >
-                               <CardImg  src={Hamburger} style={{height
-                            :"100%"}}/>
-                                <CardBody className="cardBody">
-                                    <CardTitle>
-                                        <h1>Hamburger</h1>
-                                    </CardTitle>
-                                    <Link to="/hamburger"><Button className="categoryButton">See more</Button></Link>
-                                </CardBody>
-                        </Card>
-                        </div>
-                    </Col>
-                    <Col xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-2">
-                    <div className="categoryCard">
-                        <Card className="d-flex" style={{color:"black", height:"100%"}} inverse >
-                               <CardImg  src={Pizza2} style={{height
-                            :"100%"}}/> 
-                               <CardBody className="cardBody">
-                                    <CardTitle>
-                                        <h1>Pizza</h1> 
-                                    </CardTitle>
-                                    <Link to="/pizza" >
-                                        <Button className="categoryButton">See more</Button>
-                                    </Link>
-                                </CardBody>
-                        </Card>
+                    {
+                        categories.map((category,i)=>
+                        {
+                            console.log(category)
+                            return(
+                                    <Col key={i} xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-2">
+                                    <div className="categoryCard">
+                                        <Card className="d-flex" style={{color:"black", height:"100%"}}  inverse >
+                                            <CardImg  src={category.image["url"]} style={{height
+                                            :"100%"}}/>
+                                                <CardBody className="cardBody">
+                                                    <CardTitle>
+                                                        <h1>{category.name}</h1>
+                                                    </CardTitle>
+                                                    <Link to={`${category.name.toLowerCase()}`}><Button className="categoryButton">See more</Button></Link>
+                                                </CardBody>
+                                        </Card>
+                                        </div>
+                                    </Col>
+                                
+                            );
+                        })
+
+                    }
+
+                    </Row>
+                    </Container>
                     </div>
-                    </Col>
-                    <Col xs ={10} md={6} lg={4} style={{height:"55vh"}} className="">
-                    <div className="categoryCard">
-                        <Card className="d-flex" style={{color:"black", height:"55vh"}} inverse >
-                               <CardImg src={Cookie} style={{height:"55vh"}}/> 
-                               <CardBody className="cardBody">
-                                    <CardTitle>
-                                        <h1>Dessert</h1> 
-                                    </CardTitle>
-                                    <Link to="/dessert" >
-                                        <Button className="categoryButton">See more</Button>
-                                    </Link>
-                                </CardBody>
-                        </Card>
-                    </div>
-                    </Col>
-                </Row>
-      </Container>
-    </div>
-    )
+                    )
 }
 
 export default Categories
+
+                   

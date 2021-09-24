@@ -13,8 +13,8 @@ function NavBar() {
     const toggle = () => setIsOpen(!isOpen)
     return (
         <header>
-            <Container fluid className="p-0" style={{justifyItems: 'stretch'}}>
-                <Navbar style={{backgroundColor:"darkorange"}} dark expand="md" fixed="top" className="py-3 px-0">
+            <Container fluid className="p-0 my-5" style={{justifyItems: 'stretch'}}>
+                <Navbar style={{backgroundColor:"darkorange"}} dark expand="md" fixed="top" className="py-2 px-0">
                     <NavLink className="logo" to="/">
                         <h1>Logo</h1>  
                     </NavLink>
