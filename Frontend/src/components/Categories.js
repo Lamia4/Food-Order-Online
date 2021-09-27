@@ -34,7 +34,7 @@ function Categories() {
                                                     <CardTitle>
                                                         <h1>{category.name}</h1>
                                                     </CardTitle>
-                                                    <Link to={`${category.name.toLowerCase()}`}><Button className="categoryButton">See more</Button></Link>
+                                                    <Link to={`/products/${category.name.toLowerCase()}`}><Button className="categoryButton">See more</Button></Link>
                                                 </CardBody>
                                         </Card>
                                         </div>
