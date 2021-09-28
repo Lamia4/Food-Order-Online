@@ -13,6 +13,7 @@ import Footer from "./components/Footer.js";
 import Pizza from "./pages/Pizza.js";
 import Hamburger from "./pages/Hamburger.js";
 import Dessert from "./pages/Dessert.js";
+import Category from "./pages/Category.js";
 
 function App() {
   return (
@@ -28,9 +29,9 @@ function App() {
             <Route path="/login" component={ Login } />
             <Route path="/register" component={ Register } />
             <Route path="/shopping" component={ Shopping } /> 
-            <Route path="/hamburger" component={ Hamburger } />        
-            <Route path="/pizza" component={ Pizza } />        
-            <Route path="/dessert" component={ Dessert } />        
+            <Route path="/products/:categoryName" component={ Category } />        
+            <Route path="/categories/pizza" component={ Pizza } />        
+            <Route path="/categories/dessert" component={ Dessert } />        
           </Switch>
           </main>
           <Footer/>
