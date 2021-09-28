@@ -10,9 +10,6 @@ import Shopping from "./pages/Shopping";
 import Register from "./pages/Register.jsx";
 import Nav from "./components/Nav.js";
 import Footer from "./components/Footer.js";
-import Pizza from "./pages/Pizza.js";
-import Hamburger from "./pages/Hamburger.js";
-import Dessert from "./pages/Dessert.js";
 import Category from "./pages/Category.js";
 
 function App() {
@@ -29,9 +26,7 @@ function App() {
             <Route path="/login" component={ Login } />
             <Route path="/register" component={ Register } />
             <Route path="/shopping" component={ Shopping } /> 
-            <Route path="/products/:categoryName" component={ Category } />        
-            <Route path="/categories/pizza" component={ Pizza } />        
-            <Route path="/categories/dessert" component={ Dessert } />        
+            <Route path="/products/:categoryName" component={ Category } />         
           </Switch>
           </main>
           <Footer/>

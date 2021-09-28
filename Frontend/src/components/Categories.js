@@ -29,7 +29,6 @@ function Categories() {
                     {
                         categories.map((category,i)=>
                         {
-                            console.log(category)
                             return(
                                     <Col key={i} xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-2">
                                     <div className="categoryCard">
