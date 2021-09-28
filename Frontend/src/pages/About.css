@@ -1,0 +1,33 @@
+.about{
+    color: black;
+    width: 100%;
+    margin: 0 auto 50px;
+}
+.col-12 {
+    color: black;
+    margin-top: 30px;
+  }
+  .picstyle {
+    text-align: center;
+  }
+  .team {
+    text-align: center;
+    padding:40px 0 0 0;
+  }
+  .buttonstyle {
+    text-align: center;
+  }
+  
+  .dci {
+    color: black;
+    text-align: center;
+  }
+  .dciLogo {
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 10px;
+  }
+  .aboutDci {
+    text-align: center;
+    color: black;
+  }

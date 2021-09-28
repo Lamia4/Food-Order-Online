@@ -10,7 +10,7 @@ import Website from "../img/website.svg"
 function Contact() {
     return (
         
-       <Container className="contact" >
+       <Container className="contact"  fluid>
             <Row className="row p-0" xs={1} md={2}>
             <Col className="col2 "><img src= {googlemap}/>
              
