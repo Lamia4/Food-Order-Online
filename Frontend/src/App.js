@@ -11,13 +11,17 @@ import Register from "./pages/Register.jsx";
 import Nav from "./components/Nav.js";
 import Footer from "./components/Footer.js";
 import Category from "./pages/Category.js";
+import CartProvider from "./components/CartProvider.js";
+
 
 function App() {
+
   return (
     <div className="App">
-      <BrowserRouter>
-      <main>
-      <Nav/>
+      <CartProvider>
+        <BrowserRouter>
+          <main>
+          <Nav/>
           <Switch>
             <Route exact path="/" component={ Home } />
             <Route path="/categories" component={ Categories }/>
@@ -31,6 +35,7 @@ function App() {
           </main>
           <Footer/>
       </BrowserRouter>
+            </CartProvider>
 
     </div>
   );

@@ -5,7 +5,7 @@ import shopping from "../img/shopping6.png";
 import "./Nav.css";
 import { NavLink } from 'react-router-dom';
 import { Container, Collapse, Navbar, NavbarToggler, NavItem } from "reactstrap";
-
+import "../pages/Category.js";
 
 function NavBar() {
 
@@ -35,7 +35,9 @@ function NavBar() {
                         </nav>
                         <nav className="navCenter" style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "flex-end"}}>
                             <NavLink  to="/login" style={{marginRight:"20px"}} className="" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink>
+                            
                             <NavLink style={{marginRight:"20px"}} to="/shopping"><img style={{height: "5vh"}} src= {shopping} alt="shopping"/></NavLink>
+                            
                         </nav>
                     </Collapse>    
                 </Navbar>
