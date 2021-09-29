@@ -11,11 +11,10 @@ function CartProvider({children}) {
         setCart(newArray);
     }
 
-    const removeFromCart = (product) => {
-        const index = cart.indexOf(product);
-        if (index > -1) {
-          cart.splice(index, 1);
-        }
+    const removeFromCart = (key) => {
+        
+        const newArray = cart.filter((item, index) => index !== key);
+        setCart(newArray);
     }
     return (
         <CartContext.Provider value={{cart, addToCart, removeFromCart}}>
