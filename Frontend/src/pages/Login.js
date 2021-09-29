@@ -16,7 +16,7 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('http://localhost:3438/user/login', {
+            await fetch('http://localhost:3438/user/login', {
             method: 'POST',
             body: JSON.stringify({email, password}),
             headers: {

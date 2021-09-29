@@ -27,9 +27,6 @@
     
    
 }
-.footerPosition{
-    /* position: relative; */
-}
 
 .footerDiv{
     display: flex;
@@ -55,7 +52,6 @@
 
 .copyRight{
     width: 100%;
-    /* justify-content: center; */
     margin: 0 auto;
     
 }
@@ -75,12 +71,10 @@
         justify-content: center;  
     }
     .columnCenter{
-        /* background-color:purple; */
         width: 85%;  
     }
     .listItem{
         width: 70%;
-        /* background-color:yellow; */
          margin: 0 auto !important;
         text-align: center;
     }

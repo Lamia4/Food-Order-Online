@@ -13,9 +13,9 @@ header a:hover {
     color: white;
     transition: all 0.5s;
 }
-.navIcons{
-    list-style: none;
-    color: black;
+
+header {
+    margin-bottom: 6.6vh !important;
 }
 
 @media(max-width:767px){

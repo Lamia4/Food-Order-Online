@@ -2,12 +2,12 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home.js";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import About from "./pages/About.jsx";
+import About from "./pages/About.js";
 import Categories from "./components/Categories.js";
-import Contact from "./pages/Contact.jsx"
-import Login from "./pages/Login.jsx";
-import Shopping from "./pages/Shopping";
-import Register from "./pages/Register.jsx";
+import Contact from "./pages/Contact.js"
+import Login from "./pages/Login.js";
+import Shopping from "./pages/Shopping.js";
+import Register from "./pages/Register.js";
 import Nav from "./components/Nav.js";
 import Footer from "./components/Footer.js";
 import Category from "./pages/Category.js";

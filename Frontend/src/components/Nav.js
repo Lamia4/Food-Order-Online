@@ -4,7 +4,7 @@ import login from "../img/login.png"
 import shopping from "../img/shopping6.png";
 import "./Nav.css";
 import { NavLink } from 'react-router-dom';
-import { Container, Collapse, Navbar, NavbarToggler, NavItem } from "reactstrap";
+import { Container, Collapse, Navbar, NavbarToggler } from "reactstrap";
 import "../pages/Category.js";
 
 function NavBar() {
@@ -22,11 +22,6 @@ function NavBar() {
                     <NavbarToggler onClick={toggle} />
 
                     <Collapse className="collapseRight" isOpen={isOpen} navbar style={{justifyContent: "space-between", justifyItems: "center"}}>
-                        <NavItem className="navIcons">
-                            <NavLink to="/login" className="loginIcon">
-                                
-                            </NavLink> 
-                        </NavItem>
                         <nav style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "center", padding: "10px 0"}}>
                             <NavLink style={{marginRight:"20px"}} className="" exact to="/">Home</NavLink>
                             <NavLink style={{marginRight:"20px"}} to="/">Categories</NavLink>

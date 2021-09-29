@@ -1,5 +1,5 @@
 import React from 'react';
-import Slider from "../pages/Slider";
+import Slider from "../pages/Slider.js";
 import Categories from "../components/Categories.js";
 
 

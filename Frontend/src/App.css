@@ -10,5 +10,6 @@ a{
 }
 
 main{
+  background-color: rgb(240, 212, 170);
   min-height: 79vh;
 }

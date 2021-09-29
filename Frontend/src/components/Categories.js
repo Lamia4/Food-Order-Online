@@ -24,7 +24,7 @@ function Categories() {
         <div>
             <Container className=" cardContainer">
                 <Row className="smCenter justify-content-md-space-between productRow mt-3">
-                    <a className="headerCategories" id="Categories"><h1>Categories</h1></a>
+                   <h1>Categories</h1>
                     <Search/>
                     {
                         categories.map((category,i)=>

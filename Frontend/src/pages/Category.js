@@ -43,7 +43,7 @@ function Category() {
                         categoryProducts.map((categoryProduct, i)=>{
                             
                             return(
-                                    <Col xs ={10}sm={9} md={12} lg={9} style={{height:""}} className=" mb-2  menuColumn">
+                                    <Col xs ={10}sm={9} md={12} lg={9} key={i} style={{height:""}} className=" mb-2  menuColumn">
                                         <Card className="border-2 d-flex flex-md-row" style={{height:"100%"}}>
                                             <CardImg className="menuImg" top  style={{height:"100%", width:"50%", objectFit:"cover"}} src={categoryProduct.image["url"]} alt="Card image cap" />
                                             <CardBody className="menuBody " style={{height:"100%", width:"50%"}}>
