@@ -12,6 +12,7 @@ import Nav from "./components/Nav.js";
 import Footer from "./components/Footer.js";
 import Category from "./pages/Category.js";
 import CartProvider from "./components/CartProvider.js";
+import LoginProvider from './components/LoginProvider';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <CartProvider>
+      <LoginProvider>
         <BrowserRouter>
           <main>
           <Nav/>
@@ -35,7 +37,8 @@ function App() {
           </main>
           <Footer/>
       </BrowserRouter>
-            </CartProvider>
+      </LoginProvider>
+      </CartProvider>
 
     </div>
   );

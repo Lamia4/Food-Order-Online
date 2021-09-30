@@ -7,8 +7,28 @@ function CartProvider({children}) {
     const [cart, setCart] = useState([]);
 
     const addToCart = (product) => {
-        const newArray = [...cart, product];
+        
+        let newArray = [...cart];
+
+        let isProductInCart = false;
+        newArray.forEach(item => {
+            if(item._id === product._id){
+                item.quantity++;
+                isProductInCart = true;
+            }
+        });
+
+        if(!isProductInCart){
+            newArray.push(product)
+        }
+        
+        // cart.map(item => item === product? 
+        //        newArray = [...newArray, {...item, quantity: item.quantity+1}] :
+        //        newArray = [...newArray, product]
+        //     //    newArray = [...cart, product]
+        // )
         setCart(newArray);
+        console.log("result", cart);
     }
 
     const removeFromCart = (key) => {
@@ -16,8 +36,29 @@ function CartProvider({children}) {
         const newArray = cart.filter((item, index) => index !== key);
         setCart(newArray);
     }
+
+    const decrementCount = (product) => {
+        let newArray = [...cart];
+
+        
+        newArray.forEach(item => {
+            if(item._id === product._id && item.quantity > 1){
+                item.quantity--;           
+            }
+        });
+        setCart(newArray);
+        console.log("resultDecrement", cart);
+    }
+
+    const showCount = (cart) => {
+        const arrayY = cart.cart.map(item => item.quantity)
+        console.log("iconCount", cart.cart, arrayY);
+        const result = arrayY.reduce(function(acc, current) {return acc+current}, 0);
+        return result
+    }
+
     return (
-        <CartContext.Provider value={{cart, addToCart, removeFromCart}}>
+        <CartContext.Provider value={{cart, addToCart, removeFromCart, decrementCount, showCount}}>
             {children}
         </CartContext.Provider>
     )

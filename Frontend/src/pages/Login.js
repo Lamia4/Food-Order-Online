@@ -1,6 +1,8 @@
 
 import React, {useState}from 'react';
 import {Input, Form , FormGroup,Button} from 'reactstrap';
+import getLogin from "../API/getLogin";
+import { LoginContext } from '../components/LoginProvider.js';
 
 
 import {Link,useHistory} from 'react-router-dom';
@@ -11,25 +13,29 @@ function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory();  
+    const history = useHistory();
+    const LoginFunctions = React.useContext(LoginContext);
+
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        const loginUserInfo = {
+            email: email,
+            password: password
+        };
+        console.log("user", loginUserInfo);
         try {
-            await fetch('http://localhost:3438/user/login', {
-            method: 'POST',
-            body: JSON.stringify({email, password}),
-            headers: {
-            'Content-type': "application/json"
-            }
-            }).then(response => response.json())
-            .then(data => {
-            console.log(data);
-            history.push("/") ;
-            return data;
-            });
-            
-            
+            const userData = await getLogin(email, password);
+            console.log("userData after fetch", userData.name);
+            LoginFunctions.setIsLogged(true);
+            history.push("/");
+            LoginFunctions.setIsUser({
+                name: userData.name,
+                role: userData.role,
+                token: userData.token
+            })            
+            console.log("userInformations", LoginFunctions.isUser);
+
         }catch(error){
             console.log(error)
         } 
