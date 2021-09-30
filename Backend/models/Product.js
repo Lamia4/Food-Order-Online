@@ -24,6 +24,10 @@ const ProductSchema = new mongoose.Schema({
         required: true,
         ref: "Category"
     },
+    quantity: {
+        type: Number,
+        default: 1
+    },
     checked:{
         type: Boolean,
         default:false
