@@ -10,6 +10,7 @@ import Shopping from "./pages/Shopping.js";
 import Register from "./pages/Register.js";
 import Nav from "./components/Nav.js";
 import Footer from "./components/Footer.js";
+import Logout from "./components/Logout.js";
 import Category from "./pages/Category.js";
 import CartProvider from "./components/CartProvider.js";
 import LoginProvider from './components/LoginProvider';
@@ -30,6 +31,7 @@ function App() {
             <Route path="/contact" component={ Contact } />
             <Route path="/about" component={ About } />
             <Route path="/login" component={ Login } />
+            <Route path="/logout" component={ Logout } />
             <Route path="/register" component={ Register } />
             <Route path="/shopping" component={ Shopping } /> 
             <Route path="/products/:categoryName" component={ Category } />         

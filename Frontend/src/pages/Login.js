@@ -26,15 +26,18 @@ function Login() {
         console.log("user", loginUserInfo);
         try {
             const userData = await getLogin(email, password);
-            console.log("userData after fetch", userData.name);
+            console.log("userData after fetch", userData);
             LoginFunctions.setIsLogged(true);
             history.push("/");
-            LoginFunctions.setIsUser({
-                name: userData.name,
-                role: userData.role,
-                token: userData.token
+            const name = userData.name;
+            const role = userData.role;
+            const token = userData.token
+            LoginFunctions.setGetUser({
+                name,
+                role,
+                token
             })            
-            console.log("userInformations", LoginFunctions.isUser);
+            console.log("userInformation", LoginFunctions.getUser);
 
         }catch(error){
             console.log(error)
