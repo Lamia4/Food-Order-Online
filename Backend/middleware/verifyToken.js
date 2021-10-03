@@ -6,6 +6,9 @@ const verifyToken = (req, res, next) => {
     //const newToken = //neuen Token erstellen über createToken
     //res.cookie(....neuenToken)
     console.log(correctToken, "show correctToken");
+    // if(correctToken){
+    //     res.send(true) res.status(200)
+    // }
     next();
 };
 
