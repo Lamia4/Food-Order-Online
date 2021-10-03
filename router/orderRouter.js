@@ -3,6 +3,6 @@
 
 // const router = express.Router();
 
-// router.post("/checkout");
+// router.post("/checkout", verifyToken(req.body.token), orderController.createOrder );
 
 // export default router;
