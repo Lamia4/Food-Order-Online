@@ -4,9 +4,14 @@ import { CartContext } from '../components/CartProvider.js';
 import { Container, Card, CardTitle,CardSubtitle, Button,CardText, CardImg,Row,Col,CardBody } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Shopping.css";
+import {LoginContext} from "../components/LoginProvider";
+import CheckoutCard from '../components/CheckoutCard.js';
 
 function Shopping() {
+    const [isCheckout, setIsCheckout] = useState(false);
+    const [isFullOpacity, setIsFullOpacity] = useState(true);
     const shoppingCart = React.useContext(CartContext);
+    const {getUser, isLogged} = React.useContext(LoginContext);
     console.log("shoppingCart",shoppingCart);
     const [total, setTotal] = useState(0);
     useEffect(() =>  {
@@ -18,15 +23,23 @@ function Shopping() {
         }
         totalPrice();
     }, [shoppingCart.cart])
+
+    const handleCheckout = ()=>{
+        setIsCheckout(true);
+        setIsFullOpacity(false);
+    }
     
     return (
-        <div>
-            <Container className="menuItem " >
+        <Container className="menuItem ">
+            <div style={{zIndex: isFullOpacity ? "3" : "1", opacity:isFullOpacity ? "1" : "0.3"}}>
+                {isLogged? 
+                (<h1>Hi {getUser.name}</h1>) :
+                null }
                 <Row className=" justify-content-center mt-3 ">
                 {shoppingCart.cart.map((shoppingCartItem,i) => {
                     return(
-                        <Col xs ={10}sm={9} md={12} lg={8} key={i} className=" mb-2  menuColumn">
-                            <Card className="border-2 d-flex flex-md-row  menuCard" style={{height:"100%",position:"relative"}}>
+                        <Col xs ={10}sm={9} md={12} lg={9} key={i} className=" mb-2  menuColumnCart">
+                            <Card className="border-2 d-flex flex-md-row" style={{height:"100%",position:"relative"}}>
                                     <Button className="d-flex justify-content-center" style={{ width:"25px",height:"25px", alignItems:"center", position:"absolute", top:"0", left:"0", color:"red", fontSize:"22px", border:"1px solid ", cursor:"pointer"}} onClick={() => shoppingCart.removeFromCart(i)}>X</Button>
                                 <CardImg className="menuImg"   style={{height:"100%", width:"50%", objectFit:"cover" }} src={shoppingCartItem.image.url} alt="Card image cap" />
                                 <CardBody className="menuBody " style={{height:"100%", width:"50%", position:"relative"}}>
@@ -58,19 +71,19 @@ function Shopping() {
                         (<b>Summary: {total.toFixed(2)}€</b>)}</CardText>
                         </Col>
                     </Row> */}
-                    <Row className="justify-content-center mt-3 mb-3 ">
+                    <Row className="justify-content-center mt-3 mb-0 cartFooterRow">
                         {shoppingCart.cart.length === 0?
                         (<p style={{textAlign: "center", fontSize: "25px", textTransform: "capitalize"}}>your cart is empty!</p>) :
                         (<>
-                        <Col xs={6} md={6} lg={4} className=" summaryCardCol">
+                        <Col xs={8} md={6} lg={4} className=" summaryCardCol">
                         <CardText className ="summaryCard"><b>Summary:</b>{total.toFixed(2)}€</CardText>
                         </Col>
-                        <Col className=" d-flex shoppingButton " xs={6} md={6} lg={4} style={{justifyContent:"space-between"}}>
-                    <Button className="" style={{marginRight: "3px", borderRadius: "10px", backgroundColor: "darkorange", color: "white", border:"none"}}>
+                        <Col className=" d-flex shoppingButton " xs={8} md={6} lg={4} style={{justifyContent:"space-between"}}>
+                    <Button className="cartButton" style={{padding:"5px", borderRadius: "10px", backgroundColor: "darkorange", color: "white", border:"none"}}>
                         Go Back
                     </Button>
-                    <Button className="bg-success" style={{marginRight: "3px", borderRadius: "10px", color: "white", border:"none"}}>
-                        Checkbox
+                    <Button className="bg-success cartButton" style={{padding:"5px", borderRadius: "10px", color: "white", border:"none"}}>
+                        Checkout
                     </Button>
                     </Col>
                     </>)
@@ -78,8 +91,8 @@ function Shopping() {
                     }
                         
                     </Row>
-                </Container>
-        </div>
+            </div>
+        </Container>
     )
 }
 

@@ -1,13 +1,18 @@
 import React from 'react';
-import Slider from "../pages/Slider.js";
+import Slider from "../components/Slider.js";
 import Categories from "../components/Categories.js";
+import { Container } from "reactstrap";
 
 
 function Home() {
+
+    
     return (
         <div style={{position:"relative"}}>
             <Slider/>
-            <Categories/>   
+            <Container className=" mt-3">
+                <Categories/>   
+            </Container>   
         </div>
     )
 }

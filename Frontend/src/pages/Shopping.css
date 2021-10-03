@@ -1,19 +1,14 @@
-
-
-.menuItem{
-    /* margin-top: 10vh !important; */
-    margin-bottom: 3vh;
-}
 .menuTitle{
     font-size: 30px;
     font-weight: 300;
     text-transform: capitalize;   
 }
-
-.menuText{
-    font-size: 19px;
-    height: 20%;
+.menuId{
+    font-size: 16px ;
+    font-weight: 300;
 }
+
+
 .priceAndOrder{
 position: absolute;
 width: 90%;
@@ -26,23 +21,12 @@ top: 60%;
     font-weight: 100;
 }
 
-.menuOrderAndButton{
-    display: flex;
-    height: 4vh;
-    flex-direction: row;
-    align-items: center;  
-}
-.menuButtonDiv{
-    display: flex;
-    margin: auto 0;
 
-}
 .menuOrderDiv{
     display: flex;
     flex-direction: row; 
     margin-right: 30px; 
-    align-items: center;
-   
+    align-items: center;  
 }
 .menuOrderNumber{
     border: 1px solid;
@@ -56,25 +40,12 @@ top: 60%;
     height: 35px;
     display: flex;
     margin: auto;
-
-
 }
 .menuOrder{
     cursor: pointer;
 }
-.menuButton:hover{
-    background-color:gray;
-    color: white;
-}
-.menuButton{
-    padding: 10px;
-    background-color: #fff;
-    color: gray;
-    font-weight: 800;
-    border: none;
-   
 
-}
+
 .summaryCard{
     justify-content: center !important;
     font-size: 30px;
@@ -83,8 +54,8 @@ top: 60%;
 
 @media (max-width:767px){
     
-    .menuColumn{
-        height: 35vh !important;
+    .menuColumnCart{
+        height: 55vh !important;
     }
     .menuImg{
         width: 100% !important;
@@ -106,25 +77,44 @@ top: 60%;
     .menuPrice{
         font-size: 22px;
     }
-    .menuOrderAndButton{
-        height: 4.2vh;
-    }
+    
     .menuOrderIcon{
         width: 30px;
         height: 30px;
         font-size: 20px;
     }
-    .menuButton{
-        font-weight: 400 !important;
-        padding:0 5px;
+   
+    .cartFooterRow{
+        display: flex;
+        flex-direction: column;
+        justify-content: center !important;
+        align-items: center;
+
     }
+    .summaryCardCol{
+        text-align: center;
+    }
+  
     .summaryCard{
-        font-size: 26px;
+        font-size: 23px;
+        margin: 0;
+        padding: 0 !important;
+        margin-left: 0 !important;
+    }
+    .priceAndOrder{
+        margin-top: 10px;
+    }
+    .cartButton{
+        padding: 5px !important;
+    }
+    .shoppingButton{
+        justify-content: space-around !important;
+        margin-top: 5px;
     }
 
 }
 @media (min-width:768px){
-    .menuColumn{
+    .menuColumnCart{
         height: 38vh !important;
     }
     .menuTitle{
@@ -139,10 +129,6 @@ top: 60%;
     .menuOrderIcon{
         font-size: 21px;
     }
-    .menuButton{
-        padding: 5px;
-    }
-    .menuOrderAndButton{
-        height: 5vh;
-    }
+  
+   
 }

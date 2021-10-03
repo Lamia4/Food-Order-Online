@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from "../img/logo.png"
 import login from "../img/login.png"
 import shopping from "../img/shopping6.png";
 import "./Nav.css";
@@ -15,12 +14,16 @@ function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
     const LoginFunctions = React.useContext(LoginContext);
+    const handleUser =  () => {
+        localStorage.setItem("user and cart", JSON.stringify([LoginFunctions.getUser, cartArray.cart]));
+        LoginFunctions.setGetUser("")
+    }
     return (
-        <header>
-            <Container fluid className="p-0 my-5" style={{justifyItems: 'stretch'}}>
+        
+            <Container fluid className="p-0 navContainer" style={{justifyItems: 'stretch', backgroundColor:"darkorange"}}>
                 <Navbar style={{backgroundColor:"darkorange"}} dark expand="md" fixed="top" className="py-2 px-0">
                     <NavLink className="logo" to="/">
-                        <h1>Logo</h1>  
+                        <h1 className="headerLogo">Logo</h1>  
                     </NavLink>
 
                     <NavbarToggler onClick={toggle} />
@@ -33,19 +36,21 @@ function NavBar() {
                             <NavLink  to="/about">About</NavLink>
                         </nav>
                         <nav className="navCenter" style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "flex-end"}}> 
-                        { LoginFunctions.isLogged? 
-                        (<NavLink to="/logout" style={{marginRight:"20px"}} className="">Logout</NavLink>):
+                        { LoginFunctions.isLogged?  
+                        (<NavLink to="/logout" style={{marginRight:"20px"}} className="" onClick={() => {handleUser()}}>Logout</NavLink>):
                         (<NavLink  to="/login" style={{marginRight:"20px"}} className="" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink>)
                         }
                             
-                            
-                            <NavLink style={{marginRight:"20px", position: "relative", display:"flex"}} to="/shopping"><img style={{height: "5vh"}} src= {shopping} alt="shopping"/><span style={{position: "absolute", right: "10%", height: "25px", width: "25px", borderRadius: "50%", textAlign: "center", alignItems: "center", color: "red", backgroundColor: "white"}}>{cartArray.showCount(cartArray)}</span></NavLink>
+                            {LoginFunctions.showCartCount? ( <NavLink style={{marginRight:"20px", position: "relative", display:"flex"}} to="/shopping"><img style={{height: "5vh"}} src= {shopping} alt="shopping"/>{cartArray.cart.length > 0?
+                            (<span style={{position: "absolute", right: "10%", height: "25px", width: "25px", borderRadius: "50%", textAlign: "center", alignItems: "center", color: "red", backgroundColor: "white"}}>{cartArray.showCount(cartArray)}</span>):
+                            null} </NavLink>):
+                            (<NavLink style={{marginRight:"20px", position: "relative", display:"flex"}} to="/shopping"><img style={{height: "5vh"}} src= {shopping} alt="shopping"/> </NavLink>)}
                             
                         </nav>
                     </Collapse>    
                 </Navbar>
         </Container>
-        </header>     
+            
     )
 }
 

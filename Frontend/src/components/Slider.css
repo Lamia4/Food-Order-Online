@@ -11,12 +11,8 @@
 
     @media screen and (min-width: 1200px) {
         .slider img{
-            height: 90vh;
+            height: 75vh;
         }
         
       }
 
-      
-.slider{
-    margin-top: 6.6vh;
-}

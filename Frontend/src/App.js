@@ -10,18 +10,14 @@ import Shopping from "./pages/Shopping.js";
 import Register from "./pages/Register.js";
 import Nav from "./components/Nav.js";
 import Footer from "./components/Footer.js";
-import Logout from "./components/Logout.js";
+import Logout from "./components/Logout";
 import Category from "./pages/Category.js";
-import CartProvider from "./components/CartProvider.js";
-import LoginProvider from './components/LoginProvider';
-
 
 function App() {
 
   return (
     <div className="App">
-      <CartProvider>
-      <LoginProvider>
+      
         <BrowserRouter>
           <main>
           <Nav/>
@@ -39,8 +35,7 @@ function App() {
           </main>
           <Footer/>
       </BrowserRouter>
-      </LoginProvider>
-      </CartProvider>
+      
 
     </div>
   );

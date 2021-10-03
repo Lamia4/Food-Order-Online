@@ -1,8 +1,9 @@
 
-import React, {useState}from 'react';
+import React, {useState, useContext}from 'react';
 import {Input, Form , FormGroup,Button} from 'reactstrap';
 import getLogin from "../API/getLogin";
-import { LoginContext } from '../components/LoginProvider.js';
+import {LoginContext} from '../components/LoginProvider.js';
+import {CartContext} from "../components/CartProvider.js";
 
 
 import {Link,useHistory} from 'react-router-dom';
@@ -14,7 +15,9 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
-    const LoginFunctions = React.useContext(LoginContext);
+    //const LoginFunctions = useContext(LoginContext);
+    const {setIsLogged, setGetUser, LoggedUser, getUser} = useContext(LoginContext);
+    const currentCart = useContext(CartContext);
 
 
     const handleLogin = async (e) => {
@@ -23,22 +26,34 @@ function Login() {
             email: email,
             password: password
         };
-        console.log("user", loginUserInfo);
+        //console.log("user", loginUserInfo);
         try {
             const userData = await getLogin(email, password);
-            console.log("userData after fetch", userData);
-            LoginFunctions.setIsLogged(true);
-            history.push("/");
+            console.log("userData after fetch", userData.name);
+            setIsLogged(true);
             const name = userData.name;
+            //console.log(name);
             const role = userData.role;
-            const token = userData.token
-            LoginFunctions.setGetUser({
-                name,
-                role,
-                token
-            })            
-            console.log("userInformation", LoginFunctions.getUser);
-
+            //console.log(role);
+            const token = userData.token;
+            //console.log(token);
+            const userObj = {
+                name: name,
+                role: role,
+                token: token
+            };
+            //console.log("userObj", userObj);
+            //LoggedUser(userObj);
+            setGetUser(userObj);
+            //console.log("userInformation", LoginFunctions.getUser);
+            // const newCartObj = JSON.parse(localStorage.getItem("cart"));
+            // console.log(newCartObj);
+            // if(getUser.name === newCartObj[0].name) {
+            //     currentCart.setCart(newCartObj[1]);
+            // }
+            // console.log(getUser.name, "von logout");
+            history.push("/");
+            
         }catch(error){
             console.log(error)
         } 

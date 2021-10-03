@@ -1,21 +1,22 @@
-header h1 {
+.headerLogo {
     text-align: center;
     margin: 0px 10px;
 }
 
-header a {
+.navContainer a {
     font-size: 19px;
     text-decoration: none;
     color: black;
 }
 
-header a:hover {
+.navContainer a:hover {
     color: white;
     transition: all 0.5s;
 }
 
-header {
-    margin-bottom: 6.6vh !important;
+.navContainer {
+    /* margin-bottom: 6.6vh !important; */
+    height: 5vh;
 }
 
 @media(max-width:767px){

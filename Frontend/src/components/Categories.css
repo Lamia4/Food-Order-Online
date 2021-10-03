@@ -3,10 +3,7 @@
         justify-content: center;
     }
 }
-.cardContainer{
-    margin-top: 70px !important;
-    margin-bottom: 50px;
-}
+
 .headerCategories{
     width: 98.5%;
     display: flex;

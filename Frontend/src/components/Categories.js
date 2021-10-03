@@ -4,12 +4,18 @@ import {Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Categories.css";
 import getCategories from '../API/getCategories';
-import Search from "../components/Search.js";
+import Search from "./Search.js";
+import SearchResult from "./SearchResult.js";
+import {SearchContext} from "./SearchProvider.js";
+import CreateProduct from './CreateProduct.js';
+
 
 
 function Categories() {
     const [categories, setCategories] = useState([]);
     const[isAdmin, setIsAdmin] = useState(true);
+    const searchedProducts = React.useContext(SearchContext);
+
 
     useEffect(() => {
         getCategories()
@@ -22,15 +28,19 @@ function Categories() {
     
     return (
         <div>
-            <Container className=" cardContainer">
+            <Container className=" cardContainer mt-5">
                 <Row className="smCenter justify-content-md-space-between productRow mt-3">
-                   <h1>Categories</h1>
-                    <Search/>
+                   <h1 style={{textAlign:"center"}}>Categories</h1>
+                    <Search />
+                    <CreateProduct/>
                     {
+                        searchedProducts.isSearched ? <SearchResult/> :
+                        
+                        (  
                         categories.map((category,i)=>
                         {
                             return(
-                                    <Col key={i} xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-2">
+                                    <Col key={i} xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-3">
                                     <div className="categoryCard">
                                         <Card className="d-flex " style={{color:"black", height:"100%"}}  inverse >
                                         
@@ -54,10 +64,12 @@ function Categories() {
                                 
                             );
                         })
+                     )
 
                     }
 
                     </Row>
+                    
                     </Container>
                     </div>
                     )

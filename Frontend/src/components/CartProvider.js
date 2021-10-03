@@ -28,7 +28,7 @@ function CartProvider({children}) {
         //     //    newArray = [...cart, product]
         // )
         setCart(newArray);
-        console.log("result", cart);
+        // console.log("result", cart);
     }
 
     const removeFromCart = (key) => {
@@ -47,7 +47,7 @@ function CartProvider({children}) {
             }
         });
         setCart(newArray);
-        console.log("resultDecrement", cart);
+        // console.log("resultDecrement", cart);
     }
 
     const showCount = (cart) => {
@@ -56,6 +56,16 @@ function CartProvider({children}) {
         const result = arrayY.reduce(function(acc, current) {return acc+current}, 0);
         return result
     }
+
+    // const showCurrentCart = (obj) => {
+    //     const newCartObj = JSON.parse(localStorage.getItem("cart"));
+    //         console.log(newCartObj);
+    //         if(obj.name === newCartObj[0].name) {
+    //             setCart(newCartObj[1]);
+    //         } else {
+    //             setCart([])
+    //         }
+    // }
 
     return (
         <CartContext.Provider value={{cart, addToCart, removeFromCart, decrementCount, showCount}}>
