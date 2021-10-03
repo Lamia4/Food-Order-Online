@@ -1,6 +1,6 @@
-@media(max-width: 767px){
-.searchDiv{
-    justify-content: center !important ; 
+@media(max-width: 768px){
+.searchContainer{
+    flex-direction: column !important ; 
 }
 
 }
