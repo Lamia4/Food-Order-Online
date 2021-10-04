@@ -33,7 +33,7 @@ function Shopping() {
         <Container className="menuItem ">
             <div style={{zIndex: isFullOpacity ? "3" : "1", opacity:isFullOpacity ? "1" : "0.3"}}>
                 {isLogged? 
-                (<h1>Hi {getUser.name}</h1>) :
+                (<h1 style={{marginTop:"25px"}}>Hi {getUser.name}</h1>) :
                 null }
                 <Row className=" justify-content-center mt-3 ">
                 {shoppingCart.cart.map((shoppingCartItem,i) => {
