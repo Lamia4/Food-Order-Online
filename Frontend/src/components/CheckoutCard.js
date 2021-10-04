@@ -37,7 +37,7 @@ function CheckoutCard() {
     };
 
     return(
-            <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border  " style={{position:"absolute", top:"20%", zIndex:"2", backgroundColor:"#FCBF49"}}>
+            <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border  " style={{position:"absolute", top:"50%", left:"50%",transform: "translate(-50%, -50%)", backgroundColor:"#FCBF49"}}>
             <Form className="" style={{display:"flex", flexDirection:"column"}}>
                 <h1 style={{textAlign:"center", marginTop:"30px", marginBottom:"30px"}}>Login</h1>
                 <FormGroup className=""  >

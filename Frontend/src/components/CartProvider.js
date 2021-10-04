@@ -5,6 +5,7 @@ export const CartContext = createContext("");
 function CartProvider({children}) {
 
     const [cart, setCart] = useState([]);
+    // getItem localstorage damit cart immer angezeigt wird
 
     const addToCart = (product) => {
         
@@ -68,7 +69,7 @@ function CartProvider({children}) {
     // }
 
     return (
-        <CartContext.Provider value={{cart, addToCart, removeFromCart, decrementCount, showCount}}>
+        <CartContext.Provider value={{cart, setCart, addToCart, removeFromCart, decrementCount, showCount}}>
             {children}
         </CartContext.Provider>
     )

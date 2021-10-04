@@ -46,8 +46,10 @@ function Login() {
             //LoggedUser(userObj);
             setGetUser(userObj);
             //console.log("userInformation", LoginFunctions.getUser);
-            // const newCartObj = JSON.parse(localStorage.getItem("cart"));
-            // console.log(newCartObj);
+            const newCartObj = JSON.parse(localStorage.getItem("user and cart"));
+            console.log("obj from localstorage", newCartObj);
+            currentCart.setCart(newCartObj[1]);
+            console.log(currentCart.cart, "warenkorb von get localstorage");
             // if(getUser.name === newCartObj[0].name) {
             //     currentCart.setCart(newCartObj[1]);
             // }

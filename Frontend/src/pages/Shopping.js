@@ -30,12 +30,12 @@ function Shopping() {
     }
     
     return (
-        <Container className="menuItem ">
+        <Container className="menuItem " style={{position: "relative"}}>
             <div style={{zIndex: isFullOpacity ? "3" : "1", opacity:isFullOpacity ? "1" : "0.3"}}>
                 {isLogged? 
                 (<h1 style={{marginTop:"25px"}}>Hi {getUser.name}</h1>) :
                 null }
-                <Row className=" justify-content-center mt-3 ">
+                <Row className=" justify-content-center mt-5 ">
                 {shoppingCart.cart.map((shoppingCartItem,i) => {
                     return(
                         <Col xs ={10}sm={9} md={12} lg={9} key={i} className=" mb-2  menuColumnCart">
@@ -62,15 +62,9 @@ function Shopping() {
                 }
 
                 )}
-                {/* <Button className="menuButton" onClick={() => shoppingCart.removeFromCart(categoryProduct)} >ORDER</Button> */}
                 </Row>
-                {/* <Row className="justify-content-center mt-3">
-                        <Col xs ={10}sm={9} md={12} lg={8}>
-                        <CardText className ="summaryCard">{shoppingCart.cart.length === 0?
-                        (<p>your cart is empty</p>) : 
-                        (<b>Summary: {total.toFixed(2)}€</b>)}</CardText>
-                        </Col>
-                    </Row> */}
+                </div>
+                
                     <Row className="justify-content-center mt-3 mb-0 cartFooterRow">
                         {shoppingCart.cart.length === 0?
                         (<p style={{textAlign: "center", fontSize: "25px", textTransform: "capitalize"}}>your cart is empty!</p>) :
@@ -82,7 +76,7 @@ function Shopping() {
                     <Button className="cartButton" style={{padding:"5px", borderRadius: "10px", backgroundColor: "darkorange", color: "white", border:"none"}}>
                         Go Back
                     </Button>
-                    <Button className="bg-success cartButton" style={{padding:"5px", borderRadius: "10px", color: "white", border:"none"}}>
+                    <Button onClick={handleCheckout} className="bg-success cartButton" style={{padding:"5px", borderRadius: "10px", color: "white", border:"none"}}>
                         Checkout
                     </Button>
                     </Col>
@@ -91,7 +85,9 @@ function Shopping() {
                     }
                         
                     </Row>
-            </div>
+                    <Row className="justify-content-center">
+                    {isCheckout ? <CheckoutCard/> : ""}
+                </Row>
         </Container>
     )
 }
