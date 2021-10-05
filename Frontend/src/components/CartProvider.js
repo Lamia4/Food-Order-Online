@@ -1,11 +1,33 @@
-import {useState, createContext} from 'react';
+import {useState, createContext, useEffect, useContext} from 'react';
+import {LoginContext} from "../components/LoginProvider.js";
 
 export const CartContext = createContext("");
 
 function CartProvider({children}) {
 
+    const {getUser, setGetUser} = useContext(LoginContext);
     const [cart, setCart] = useState([]);
-    // getItem localstorage damit cart immer angezeigt wird
+
+    useEffect(() => {
+        
+        const newCartObj = JSON.parse(localStorage.getItem("cart"));
+        console.log("obj from localstorage", newCartObj);
+        // setCart(newCartObj)
+
+    }, [cart])
+
+    useEffect(() => {
+        
+        const newCartObj = JSON.parse(localStorage.getItem("cart"));
+        if(newCartObj == null){
+            setCart(cart)
+        } else {
+
+            setCart(newCartObj)
+        }
+        console.log("obj from localstorage", newCartObj);
+
+    }, [])
 
     const addToCart = (product) => {
         
@@ -22,22 +44,17 @@ function CartProvider({children}) {
         if(!isProductInCart){
             newArray.push(product)
         }
-        
-        // cart.map(item => item === product? 
-        //        newArray = [...newArray, {...item, quantity: item.quantity+1}] :
-        //        newArray = [...newArray, product]
-        //     //    newArray = [...cart, product]
-        // )
+       
         setCart(newArray);
-        // console.log("result", cart);
+        localStorage.setItem("cart", JSON.stringify(newArray));
     }
 
     const removeFromCart = (key) => {
         
         const newArray = cart.filter((item, index) => index !== key);
         setCart(newArray);
+        localStorage.setItem("cart", JSON.stringify(newArray));
     }
-
     const decrementCount = (product) => {
         let newArray = [...cart];
 
@@ -48,26 +65,13 @@ function CartProvider({children}) {
             }
         });
         setCart(newArray);
-        // console.log("resultDecrement", cart);
+        localStorage.setItem("cart", JSON.stringify(newArray));
     }
-
     const showCount = (cart) => {
         const arrayY = cart.cart.map(item => item.quantity)
-        console.log("iconCount", cart.cart, arrayY);
         const result = arrayY.reduce(function(acc, current) {return acc+current}, 0);
         return result
     }
-
-    // const showCurrentCart = (obj) => {
-    //     const newCartObj = JSON.parse(localStorage.getItem("cart"));
-    //         console.log(newCartObj);
-    //         if(obj.name === newCartObj[0].name) {
-    //             setCart(newCartObj[1]);
-    //         } else {
-    //             setCart([])
-    //         }
-    // }
-
     return (
         <CartContext.Provider value={{cart, setCart, addToCart, removeFromCart, decrementCount, showCount}}>
             {children}

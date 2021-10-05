@@ -15,7 +15,8 @@ function NavBar() {
     const toggle = () => setIsOpen(!isOpen);
     const LoginFunctions = React.useContext(LoginContext);
     const handleUser =  () => {
-        localStorage.setItem("user and cart", JSON.stringify([LoginFunctions.getUser, cartArray.cart]));
+        // const currentCart = localStorage.getItem("cart");
+        // cartArray.setCart(currentCart);
         LoginFunctions.setGetUser("")
     }
     return (
@@ -41,10 +42,9 @@ function NavBar() {
                         (<NavLink  to="/login" style={{marginRight:"20px"}} className="" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink>)
                         }
                             
-                            {LoginFunctions.showCartCount? ( <NavLink style={{marginRight:"20px", position: "relative", display:"flex"}} to="/shopping"><img style={{height: "5vh"}} src= {shopping} alt="shopping"/>{cartArray.cart.length > 0?
+                            <NavLink style={{marginRight:"20px", position: "relative", display:"flex"}} to="/shopping"><img style={{height: "5vh"}} src= {shopping} alt="shopping"/>{cartArray.cart.length > 0?
                             (<span style={{position: "absolute", right: "10%", height: "25px", width: "25px", borderRadius: "50%", textAlign: "center", alignItems: "center", color: "red", backgroundColor: "white"}}>{cartArray.showCount(cartArray)}</span>):
-                            null} </NavLink>):
-                            (<NavLink style={{marginRight:"20px", position: "relative", display:"flex"}} to="/shopping"><img style={{height: "5vh"}} src= {shopping} alt="shopping"/> </NavLink>)}
+                            null} </NavLink>
                             
                         </nav>
                     </Collapse>    

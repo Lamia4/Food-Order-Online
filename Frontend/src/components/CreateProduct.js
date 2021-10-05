@@ -46,24 +46,24 @@ function CreateProduct() {
                 <Col className=" formCard" style={{justifyContent:"",flexDirection:"column", display:"flex", backgroundColor:" darkorange"}} >
                         <FormGroup className="" style={{width:"100%", margin:"15px 0"}}>
                             <Label for="category_id"> <b>Product ID: </b></Label>
-                            <Input type="text" required name="category_id" id="category_id" placeholder="Write a title" value="" />
+                            <Input type="text" required name="category_id" id="category_id" placeholder="Write a title"/>
                         </FormGroup>
                         <FormGroup className="" style={{width:"100%", margin:"10px 0"}}>
                             <Label for="exampleTitle"> <b>Title: </b></Label>
-                            <Input type="text" required name="title" id="exampleTitle" placeholder="Write a title" value="" />
+                            <Input type="text" required name="title" id="exampleTitle" placeholder="Write a title"/>
                         </FormGroup>
                         <FormGroup className="" style={{width:"100%", margin:"5px 0"}}>
                             <Label for="exampleDesc"> <b>Description: </b></Label>
-                            <Input type="textarea" required name="desc" id="exampleDesc" placeholder="Write description" value=""/>
+                            <Input type="textarea" required name="desc" id="exampleDesc" placeholder="Write description"/>
                         </FormGroup>
                         <FormGroup className="" style={{width:"100%", margin:"15px 0"}}>
                             <Label for="examplePrice"> <b>Price: </b></Label>
-                            <Input type="text" required name="price" id="examplePrice" placeholder="Write price" value=""/>
+                            <Input type="text" required name="price" id="examplePrice" placeholder="Write price"/>
                         </FormGroup>
                         <FormGroup className="" style={{width:"100%", margin:"15px 0"}}>
                             <Label for="exampleSelect"><b>Select a Category:</b> </Label>
-                            <Input type="select" required name="select" value="" onChange={handleCategory}id="exampleSelect" >
-                            <option value="">Please select a category</option>
+                            <Input type="select" required name="select" onChange={handleCategory}id="exampleSelect" >
+                            <option>Please select a category</option>
 
                             {
                             categories.map((category)=>

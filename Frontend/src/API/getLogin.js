@@ -12,7 +12,7 @@ async function getLogin(email,password){
                 if(data.token){
                     localStorage.setItem("user", JSON.stringify(data))
                 }
-            console.log("data from login", data.token);
+                console.log("data", data);
             return data;
             });
             console.log("userData", userData);
