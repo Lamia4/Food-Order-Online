@@ -45,6 +45,7 @@
 //         type: [orderItemSchema],
 //         required: true
 //     },
+
 //     totalPrice: {
 //         type: Number,
 //         required: true
