@@ -31,7 +31,6 @@ function Search() {
         searchedProducts.searchUpdate(search,category, sort);
         
     }
-    console.log("searchnew:",searchedProducts.products)
 
     const handleBack = () =>{
 

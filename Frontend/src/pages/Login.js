@@ -15,11 +15,9 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
-    //const LoginFunctions = useContext(LoginContext);
-    const {setIsLogged, setGetUser, LoggedUser, getUser} = useContext(LoginContext);
-    const currentCart = useContext(CartContext);
+    const {setIsLogged, setGetUser} = useContext(LoginContext);
     const [showError, setShowError] = useState(false);
-    const {userToken, setUserToken, decodeUserToken} = useContext(TokenContext);
+    const {setUserToken} = useContext(TokenContext);
 
 
     const handleLogin = async (e) => {
@@ -35,7 +33,6 @@ function Login() {
                 role: userData.role,
                 token: userData.token
             };
-            console.log("unser userobj", userObj);
             setGetUser(userData);
             setUserToken(userData.token);
             history.push("/");

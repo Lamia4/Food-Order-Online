@@ -9,7 +9,7 @@ import CreateProduct from "../components/CreateProduct.js";
 
 function Category() {
     let {categoryName} = useParams();
-    // const [isAdmin, setIsAdmin] = useState(true);
+    const [isAdmin, setIsAdmin] = useState(true);
     const [categoryProducts, setCategoryProducts] = useState([]);
     const currentCart = React.useContext(CartContext);
     console.log("cart",currentCart);
@@ -40,7 +40,7 @@ function Category() {
     return (
         
              <Container className="menuItem  mb-0 mt-5" >
-                    {/* {isAdmin && <CreateProduct/>}  */}
+                    {isAdmin && <CreateProduct/>} 
                     <Row className="smCenter justify-content-center productRow mt-3">
 
                     {

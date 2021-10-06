@@ -6,6 +6,7 @@ import sampleImg from "../img/pizza2.jpg";
 import "./CreateProduct.css";
 import getCategories from '../API/getCategories.js';
 import postProduct from "../API/postProduct.js";
+import uploadImage from "../API/uploadImage";
 
 
 function CreateCategory() {
@@ -14,6 +15,7 @@ function CreateCategory() {
     const [inputTitle, setInputTitle] = useState("");
     const [inputDesc, setInputDesc] = useState("");
     const [inputPrice, setInputPrice] = useState("");
+    const [file, setFile] = useState("");
     // const [inputImg, setInputImg] = useState("");
     const [image, setImage] = useState("");
 
@@ -31,12 +33,18 @@ function CreateCategory() {
     const handleRemove = () =>{
 
     }
-    const handleImage = (e) =>{
-        const file = e.target.files[0].name; // you can see the image info
-        console.log("file info: ",file)
-        if(file.type !== 'image/jpeg' && file.type !== 'image/png') return alert("File format is incorrect");
-        setImage(file);
-        console.log("image:",image)
+    const handleImage = async (e) =>{
+        console.log("file before setFile", file);
+        setFile(e.target.files[0]); // you can see the image info
+        let formData = new FormData();
+        formData.append('file', file);
+       
+       const res = await uploadImage(file);
+       const data = await res;
+
+     
+        console.log("file info: ",file, data);
+        console.log("res info: ",res);
     }
     const styleUpload = {
         display: image ? "block" : "none"
@@ -74,7 +82,7 @@ function CreateCategory() {
         <Row xs={1} md={2} lg={3}  className="create_product mb-5">
              <Col className=" imageColumn " style={{ display:"flex", alignItems:"center"}}>
              <FormGroup className="upload">            
-                <Input type="file" name="file" id="file_up"  onChange={handleImage}/>
+                <Input type="file" name="file" id="file_up" onChange={handleImage}/>
                     <div id="file_img" style={styleUpload}>
                         <CardImg src={image ? image.url : ''} alt=""/>
                         <span onClick={handleRemove}>X</span>

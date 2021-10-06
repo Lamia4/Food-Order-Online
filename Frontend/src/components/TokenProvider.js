@@ -8,15 +8,6 @@ export const TokenContext = createContext({});
 function TokenProvider({children}){
     const [userToken, setUserToken] = useState("");
     
-    const decodeUserToken = (token) => {
-        const buff = Buffer.from(token, "base64");
-        const decodedString = buff.toString("ascii");
-        // const base64Payload = token.split(".")[1];
-        // const payload = Buffer.from(base64Payload, "binary");
-        
-        // // const decodedString = Buffer.from(token).toString("binary");
-        console.log("der sieht den tokenprovider", decodedString);
-    }
     function isTokenExpired() {
         const user = JSON.parse(localStorage.getItem("user"));
         console.log("user", user); 
@@ -25,15 +16,21 @@ function TokenProvider({children}){
         }
         
         const splitToken = user.token.split('.')[1];
-        console.log("splitToken", splitToken);
         const expiry = JSON.parse(atob(splitToken)).exp; 
-        console.log("expiry", expiry);
-        return expiry
-        // return (Math.floor((new Date).getTime() / 1000)) >= expiry; 
+        const firstNum = Date.now()/1000;
+        const end = Math.round(firstNum);
+        const result = expiry - end;
+        if (result <= 0) {
+            const endResult = false;
+            return endResult
+        }
+        const endResult = true;
+        console.log("endresult", endResult);
+        return endResult;
     } 
 
     return (
-        <TokenContext.Provider value={{userToken, setUserToken, decodeUserToken, isTokenExpired}}>
+        <TokenContext.Provider value={{userToken, setUserToken, isTokenExpired}}>
             {children}
         </TokenContext.Provider>
     )
