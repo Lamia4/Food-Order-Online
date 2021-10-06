@@ -1,49 +1,45 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Input, Form , FormGroup,Button, Col, CardText, CardSubtitle, CardTitle} from 'reactstrap';
 import getLogin from "../API/getLogin";
 import {LoginContext} from '../components/LoginProvider.js';
-import {CartContext} from "../components/CartProvider.js";
+import { useHistory } from "react-router-dom";
+import { TokenContext } from "../components/TokenProvider.js";
 
 function CheckoutCard({isFullOpacity, setIsFullOpacity, setIsCheckout}) {
+
     const [isDisplayLogin, setIsDisplayLogin] = useState(true);
     const [isDisplayRegister, setIsDisplayRegister] = useState(true);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-    const centerWindow = window.screen.height/2;
-    console.log(centerWindow);
-
-    // const {setIsLogged, setGetUser, LoggedUser, getUser} = useContext(LoginContext);
-    const currentCart = React.useContext(CartContext);
-    const LoginFunctions = React.useContext(LoginContext);
-
+    const {setIsLogged, setGetUser, setShowError } = useContext(LoginContext);
+    const { setUserToken } = useContext(TokenContext);
+    const history = useHistory();
 
     const handleLogin = async (e) => {
         e.preventDefault();
-
-        const loginUserInfo = {
-            email: email,
-            password: password
-        };
-        console.log("user", loginUserInfo);
         try {
             const userData = await getLogin(email, password);
             console.log("userData after fetch", userData);
-            LoginFunctions.setIsLogged(true);
-            const name = userData.name;
-            const role = userData.role;
-            const token = userData.token
-            LoginFunctions.setGetUser({
-                name,
-                role,
-                token
-            })            
-            console.log("userInformation", LoginFunctions.getUser);
+            if(userData.token) {
+            setIsLogged(true);
+            const userObj = {
+                name: userData.name,
+                role: userData.role,
+                token: userData.token
+            };
+            setGetUser(userObj);
+            setUserToken(userObj.token);
+
+            } else {
+                setShowError(true);
+                setEmail("");
+                setPassword("")      
+            }
             setIsCheckout(false);
-            setIsFullOpacity(true);
-
-
-
+            setIsFullOpacity(true)
+            
+            
         }catch(error){
             console.log(error)
         } 

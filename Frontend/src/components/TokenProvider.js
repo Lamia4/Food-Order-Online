@@ -25,7 +25,6 @@ function TokenProvider({children}){
             return endResult
         }
         const endResult = true;
-        console.log("endresult", endResult);
         return endResult;
     } 
 

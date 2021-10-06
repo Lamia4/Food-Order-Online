@@ -12,6 +12,7 @@ import Nav from "./components/Nav.js";
 import Footer from "./components/Footer.js";
 import Logout from "./components/Logout";
 import Category from "./pages/Category.js";
+import Success from "./pages/Success.js";
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/logout" component={ Logout } />
             <Route path="/register" component={ Register } />
             <Route path="/shopping" component={ Shopping } /> 
+            <Route path="/success" component={ Success } /> 
             <Route path="/products/:categoryName" component={ Category } />         
           </Switch>
           </main>

@@ -1,24 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import login from "../img/login.png"
 import shopping from "../img/shopping6.png";
 import "./Nav.css";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { Container, Collapse, Navbar, NavbarToggler } from "reactstrap";
 import "../pages/Category.js";
 import { CartContext } from '../components/CartProvider.js';
 import { LoginContext } from '../components/LoginProvider.js';
+import { TokenContext } from "../components/TokenProvider.js";
 
 function NavBar() {
 
-    const cartArray = React.useContext(CartContext);
+    const cartArray = useContext(CartContext);
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
-    const LoginFunctions = React.useContext(LoginContext);
+    const LoginFunctions = useContext(LoginContext);
+    const {isTokenExpired, userToken} = useContext(TokenContext);
+    const history = useHistory();
+    const [logoutIcon, setLogoutIcon] = useState(false);
+    const [tokenResult, setTokenResult] = useState(false);
+
+    useEffect(() => {
+        const result = isTokenExpired(userToken);
+        setTokenResult(result);
+        if(!result) {
+            setLogoutIcon(true);
+            history.push("/logout");
+        }
+
+    }, [tokenResult])
     const handleUser =  () => {
 
         localStorage.removeItem('user');
-        // const currentCart = localStorage.getItem("cart");
-        // cartArray.setCart(currentCart);
         LoginFunctions.setGetUser("")
     };
     console.log("isLogged", LoginFunctions.isLogged);
@@ -40,7 +53,7 @@ function NavBar() {
                             <NavLink  to="/about">About</NavLink>
                         </nav>
                         <nav className="navCenter" style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "flex-end"}}> 
-                        { LoginFunctions.isLogged?  
+                        { LoginFunctions.isLogged && userToken?  
                         (<NavLink to="/logout" style={{marginRight:"20px"}} className="" onClick={() => {handleUser()}}>Logout</NavLink>):
                         (<NavLink  to="/login" style={{marginRight:"20px"}} className="" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink>)
                         }

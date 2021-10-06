@@ -12,11 +12,9 @@ import "./Login.css"
 
 function Login() {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    
     const history = useHistory();
-    const {setIsLogged, setGetUser} = useContext(LoginContext);
-    const [showError, setShowError] = useState(false);
+    const {setIsLogged, setGetUser, showError, setShowError, setEmail, setPassword, email, password} = useContext(LoginContext);
     const {setUserToken} = useContext(TokenContext);
 
 

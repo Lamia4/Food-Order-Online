@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import "./Category.js";
 import { CartContext } from '../components/CartProvider.js';
 import { Container, Card, CardTitle,CardSubtitle, Button,CardText, CardImg,Row,Col,CardBody } from 'reactstrap';
@@ -13,9 +13,9 @@ function Shopping() {
 
     const [isCheckout, setIsCheckout] = useState(false);
     const [isFullOpacity, setIsFullOpacity] = useState(true);
-    const shoppingCart = React.useContext(CartContext);
-    const {getUser, isLogged} = React.useContext(LoginContext);
-    const {userToken, isTokenExpired} = React.useContext(TokenContext);
+    const shoppingCart = useContext(CartContext);
+    const {isLogged, getUser} = useContext(LoginContext);
+    const {isTokenExpired, userToken} = useContext(TokenContext);
     const [total, setTotal] = useState(0);
     const history = useHistory();
 
@@ -29,9 +29,11 @@ function Shopping() {
         totalPrice();
     }, [shoppingCart.cart])
 
-    const handleCheckout = ()=>{
+    const handleCheckout = async ()=>{
         setIsCheckout(true);
         setIsFullOpacity(false);
+        const result = isTokenExpired(userToken);
+        (result || isLogged) &&  history.push("/success")      
     }
     const handleGoBack = () => {
         history.push("/")
@@ -97,7 +99,6 @@ function Shopping() {
                     <Row className="justify-content-center">
                     {isCheckout ? <CheckoutCard isFullOpacity={isFullOpacity} setIsFullOpacity={setIsFullOpacity} setIsCheckout={setIsCheckout} /> : ""}
                 </Row>
-                <h1>{userToken}</h1>
                 <p>{isTokenExpired()}</p>
         </Container>
     )
