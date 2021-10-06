@@ -1,18 +1,31 @@
+.formCard{
+    max-width: 450px;
+    height: 500px;
+    min-width: 290px;
+    width: 100%;
+    margin-top: 0;
+}
+ 
+
+ .create_product{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center !important;
+}
 .upload{
     max-width: 450px;
     height: 500px;
     width: 100%;
     border: 1px solid white;
-    /* padding: 15px; */
     position: relative;
-    /* margin: 20px; */
 }
 #file_up{
     position: relative;
     width: 100%;
     height: 100%;
     outline: none;
-    /* background: #000; */
 }
 #file_up::before{
     content: "+";
@@ -21,12 +34,12 @@
     height: 100%;
     top:0;
     left: 0;
-    /* background: white; */
+    background: white;
     color: rgb(250, 200, 107);
     font-size: 17rem;
     text-align: center;
     cursor: pointer;
-    margin: auto; 
+    margin: auto;
 }
 #file_img{
     width: 100%;
@@ -34,7 +47,7 @@
     position: absolute;
     top:0;
     left: 0;
-    /* background: white; */
+    background: white;
 }
 #file_img img{
     width: 100%;
@@ -42,22 +55,21 @@
     display: block;
     object-fit: cover;
 }
-.removeImg{
+#file_img span{
     position: absolute;
-    top: -1px;
-    right: -1px;
+    top: 0px;
+    right: 0px;
     background: white;
     border: 1px solid #ddd;
+    /* border-radius: 50%; */
     padding: 6px 10px;
     cursor: pointer;
     font-weight: 900;
     color: crimson;
 }
-.formCard{
-    max-width: 450px;
-    height: 500px;
 
-    min-width: 290px;
-    width: 100%;
-    margin: 0 10px;
+@media(max-width:992px){
+ .imageColumn{
+     margin-bottom: 30px !important;
+ }  
 }

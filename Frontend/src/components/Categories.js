@@ -7,13 +7,12 @@ import getCategories from '../API/getCategories';
 import Search from "./Search.js";
 import SearchResult from "./SearchResult.js";
 import {SearchContext} from "./SearchProvider.js";
-import CreateProduct from './CreateProduct.js';
 
 
 
 function Categories() {
     const [categories, setCategories] = useState([]);
-    const[isAdmin, setIsAdmin] = useState(true);
+    const[isAdmin, setIsAdmin] = useState(false);
     const searchedProducts = React.useContext(SearchContext);
 
 
@@ -32,7 +31,6 @@ function Categories() {
                 <Row className="smCenter justify-content-md-space-between productRow mt-3">
                    <h1 style={{textAlign:"center"}}>Categories</h1>
                     <Search />
-                    <CreateProduct/>
                     {
                         searchedProducts.isSearched ? <SearchResult/> :
                         

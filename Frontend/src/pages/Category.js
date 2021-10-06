@@ -4,10 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Product.css";
 import { useParams } from 'react-router';
 import { CartContext } from '../components/CartProvider.js';
+import CreateProduct from "../components/CreateProduct.js";
 
 
 function Category() {
     let {categoryName} = useParams();
+    // const [isAdmin, setIsAdmin] = useState(true);
     const [categoryProducts, setCategoryProducts] = useState([]);
     const currentCart = React.useContext(CartContext);
     console.log("cart",currentCart);
@@ -37,9 +39,14 @@ function Category() {
     
     return (
         
-             <Container className="menuItem  mb-0 " >
+             <Container className="menuItem  mb-0 mt-5" >
+                    {/* {isAdmin && <CreateProduct/>}  */}
                     <Row className="smCenter justify-content-center productRow mt-3">
+
                     {
+
+
+
                         categoryProducts.map((categoryProduct, i)=>{
                             
                             return(

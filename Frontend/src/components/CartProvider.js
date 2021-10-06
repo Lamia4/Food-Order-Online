@@ -7,10 +7,12 @@ function CartProvider({children}) {
 
     const {getUser, setGetUser} = useContext(LoginContext);
     const [cart, setCart] = useState([]);
+    const [cartObj, setCartObj] = useState({});
 
     useEffect(() => {
         
         const newCartObj = JSON.parse(localStorage.getItem("cart"));
+        setCartObj(newCartObj);
         console.log("obj from localstorage", newCartObj);
         // setCart(newCartObj)
 

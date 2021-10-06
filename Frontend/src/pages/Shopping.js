@@ -7,6 +7,7 @@ import "./Shopping.css";
 import {LoginContext} from "../components/LoginProvider";
 import CheckoutCard from '../components/CheckoutCard.js';
 import { useHistory} from "react-router-dom";
+import {TokenContext} from "../components/TokenProvider.js";
 
 function Shopping() {
 
@@ -14,6 +15,7 @@ function Shopping() {
     const [isFullOpacity, setIsFullOpacity] = useState(true);
     const shoppingCart = React.useContext(CartContext);
     const {getUser, isLogged} = React.useContext(LoginContext);
+    const {userToken, isTokenExpired} = React.useContext(TokenContext);
     const [total, setTotal] = useState(0);
     const history = useHistory();
 
@@ -95,6 +97,8 @@ function Shopping() {
                     <Row className="justify-content-center">
                     {isCheckout ? <CheckoutCard isFullOpacity={isFullOpacity} setIsFullOpacity={setIsFullOpacity} setIsCheckout={setIsCheckout} /> : ""}
                 </Row>
+                <h1>{userToken}</h1>
+                <p>{isTokenExpired()}</p>
         </Container>
     )
 }

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Input, Form , FormGroup,Button, Col, CardText, CardSubtitle} from 'reactstrap';
+import {Input, Form , FormGroup,Button, Col, CardText, CardSubtitle, CardTitle} from 'reactstrap';
 import getLogin from "../API/getLogin";
 import {LoginContext} from '../components/LoginProvider.js';
 import {CartContext} from "../components/CartProvider.js";
@@ -74,7 +74,8 @@ function CheckoutCard({isFullOpacity, setIsFullOpacity, setIsCheckout}) {
                     <FormGroup className=""  >
                         <Input type="text" className="mb-3 " placeholder="Your Email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
                         <Input type="password" className="mb-3" placeholder="Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                        <CardText>Don't have an account <CardSubtitle style={{cursor:"pointer", textDecoration:"underline"}} onClick={handleToggle} >Register.</CardSubtitle></CardText>
+                        <CardTitle>Don't have an account </CardTitle>
+                        <CardSubtitle style={{cursor:"pointer", textDecoration:"underline"}} onClick={handleToggle} >Register.</CardSubtitle>
                     </FormGroup>
                     <FormGroup className="" style={{display:"flex", flexDirection:"row", justifyContent:"flex-end"}}>
 
@@ -95,7 +96,8 @@ function CheckoutCard({isFullOpacity, setIsFullOpacity, setIsCheckout}) {
                         <Input type="text" className="mb-3 " placeholder="Your Name"  value={name} onChange={(e) => setName(e.target.value)}/>
                         <Input type="text" className="mb-3 " placeholder="Your Email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
                         <Input type="password" className="mb-3" placeholder="Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                        <CardText>Don't have an account <CardSubtitle style={{cursor:"pointer", textDecoration:"underline"}} onClick={handleToggle} >Login.</CardSubtitle></CardText>
+                        <CardTitle>Don't have an account</CardTitle> 
+                        <CardSubtitle style={{cursor:"pointer", textDecoration:"underline"}} onClick={handleToggle} >Login.</CardSubtitle>
                     </FormGroup>
                     <FormGroup className="" style={{display:"flex", flexDirection:"row", justifyContent:"flex-end"}}>
 

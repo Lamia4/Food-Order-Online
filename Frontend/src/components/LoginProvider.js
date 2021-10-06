@@ -10,13 +10,13 @@ function LoginProvider({children}) {
     const[isLoggedOut, setIsLoggedOut] = useState(false);
     const[showCartCount, setShowCartCount] = useState(true);
 
-    const LoggedUser = (obj) => {
-        setGetUser(obj)
+    // const LoggedUser = (obj) => {
+    //     setGetUser(obj)
         
-    }
+    // }
 
     return (
-        <LoginContext.Provider value={{isLogged, setIsLogged, LoggedUser, getUser, setGetUser, isLoggedOut, setIsLoggedOut, showCartCount, setShowCartCount}}>
+        <LoginContext.Provider value={{isLogged, setIsLogged, getUser, setGetUser, isLoggedOut, setIsLoggedOut, showCartCount, setShowCartCount}}>
             {children}
         </LoginContext.Provider>
     )

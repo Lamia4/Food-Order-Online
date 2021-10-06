@@ -15,10 +15,13 @@ function NavBar() {
     const toggle = () => setIsOpen(!isOpen);
     const LoginFunctions = React.useContext(LoginContext);
     const handleUser =  () => {
+
+        localStorage.removeItem('user');
         // const currentCart = localStorage.getItem("cart");
         // cartArray.setCart(currentCart);
         LoginFunctions.setGetUser("")
-    }
+    };
+    console.log("isLogged", LoginFunctions.isLogged);
     return (
         
             <Container fluid className="p-0 navContainer" style={{justifyItems: 'stretch', backgroundColor:"darkorange"}}>

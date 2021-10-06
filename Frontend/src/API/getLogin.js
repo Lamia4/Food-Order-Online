@@ -20,3 +20,10 @@ async function getLogin(email,password){
 }
 
 export default getLogin
+
+//1633426610
+//1633431610
+      //5000
+
+      //token müsste so umgewandelt werden, dass man die expires zahl sehen kann und mit Date.now(millisekunden) ein vergleich aufstellen kann
+      //atob
