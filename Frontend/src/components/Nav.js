@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from "../img/logo.png"
 import login from "../img/login.png"
-import shopping from "../img/shopping6.png";
+import shopping from "../img/shopping3.png";
 import "./Nav.css";
 import { NavLink } from 'react-router-dom';
 import { Container, Collapse, Navbar, NavbarToggler, NavItem } from "reactstrap";
