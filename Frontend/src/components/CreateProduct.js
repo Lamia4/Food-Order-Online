@@ -125,6 +125,7 @@ function CreateCategory() {
                             <Button onClick={handleAddProduct} style={{width:"200px",backgroundColor:"white", color:"darkorange", 
                             textTransform:"uppercase", fontWeight:"700", border:"none", borderRadius:"10px"}}>Add</Button>
                         </FormGroup>
+                        
                 </Col>
         </Row>
 
