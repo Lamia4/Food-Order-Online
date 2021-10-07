@@ -12,7 +12,7 @@ function CheckoutCard({isFullOpacity, setIsFullOpacity, setIsCheckout}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-    const {setIsLogged, setGetUser, setShowError } = useContext(LoginContext);
+    const {setIsLogged, setGetUser, setShowError, setAdmin } = useContext(LoginContext);
     const { setUserToken } = useContext(TokenContext);
     const history = useHistory();
 
@@ -30,7 +30,9 @@ function CheckoutCard({isFullOpacity, setIsFullOpacity, setIsCheckout}) {
             };
             setGetUser(userObj);
             setUserToken(userObj.token);
-
+            if(userData.role === 1){
+                setAdmin(true)
+            };
             } else {
                 setShowError(true);
                 setEmail("");

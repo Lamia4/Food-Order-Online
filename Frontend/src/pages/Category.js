@@ -1,17 +1,18 @@
-import React, { useEffect , useState} from 'react';
+import React, { useEffect , useState, useContext} from 'react';
 import { Container, Card, CardTitle,CardSubtitle, Button,CardText, CardImg,Row,Col,CardBody } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Product.css";
 import { useParams } from 'react-router';
 import { CartContext } from '../components/CartProvider.js';
 import CreateProduct from "../components/CreateProduct.js";
+import { LoginContext } from "../components/LoginProvider.js";
 
 
 function Category() {
     let {categoryName} = useParams();
-    const [isAdmin, setIsAdmin] = useState(true);
+    const {admin} = useContext(LoginContext);
     const [categoryProducts, setCategoryProducts] = useState([]);
-    const currentCart = React.useContext(CartContext);
+    const currentCart = useContext(CartContext);
     console.log("cart",currentCart);
 
 
@@ -40,7 +41,7 @@ function Category() {
     return (
         
              <Container className="menuItem  mb-0 mt-5" >
-                    {isAdmin && <CreateProduct/>} 
+                    {admin && <CreateProduct/>} 
                     <Row className="smCenter justify-content-center productRow mt-3">
 
                     {

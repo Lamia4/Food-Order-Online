@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Container, Card, CardTitle, Button, CardImg,Row,Col,CardBody,Input } from 'reactstrap';
 import {Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,14 +7,14 @@ import getCategories from '../API/getCategories';
 import Search from "./Search.js";
 import SearchResult from "./SearchResult.js";
 import {SearchContext} from "./SearchProvider.js";
+import {LoginContext} from "./LoginProvider.js";
 
 
 
 function Categories() {
     const [categories, setCategories] = useState([]);
-    const[isAdmin, setIsAdmin] = useState(false);
-    const searchedProducts = React.useContext(SearchContext);
-
+    const searchedProducts = useContext(SearchContext);
+    const {isAdmin} = useContext(LoginContext);
 
     useEffect(() => {
         getCategories()
