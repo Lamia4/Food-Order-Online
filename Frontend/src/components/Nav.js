@@ -34,7 +34,6 @@ function NavBar() {
         localStorage.removeItem('user');
         LoginFunctions.setGetUser("")
     };
-    console.log("isLogged", LoginFunctions.isLogged);
     return (
         
             <Container fluid className="p-0 navContainer" style={{justifyItems: 'stretch', backgroundColor:"darkorange"}}>
