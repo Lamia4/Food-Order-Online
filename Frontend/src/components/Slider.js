@@ -5,7 +5,7 @@ import hamburger from "../img/hamburger.png";
 import dessert from "../img/dessert.png";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../pages/startSeite.css"
+import "../components/Slider.css"
 
 function Slider() {
     return (
