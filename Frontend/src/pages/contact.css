@@ -1,27 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
 
+<<<<<<< HEAD
+=======
+.contact{
+   background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    min-height: 90vh; 
+}
+
+.contactHeader img{
+    width: 100%;
+    height: 20vh;
+    background-color: red;
+}
+>>>>>>> ahmad/about
 
 .col1{
     color:#fff;
-    background-color: #2a2c35;
+    margin: 100px 0;
+    padding:65px 10px;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.col1 a{
+    text-decoration: none;
+    color:rgb(201, 198, 198);
 }
 .col1 ul{
-    padding-left: 0;
+    padding-left: 35px;
+    text-align: left;
+}
+
+.col1 h2{
+    color: rgb(253, 126, 7);
+    text-align: center;
+    font-family: 'Nova Round', cursive;
 }
 
 .col1 ul li{
     list-style: none;
     padding: 10px 0;
     font-size: 16px;
-    color: rgb(151, 142, 142);
+    color: rgb(201, 198, 198);
 
 }
 
 .col1 ul li span{
     list-style: none;
-    padding: 15px;
     font-size: 1.1erm;
     padding:2px ;
     color: #fff;
+    font-family: 'Nova Round', cursive;
 
 }
 
@@ -31,19 +59,57 @@
     width: 45px;
     padding: 10px;
     margin-right:10px;
-    border: 2px solid rgb(80, 72, 72);
-    border-radius: 10px;
-
 }
 
 
 .col2{
-    padding: 0;
     color:#fff;
-    background-color: #1d1e23;
+    text-align: center;
+    /* border-left: 2px solid rgb(172, 162, 162);
+    border-bottom: 2px solid rgb(172, 162, 162); */
+    margin: 100px auto;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+    
+
 }
 
+.leaflet-container{
+    width: 100%;
+    height: 50vh;
+    margin: 5px auto;
+    box-shadow: 0 0 10px 2px #33312e;
 
-.col2 img{
-   width: 100%; 
-}
+  }
+
+
+
+@media (max-width: 770px) {
+    .col2{
+        border: none;
+        margin: 10px 0 0;
+        padding: 0;
+        box-shadow: none;
+
+    }
+
+    .col1{
+        border: none;
+        margin:0;
+        padding: 30px 4px;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    .col1 h2{
+        font-size: 22px;
+        color: rgb(253, 126, 7);
+        
+    }
+    
+    .col1 ul li{
+        font-size: 15px;
+        text-align: left;
+    }
+  }
+  
+  

@@ -29,9 +29,9 @@ function Footer() {
                     <Col md={4}lg={4} className="columnCenter iconsRow">
                     <ListGroup className="listGroupItems">
                         <h3 className="listFooterItem footerTitle"> Social</h3>
-                        <ListGroupItem  className="listFooterItem"  href="https://de-de.facebook.com/" ><i className="fab fa-facebook-f footerIcons"></i>Facebook</ListGroupItem>
-                        <ListGroupItem  className="listFooterItem"  href="https://www.instagram.com/" ><i className="fab fa-instagram footerIcons"></i>Instagram</ListGroupItem>
-                        <ListGroupItem  className="listFooterItem"  href="https://twitter.com/" ><i className="fab fa-twitter footerIcons"></i>Twitter</ListGroupItem>
+                        <ListGroupItem  className="listFooterItem" tag="a" href="https://www.facebook.com/Foodo-107311565058523/" ><i class="fab fa-facebook-f footerIcons"></i>Facebook</ListGroupItem>
+                        <ListGroupItem  className="listFooterItem" tag="a" href="https://www.instagram.com/food_o53/" ><i class="fab fa-instagram footerIcons"></i>Instagram</ListGroupItem>
+                        <ListGroupItem  className="listFooterItem" tag="a" href="https://twitter.com/foodo5932"><i class="fab fa-twitter footerIcons"></i>Twitter</ListGroupItem>
                     </ListGroup>
                     </Col>
                 </Row>

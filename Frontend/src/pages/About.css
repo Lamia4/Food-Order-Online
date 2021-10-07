@@ -1,33 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+
 .about{
-    color: black;
-    width: 100%;
-    margin: 0 auto 50px;
+  position: relative;
+  min-height: 100vh;
 }
+
+
+.about::before{
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  
+  height: 100%;
+  opacity: 1; 
+  background-image: url(../img/lastbg.png);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+    /* background: linear-gradient(132deg, #ec5218, #1665c1);
+    background-size: 400% 400%; */
+    
+}
+
+.aboutBack{
+  position: relative;
+}
+
+.aboutContainer{
+  /* border: 2px solid red; */
+  padding: 3% 0;
+}
+
 .col-12 {
-    color: black;
-    margin-top: 30px;
+
+    margin-top: 100px;
+    
+    
   }
-  .picstyle {
+
+  .aboutIcon{
+    border: 2px solid red;
+
+  }
+  .picstyle{
     text-align: center;
+    background-color:unset;
+    border: none;
   }
+  .CardImg{
+    margin: auto; 
+  }
+
+
   .team {
+    font-family: 'Nova Round', cursive;
     text-align: center;
-    padding:40px 0 0 0;
+    padding:50px 0 0px;
+    color: #fff;
+    text-shadow: 3px 3px 4px rgb(22, 3, 3)
+    
   }
   .buttonstyle {
     text-align: center;
+    
+  }
+
+  .h3{
+    color: #000000;
+  }
+
+  
+@media (max-width: 900px) {
+  .about::before{
+    padding-bottom:50px;
+    min-height: 90vh; 
+    opacity: 0.8;
+    background-position: right;
+   /*  background-size: cover;
+    background-repeat:repeat;
+    background-image: url(../img/phoneBackground.png);  */
   }
   
-  .dci {
-    color: black;
-    text-align: center;
-  }
-  .dciLogo {
-    text-align: center;
-    padding-bottom: 20px;
-    padding-top: 10px;
-  }
-  .aboutDci {
-    text-align: center;
-    color: black;
-  }
+}

@@ -11,7 +11,11 @@
 
     @media screen and (min-width: 1200px) {
         .slider img{
+<<<<<<< HEAD:Frontend/src/components/Slider.css
             height: 75vh;
+=======
+            height: 80vh;
+>>>>>>> ahmad/about:Frontend/src/pages/startSeite.css
         }
         
       }
