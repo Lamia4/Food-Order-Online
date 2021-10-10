@@ -1,18 +1,18 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import {Input, Form , FormGroup,Button, Col, CardText, CardSubtitle, CardTitle} from 'reactstrap';
 import getLogin from "../API/getLogin";
 import {LoginContext} from '../components/LoginProvider.js';
 import { useHistory } from "react-router-dom";
 import { TokenContext } from "../components/TokenProvider.js";
 
-function CheckoutCard({isFullOpacity, setIsFullOpacity, setIsCheckout}) {
+function CheckoutCard() {
 
     const [isDisplayLogin, setIsDisplayLogin] = useState(true);
     const [isDisplayRegister, setIsDisplayRegister] = useState(true);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-    const {setIsLogged, setGetUser, setShowError, setAdmin } = useContext(LoginContext);
+    const {setIsLogged, setUser, setShowError, setAdmin, setIsCheckout, setIsFullOpacity, isFullOpacity } = useContext(LoginContext);
     const { setUserToken } = useContext(TokenContext);
     const history = useHistory();
 
@@ -28,7 +28,7 @@ function CheckoutCard({isFullOpacity, setIsFullOpacity, setIsCheckout}) {
                 role: userData.role,
                 token: userData.token
             };
-            setGetUser(userObj);
+            setUser(userObj);
             setUserToken(userObj.token);
             if(userData.role === 1){
                 setAdmin(true)

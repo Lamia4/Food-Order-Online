@@ -30,9 +30,9 @@ function NavBar() {
 
     }, [tokenResult])
     const handleUser =  () => {
-
+        LoginFunctions.setIsLogged(false);
         localStorage.removeItem('user');
-        LoginFunctions.setGetUser("")
+        LoginFunctions.setUser("")
     };
     return (
         

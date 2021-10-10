@@ -1,7 +1,7 @@
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home.js";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import About from "./pages/About.js";
 import Categories from "./components/Categories.js";
 import Contact from "./pages/Contact.js"
