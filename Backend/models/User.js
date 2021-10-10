@@ -1,29 +1,29 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
-const OrderListItemSchema = mongoose.Schema({
-    foodId: {
-		type: String,
-		required: true,
-	},
-	title: {
-		type: String,
-	},
-    description: {
-		type: String,
-	},
-    img: {
-		type: String,
-	},
-    price: {
-		type: Number,
-		default: 0,
-	},
-    count: {
-        type: Number,
-        default: 0,
-    }
-}, { _id: false });
+// const OrderListItemSchema = mongoose.Schema({
+//     foodId: {
+// 		type: String,
+// 		required: true,
+// 	},
+// 	title: {
+// 		type: String,
+// 	},
+//     description: {
+// 		type: String,
+// 	},
+//     img: {
+// 		type: String,
+// 	},
+//     price: {
+// 		type: Number,
+// 		default: 0,
+// 	},
+//     count: {
+//         type: Number,
+//         default: 0,
+//     }
+// }, { _id: false });
 
 const UserSchema = new mongoose.Schema({
     name:  {
