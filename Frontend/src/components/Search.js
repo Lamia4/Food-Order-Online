@@ -73,8 +73,8 @@ function Search() {
                     autoComplete="off"
                     style={{display: "flex", padding: "5px 10px", marginRight: "5px", borderRadius: "20px"}}
                     />
-                    <Button type="submit" className="searchButton p-1" style={{marginRight: "3px", borderRadius: "10px", backgroundColor: "darkorange", color: "white", border:"none"}}>Search</Button> 
-                    <Button onClick={handleBack} className="searchButton p-1"  style={{borderRadius: "10px", backgroundColor: "darkorange", color: "white",border:"none"}}>Return</Button>
+                    <Button type="submit" className="searchButton p-1" style={{marginRight: "3px", borderRadius: "10px", backgroundColor: "#A61C3C", color: "white", border:"none"}}>Search</Button> 
+                    <Button onClick={handleBack} className="searchButton p-1"  style={{borderRadius: "10px", backgroundColor: "#A61C3C", color: "white",border:"none"}}>Return</Button>
                 </FormGroup>
             </Col>
             <Col sm={12} md={2} lg={2}  className="searchColumn ">

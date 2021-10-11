@@ -68,7 +68,7 @@ function CheckoutCard() {
         <div className="checkoutcard">
         {
             isDisplayLogin ? (
-            <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border" style={{position:"relative", backgroundColor:"#FCBF49"}}>
+            <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border" style={{position:"relative", backgroundColor:"#C58882"}}>
                 <Form className="" style={{display:"flex", flexDirection:"column"}}>
                     <h1 style={{textAlign:"center", marginTop:"30px", marginBottom:"30px"}}>Login</h1>
                     <FormGroup className=""  >
@@ -89,7 +89,7 @@ function CheckoutCard() {
             :
             (
 
-            <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border  " style={{display: isDisplayRegister ? "flex": "none", position:"relative",backgroundColor:"#FCBF49"}}>
+            <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border  " style={{display: isDisplayRegister ? "flex": "none", position:"relative",backgroundColor:"#C58882"}}>
                 <Form className="" style={{display: "flex", flexDirection:"column"}}>
                     <h1 style={{textAlign:"center", marginTop:"30px", marginBottom:"30px"}}>Register</h1>
                     <FormGroup className=""  >

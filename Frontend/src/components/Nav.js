@@ -38,7 +38,7 @@ function NavBar() {
     return (
         
             <Container fluid className="p-0 navContainer" style={{justifyItems: 'stretch', backgroundColor:"darkorange"}}>
-                <Navbar style={{backgroundColor:"darkorange"}} dark expand="md" fixed="top" className="py-2 px-0">
+                <Navbar style={{backgroundColor:"#A61C3C"}} dark expand="md" fixed="top" className="py-2 px-0">
                     <NavLink className="logo" to="/">
                         <h1 className="headerLogo">Logo</h1>  
                     </NavLink>

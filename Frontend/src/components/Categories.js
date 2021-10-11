@@ -29,7 +29,7 @@ function Categories() {
         <div>
             <Container className=" cardContainer mt-5">
                 <Row className="smCenter justify-content-md-space-between productRow mt-3">
-                   <h1 style={{textAlign:"center"}}>Categories</h1>
+                   <h1 style={{textAlign:"center", color: "white"}}>Categories</h1>
                     <Search />
                     {
                         searchedProducts.isSearched ? <SearchResult/> :

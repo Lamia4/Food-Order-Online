@@ -104,7 +104,7 @@ function Shopping() {
                         <CardText className ="summaryCard"><b>Summary:</b>{total.toFixed(2)}€</CardText>
                         </Col>
                         <Col className=" d-flex shoppingButton " xs={8} md={6} lg={4} style={{justifyContent:"space-between"}}>
-                    <Button onClick={handleGoBack} className="cartButton" style={{padding:"5px", borderRadius: "10px", backgroundColor: "darkorange", color: "white", border:"none"}}>
+                    <Button onClick={handleGoBack} className="cartButton" style={{padding:"5px", borderRadius: "10px", backgroundColor: "#A61C3C", color: "white", border:"none"}}>
                         Go Back
                     </Button>
                     <Button onClick={handleCheckout} className="bg-success cartButton" style={{padding:"5px", borderRadius: "10px", color: "white", border:"none"}}>
