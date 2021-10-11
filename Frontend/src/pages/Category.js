@@ -44,7 +44,7 @@ function Category() {
     const handleRemove = async(category)=>{
         await deleteProduct(category._id);
         await deleteImage({public_id:category.image.public_id});
-        getCategoryProducts();
+        await getCategoryProducts();
     }
 
     const handleEdit = async(key)=>{
