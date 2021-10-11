@@ -1,8 +1,8 @@
-// import express from "express";
-// import orderController from "../controllers/orderController.js";
+import express from "express";
+import orderController from "../controllers/orderController.js";
 
-// const router = express.Router();
+const router = express.Router();
 
-// router.post("/checkout", verifyToken(req.body.token), orderController.createOrder );
+router.post("/checkout", orderController.createNewOrder );
 
-// export default router;
+export default router;

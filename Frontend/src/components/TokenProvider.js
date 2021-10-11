@@ -21,10 +21,10 @@ function TokenProvider({children}){
         const end = Math.round(firstNum);
         const result = expiry - end;
         if (result <= 0) {
-            const endResult = false;
+            const endResult = true;
             return endResult
         }
-        const endResult = true;
+        const endResult = false;
         return endResult;
     } 
 

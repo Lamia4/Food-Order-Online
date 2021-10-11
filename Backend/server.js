@@ -9,7 +9,7 @@ import fileUpload from "express-fileupload";
 import categoryRouter from "./router/categoryRouter.js";
 import uploadRouter from "./router/uploadRouter.js";
 import productRouter from "./router/productRouter.js";
-// import orderRouter from "./router/orderRouter.js";
+import orderRouter from "./router/orderRouter.js";
 
 
 
@@ -38,6 +38,6 @@ server.use("/user", authenticateRouter);
 server.use("/api", categoryRouter);
 server.use("/api", uploadRouter);
 server.use("/api", productRouter);
-// server.use("/api", orderRouter);
+server.use("/api", orderRouter);
 //server.use("/products", verifyToken, productRouter);
 // verifyToken nur bei Bestellung abschicken oder bei der Bezahlung

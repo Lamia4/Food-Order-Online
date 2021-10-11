@@ -1,60 +1,38 @@
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 
-// const orderItemSchema = new mongoose.Schema({
-//     id: {
-//         type: Number,
-//         required: true
-//     },  
-//     title: {
-//         type: String,
-//         required: true,
-//         trim: true,
-//         unique: true
-//     },
-//     price:{
-//         type: Number,
-//         required: true
-//     },
-//     description: {
-//         type: String,
-//         required: true,
-//     },
-//     category:{
-//         type: mongoose.Schema.Types.ObjectId,
-//         required: true,
-//         ref: "Category"
-//     },
-//     quantity: {
-//         type: Number,
-//         default: 1
-//     },
-//     image:{
-//         type: Object,
-//         required: true
-//     }
-// })
+const orderListItemSchema = new mongoose.Schema({
+    productId: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "Product"
+    },  
+    quantity: {
+        type: Number,
+        default: 0,
+    }
+});
 
-// const orderSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
 
-//     userID: {
-//         type: mongoose.Schema.Types.ObjectId,
-//         required: true,
-//         ref: "User"
-//     },
-//     cart: {
-//         type: [orderItemSchema],
-//         required: true
-//     },
+    userID: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "User"
+    },
+    orderList: {
+        type: [orderListItemSchema],
+        required: true
+    },
 
-//     totalPrice: {
-//         type: Number,
-//         required: true
-//     }
-// },
-// {
-//     timestamps: true
-// });
+    totalPrice: {
+        type: Number,
+        required: true
+    }
+},
+{
+    timestamps: true
+});
 
-// const Order = mongoose.model("Order", orderSchema);
+const Order = mongoose.model("Order", orderSchema);
 
-// export default Order;
+export default Order;

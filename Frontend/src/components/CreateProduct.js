@@ -1,23 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {
-  CardImg, CardText, Button, Row, Col, Input,FormGroup,Label
+  CardImg, Button, Row, Col, Input,FormGroup,Label
 } from 'reactstrap';
-import sampleImg from "../img/pizza2.jpg";
+import sampleImg from "../img/karePizza.jpg";
 import "./CreateProduct.css";
 import getCategories from '../API/getCategories.js';
-import postProduct from "../API/postProduct.js";
-import uploadImage from "../API/uploadImage";
+import {postProduct} from '../API/postProduct.js';
+import uploadImage from '../API/uploadImage';
+import deleteImage from '../API/deleteImage';
+import {ProductContext} from "../components/ProductProvider.js";
 
 
-function CreateCategory() {
-    const [categories, setCategories] = useState([]);
-    const [category, setCategory] = useState("");
-    const [inputTitle, setInputTitle] = useState("");
-    const [inputDesc, setInputDesc] = useState("");
-    const [inputPrice, setInputPrice] = useState("");
-    const [file, setFile] = useState("");
-    // const [inputImg, setInputImg] = useState("");
-    const [image, setImage] = useState("");
+function CreateProduct() {
+    const {handleImage, image, setImage, categories, setCategories, category, setCategory, inputTitle, setInputTitle, inputDesc, setInputDesc, inputPrice, setInputPrice} = useContext(ProductContext);
+
 
     useEffect(() => {
         getCategories()
@@ -26,26 +22,19 @@ function CreateCategory() {
         })
     },[]);
 
+
     const handleCategory = (e) =>{
-        setCategory(e.target.value);
-        
+        setCategory(e.target.value);    
     }
-    const handleRemove = () =>{
 
-    }
-    const handleImage = async (e) =>{
-        console.log("file before setFile", file);
-        setFile(e.target.files[0]); // you can see the image info
-        let formData = new FormData();
-        formData.append('file', file);
-       
-       const res = await uploadImage(file);
-       const data = await res;
+    const handleRemoveImage = async () =>{
+        const imagePublicId = {public_id:image.public_id};
+        const data = await deleteImage(imagePublicId);
+        console.log("data result:",data);     
 
-     
-        console.log("file info: ",file, data);
-        console.log("res info: ",res);
+        setImage(false)
     }
+    
     const styleUpload = {
         display: image ? "block" : "none"
     }
@@ -66,9 +55,9 @@ function CreateCategory() {
             description: inputDesc,
             image: image,
             price: inputPrice,
-            category: category,
-            
+            category: category, 
         }
+
         console.log(newProduct);
         postProduct(newProduct);
 
@@ -76,44 +65,46 @@ function CreateCategory() {
         setInputDesc("");
         setInputPrice("");
         setCategory("");
+        setImage("");
     }
+
     return (
 
         <Row xs={1} md={2} lg={3}  className="create_product mb-5">
-             <Col className=" imageColumn " style={{ display:"flex", alignItems:"center"}}>
+             <Col className="imageColumn" style={{ display:"flex", alignItems:"center"}}>
              <FormGroup className="upload">            
-                <Input type="file" name="file" id="file_up" onChange={handleImage}/>
+                <Input type="file" name="file" id="file_up"  onChange={(e)=>handleImage(e)}/>
                     <div id="file_img" style={styleUpload}>
-                        <CardImg src={image ? image.url : ''} alt=""/>
-                        <span onClick={handleRemove}>X</span>
+                        <CardImg src={image ? image.url : ''} alt="image"/>
+                        <span onClick={handleRemoveImage}>X</span>
                     </div>
             </FormGroup>
             </Col>
             
-            <Col className=" formCard " style={{justifyContent:"",flexDirection:"column", display:"flex", backgroundColor:" darkorange"}} >
+            <Col className="formCard" style={{flexDirection:"column", display:"flex", backgroundColor:"darkorange"}} >
                        
-                       <FormGroup className="" style={{width:"100%", margin:"10px 0"}}>
-                             <Label for="exampleTitle"> <b>Title: </b></Label>
+                       <FormGroup style={{width:"100%", margin:"10px 0"}}>
+                             <Label for="exampleTitle"><b>Title: </b></Label>
                             <Input type="text"  name="title" id="exampleTitle" placeholder="Write a title" onChange={handleInputTitle} value={inputTitle} required />
                        </FormGroup>
-                         <FormGroup className="" style={{width:"100%", margin:"15px 0"}}>
+                         <FormGroup style={{width:"100%", margin:"15px 0"}}>
                              <Label for="exampleDesc"> <b>Description: </b></Label>
                              <Input type="textarea" required name="desc" id="exampleDesc" placeholder="Write description" value={inputDesc} onChange={handleInputDesc}/>
                          </FormGroup>
-                         <FormGroup className="" style={{width:"100%", margin:"15px 0"}}>
+                         <FormGroup style={{width:"100%", margin:"15px 0"}}>
                              <Label for="examplePrice"> <b>Price: </b></Label>
                              <Input type="text" required name="price" id="examplePrice" placeholder="Write price" value={inputPrice} onChange={handleInputPrice}/>
                          </FormGroup>
-                         <FormGroup className="" style={{width:"100%", margin:"15px 0"}}>
+                         <FormGroup style={{width:"100%", margin:"15px 0"}}>
                              <Label for="exampleSelect"><b>Select a Category:</b> </Label>
                              <Input type="select" required name="select" value={category} onChange={handleCategory} id="exampleSelect" >
-                            <option value="">Please select a category</option>
+                            <option>Please select a category</option>
 
                              {
                             categories.map((category)=>
                             {
                                 return(
-                                    <option value={category._id} key={category._id} >{category.name}</option>
+                                    <option value={category._id} key={category._id}>{category.name}</option>
                                 )
                             })
                         
@@ -125,7 +116,6 @@ function CreateCategory() {
                             <Button onClick={handleAddProduct} style={{width:"200px",backgroundColor:"white", color:"darkorange", 
                             textTransform:"uppercase", fontWeight:"700", border:"none", borderRadius:"10px"}}>Add</Button>
                         </FormGroup>
-                        
                 </Col>
         </Row>
 
@@ -137,4 +127,4 @@ function CreateCategory() {
     )
 }
 
-export default CreateCategory
+export default CreateProduct

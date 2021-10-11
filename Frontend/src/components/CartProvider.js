@@ -5,9 +5,9 @@ export const CartContext = createContext("");
 
 function CartProvider({children}) {
 
-    const {getUser, setGetUser} = useContext(LoginContext);
     const [cart, setCart] = useState([]);
     const [cartObj, setCartObj] = useState({});
+    const [total, setTotal] = useState(0);
 
     useEffect(() => {
         
@@ -33,6 +33,7 @@ function CartProvider({children}) {
 
     const addToCart = (product) => {
         
+        console.log("product", product);
         let newArray = [...cart];
 
         let isProductInCart = false;
@@ -42,9 +43,12 @@ function CartProvider({children}) {
                 isProductInCart = true;
             }
         });
+        console.log("newArray", newArray);
 
         if(!isProductInCart){
-            newArray.push(product)
+            const newProduct = {...product, quantity: 1};
+            console.log("newProduct", newProduct);
+            newArray.push(newProduct)
         }
        
         setCart(newArray);
@@ -75,7 +79,7 @@ function CartProvider({children}) {
         return result
     }
     return (
-        <CartContext.Provider value={{cart, setCart, addToCart, removeFromCart, decrementCount, showCount}}>
+        <CartContext.Provider value={{cart, setCart, addToCart, removeFromCart, decrementCount, showCount, total, setTotal, cartObj, setCartObj}}>
             {children}
         </CartContext.Provider>
     )

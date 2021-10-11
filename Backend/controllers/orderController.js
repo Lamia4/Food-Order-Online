@@ -1,20 +1,37 @@
-// import Order from "../models/Order.js";
+import Order from "../models/Order.js";
 
-// export default {
+export default {
 
-//     createNewOrder: async function (req, res, next) {
-//         try {
-//             const order = new Order({
-//                 user: req.user,
-//                 cart: cart,
-//                 name: req.body.name
+    createNewOrderListItem: async function (req, res, next) {
+        try {
+            const {productId, quantity} = req.body;
+            const orderListItem = new OrderList({
+                productId,
+                quantity
+            });
+            await orderListItem.save();
+            res.json("you get a new orderListItem");
+        } catch (error) {
+            next(error);
+        }
+    },
+
+    createNewOrder: async function (req, res, next) {
+        try {
+            
+            const {userID, orderList, totalPrice} = req.body;
+
+            const order = new Order({
+                userID,
+                orderList,
+                totalPrice
                 
-//             });
-//             if (!user) return res.status(404).send();
-//             res.json("you get the order");
-//         } catch (error) {
-//             next(error);
-//         }
-//     },
+            });
+            await order.save();
+            res.json("you get the order");
+        } catch (error) {
+            next(error);
+        }
+    },
 
-// }
+}

@@ -9,7 +9,7 @@ import "../components/Slider.css"
 
 function Slider() {
     return (
-        <Carousel interval={3000} className="slider">
+        <Carousel interval={3300} className="slider">
 
 
       <Carousel.Item>

@@ -24,18 +24,17 @@ function NavBar() {
     useEffect(() => {
         const result = isTokenExpired(userToken);
         setTokenResult(result);
-        if(!result) {
+        if(!result & LoginFunctions.user) {
             setLogoutIcon(true);
             history.push("/logout");
         }
 
     }, [tokenResult])
     const handleUser =  () => {
-
+        LoginFunctions.setIsLogged(false);
         localStorage.removeItem('user');
-        LoginFunctions.setGetUser("")
+        LoginFunctions.setUser("")
     };
-    console.log("isLogged", LoginFunctions.isLogged);
     return (
         
             <Container fluid className="p-0 navContainer" style={{justifyItems: 'stretch', backgroundColor:"darkorange"}}>

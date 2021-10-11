@@ -14,7 +14,7 @@ function Login() {
 
     
     const history = useHistory();
-    const {setIsLogged, setGetUser, showError, setShowError, setEmail, setPassword, email, password, admin, setAdmin} = useContext(LoginContext);
+    const {setIsLogged, setUser, showError, setShowError, setEmail, setPassword, email, password, admin, setAdmin} = useContext(LoginContext);
     const {setUserToken} = useContext(TokenContext);
 
 
@@ -32,7 +32,7 @@ function Login() {
                 role: userData.role,
                 token: userData.token
             };
-            setGetUser(userObj);
+            setUser(userObj);
             setUserToken(userObj.token);
             if(userData.role === 1){
                 setAdmin(true)
