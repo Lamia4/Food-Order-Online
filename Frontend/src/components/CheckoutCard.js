@@ -24,6 +24,7 @@ function CheckoutCard() {
             if(userData.token) {
             setIsLogged(true);
             const userObj = {
+                id: userData._id,
                 name: userData.name,
                 role: userData.role,
                 token: userData.token

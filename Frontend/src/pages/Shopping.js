@@ -29,7 +29,8 @@ function Shopping() {
         setIsCheckout(false);
     }, [cart])
 
-    const handleCheckout = async (user, cart, total)=>{
+    const handleCheckout = async ()=>{
+        console.log("user von checkout", user);
         setIsCheckout(true);
         setIsNoOpacity(false);
         if(isLogged) {
@@ -46,8 +47,8 @@ function Shopping() {
                 console.log("userCart", userCart); 
                 const totalP = total;
                 console.log("total", totalP);
-                // const order = await (userId, userCart, totalP);
-                // console.log("order", order);
+                const finalResponse = await order(userId, userCart, totalP);
+                console.log("order", finalResponse);
                 history.push("/success") 
             }      
 
@@ -105,7 +106,7 @@ function Shopping() {
                     <Button onClick={handleGoBack} className="cartButton" style={{padding:"5px", borderRadius: "10px", backgroundColor: "darkorange", color: "white", border:"none"}}>
                         Go Back
                     </Button>
-                    <Button onClick={() => handleCheckout(user, cart,total.toFixed(2))} className="bg-success cartButton" style={{padding:"5px", borderRadius: "10px", color: "white", border:"none"}}>
+                    <Button onClick={handleCheckout} className="bg-success cartButton" style={{padding:"5px", borderRadius: "10px", color: "white", border:"none"}}>
                         Checkout
                     </Button>
                     </Col>

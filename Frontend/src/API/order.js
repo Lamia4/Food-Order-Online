@@ -1,8 +1,8 @@
-async function order(user, cart, price){
+async function order(userID, cart, totalPrice){
 
     const order = await fetch('http://localhost:3438/api/checkout', {
             method: 'POST',
-            body: JSON.stringify({user, cart, price}),
+            body: JSON.stringify({userID, cart, totalPrice}),
             headers: {
             'Content-type': "application/json"
             }

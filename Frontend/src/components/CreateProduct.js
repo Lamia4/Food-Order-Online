@@ -6,12 +6,12 @@ import sampleImg from "../img/karePizza.jpg";
 import "./CreateProduct.css";
 import getCategories from '../API/getCategories.js';
 import {postProduct} from '../API/postProduct.js';
-import deleteImage from '../API/deleteImage';
+
 import {ProductContext} from "../components/ProductProvider.js";
 
 
 function CreateProduct() {
-    const {handleImage, image, setImage, categories, setCategories, category, setCategory, inputTitle, setInputTitle, inputDesc, setInputDesc, inputPrice, setInputPrice, categoryProducts, categoriesProduct, setCategoryProducts} = useContext(ProductContext);
+    const {handleImage, image, setImage, categories, setCategories, category, setCategory, inputTitle, setInputTitle, inputDesc, setInputDesc, inputPrice, setInputPrice, categoryProducts, categoriesProduct, setCategoryProducts, handleRemoveImage} = useContext(ProductContext);
 
 
     useEffect(() => {
@@ -26,13 +26,7 @@ function CreateProduct() {
         setCategory(e.target.value);    
     }
 
-    const handleRemoveImage = async () =>{
-        const imagePublicId = {public_id:image.public_id};
-        const data = await deleteImage(imagePublicId);
-        console.log("data result:",data);     
-
-        setImage(false)
-    }
+    
     
     const styleUpload = {
         display: image ? "block" : "none"

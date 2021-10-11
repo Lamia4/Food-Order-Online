@@ -1,5 +1,6 @@
 import {useState, createContext} from 'react';
 import uploadImage from "../API/uploadImage.js";
+import deleteImage from '../API/deleteImage';
 
 export const ProductContext = createContext("");
 
@@ -8,7 +9,6 @@ function ProductProvider({children}) {
     const[product, setProduct] = useState("");
     const [image, setImage] = useState("");
     const [categoryProducts, setCategoryProducts] = useState([]);
-    const [isEditable, setIsEditable] = useState(false);
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState("");
     const [inputTitle, setInputTitle] = useState("");
@@ -37,8 +37,16 @@ function ProductProvider({children}) {
         setImage(data);
         
     }
+
+    const handleRemoveImage = async () =>{
+        const imagePublicId = {public_id:image.public_id};
+        const data = await deleteImage(imagePublicId);
+        console.log("data result:",data);     
+
+        setImage(false)
+    }
     return (
-        <ProductContext.Provider value={{product, setProduct, image, setImage, categoryProducts, setCategoryProducts, isEditable, setIsEditable, categories, setCategories, category, setCategory, inputTitle, setInputTitle, inputDesc, setInputDesc, inputPrice, setInputPrice, productObj, setProductObj, saved, setSaved, handleImage, editProduct, setEditProduct}}>
+        <ProductContext.Provider value={{product, setProduct, image, setImage, categoryProducts, setCategoryProducts, categories, setCategories, category, setCategory, inputTitle, setInputTitle, inputDesc, setInputDesc, inputPrice, setInputPrice, productObj, setProductObj, saved, setSaved, handleImage, editProduct, setEditProduct, handleRemoveImage}}>
             {children}
         </ProductContext.Provider>
     )
