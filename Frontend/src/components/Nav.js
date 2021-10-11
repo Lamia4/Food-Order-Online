@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import login from "../img/login.png"
+import logout from "../img/logout.png"
 import shopping from "../img/shopping3.png";
 import "./Nav.css";
 import { NavLink, useHistory } from 'react-router-dom';
@@ -54,8 +55,8 @@ function NavBar() {
                         </nav>
                         <nav className="navCenter" style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "flex-end"}}> 
                         { LoginFunctions.isLogged && userToken?  
-                        (<NavLink to="/logout" style={{marginRight:"20px"}} className="" onClick={() => {handleUser()}}>Logout</NavLink>):
-                        (<NavLink  to="/login" style={{marginRight:"20px"}} className="" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink>)
+                        (<NavLink to="/logout" style={{marginRight:"20px"}} className="" onClick={() => {handleUser()}}><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink>):
+                        (<NavLink  to="/login" style={{marginRight:"20px"}} className="" ><img style={{height: "5vh"}} src= {logout} alt="logout"/></NavLink>)
                         }
                             
                             <NavLink style={{marginRight:"20px", position: "relative", display:"flex"}} to="/shopping"><img style={{height: "5vh"}} src= {shopping} alt="shopping"/>{cartArray.cart.length > 0?
