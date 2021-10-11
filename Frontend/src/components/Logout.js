@@ -7,11 +7,11 @@ function Logout() {
     const {setIsLogged, setShowCartCount} = useContext(LoginContext);
     const history = useHistory();
 
-    useEffect(() => {
-        setIsLogged(false); // Toggle = Gegenteil von einem Bool Wert
-        setShowCartCount(false);
-        history.push("/")
-    }, [])
+    // useEffect(() => {
+    //     // setIsLogged(false);
+    //     // setShowCartCount(false);
+    //     // history.push("/")
+    // }, [])
 
     return (
         <div style={{textAlign:'center', marginTop: "30px", fontSize: "20px"}}>

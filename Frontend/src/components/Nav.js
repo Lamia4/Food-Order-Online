@@ -23,7 +23,7 @@ function NavBar() {
     useEffect(() => {
         const result = isTokenExpired(userToken);
         setTokenResult(result);
-        if(!result) {
+        if(!result & LoginFunctions.user) {
             setLogoutIcon(true);
             history.push("/logout");
         }
@@ -53,7 +53,7 @@ function NavBar() {
                         </nav>
                         <nav className="navCenter" style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "flex-end"}}> 
                         { LoginFunctions.isLogged && userToken?  
-                        (<NavLink to="/logout" style={{marginRight:"20px"}} className="" onClick={() => {handleUser()}}>Logout</NavLink>):
+                        (<NavLink to="/logout" style={{marginRight:"20px"}} onClick={() => {handleUser()}}>Logout</NavLink>):
                         (<NavLink  to="/login" style={{marginRight:"20px"}} className="" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink>)
                         }
                             
