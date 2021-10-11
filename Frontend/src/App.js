@@ -13,6 +13,11 @@ import Footer from "./components/Footer.js";
 import Logout from "./components/Logout";
 import Category from "./pages/Category.js";
 import Success from "./pages/Success.js";
+import Privacy from "./pages/Privacy.js";
+import FAQ from "./pages/FAQ.js";
+import Services from "./pages/Services.js";
+import Payment from "./pages/Payment.js";
+
 
 function App() {
 
@@ -32,6 +37,10 @@ function App() {
             <Route path="/register" component={ Register } />
             <Route path="/shopping" component={ Shopping } /> 
             <Route path="/success" component={ Success } /> 
+            <Route path="/privacy" component={ Privacy } /> 
+            <Route path="/faq" component={ FAQ } /> 
+            <Route path="/services" component={ Services } /> 
+            <Route path="/payment" component={ Payment } /> 
             <Route path="/products/:categoryName" component={ Category } />         
           </Switch>
           </main>

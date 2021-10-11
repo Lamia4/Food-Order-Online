@@ -13,7 +13,6 @@ function Footer() {
                     <ListGroup className="listGroupItems ">
                         <h3  className="listFooterItem footerTitle ">Information</h3>
                         <ListGroupItem className="listFooterItem"  href="https://www.instagram.com/" target="_blank" >Privacy & Terms</ListGroupItem>
-                        <ListGroupItem className="listFooterItem"  href="#" >Terms of Service</ListGroupItem>
                         <ListGroupItem className="listFooterItem"  href="#" >FAQs</ListGroupItem>
                     </ListGroup>
                     </Col>
