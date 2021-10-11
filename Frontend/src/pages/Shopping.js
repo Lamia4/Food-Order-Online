@@ -61,6 +61,7 @@ function Shopping() {
     
     return (
         <Container className="menuItem " style={{position: "relative"}}>
+            <div>
             <div style={{zIndex: isNoOpacity ? "3" : "1", opacity:isNoOpacity ? "1" : "0.3"}}>
                 {isLogged? 
                 (<h1 style={{marginTop:"25px"}}>Hi {user.name}</h1>) :
@@ -115,6 +116,7 @@ function Shopping() {
                     }
                         
                     </Row>
+                    </div>
                     <Row className="justify-content-center">
                     {isCheckout && <CheckoutCard/>}
                 </Row>

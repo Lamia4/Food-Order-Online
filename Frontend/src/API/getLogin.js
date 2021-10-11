@@ -5,7 +5,7 @@ async function getLogin(email,password){
             method: 'POST',
             body: JSON.stringify({email, password}),
             headers: {
-            'Content-type': "application/json"
+            'Content-type': "application/json", 
             }
             }).then(response => response.json())
             .then(data => {

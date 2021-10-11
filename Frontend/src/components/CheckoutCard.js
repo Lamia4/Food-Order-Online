@@ -4,6 +4,7 @@ import getLogin from "../API/getLogin";
 import {LoginContext} from '../components/LoginProvider.js';
 import { useHistory } from "react-router-dom";
 import { TokenContext } from "../components/TokenProvider.js";
+import "./CheckoutCard.css";
 
 function CheckoutCard() {
 
@@ -12,7 +13,7 @@ function CheckoutCard() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-    const {setIsLogged, setUser, setShowError, setAdmin, setIsCheckout, setIsFullOpacity, isFullOpacity } = useContext(LoginContext);
+    const {setIsLogged, setUser, setShowError, setAdmin, setIsCheckout, setIsNoOpacity, isNoOpacity } = useContext(LoginContext);
     const { setUserToken } = useContext(TokenContext);
     const history = useHistory();
 
@@ -40,7 +41,7 @@ function CheckoutCard() {
                 setPassword("")      
             }
             setIsCheckout(false);
-            setIsFullOpacity(true)
+            setIsNoOpacity(true)
             
             
         }catch(error){
@@ -51,7 +52,7 @@ function CheckoutCard() {
     const handleRemoveLogin= () =>{
         setIsDisplayLogin(false);
         setIsDisplayRegister(false);
-        setIsFullOpacity(true);
+        setIsNoOpacity(true);
         setIsCheckout(false);
 
     }
@@ -64,7 +65,7 @@ function CheckoutCard() {
     }
    
     return(
-        <>
+        <div className="checkoutcard">
         {
             isDisplayLogin ? (
             <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border" style={{position:"relative", backgroundColor:"#FCBF49"}}>
@@ -109,7 +110,7 @@ function CheckoutCard() {
         }
 
 
-        </>
+        </div>
         )
 }
 
