@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import { Container, Card, CardTitle, Button, CardImg,Row,Col,CardBody,Input } from 'reactstrap';
+import { Container, Card, CardTitle, Button, CardImg,Row,Col,CardBody,Input, CardText } from 'reactstrap';
 import {Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Categories.css";
@@ -29,10 +29,15 @@ function Categories() {
         <div>
             <Container className=" cardContainer mt-5">
                 <Row className="smCenter justify-content-md-space-between productRow mt-3">
-                   <h1 style={{textAlign:"center", color: "white"}}>My Delicious Food Categories :)</h1>
+                   <h1 style={{textAlign:"center", color: "white"}}>My Delicious Food Categories &#9825;</h1>
                     <Search />
                     {
-                        searchedProducts.isSearched ? <SearchResult/> :
+                        searchedProducts.isSearched ? 
+                        (searchedProducts.products.length !== 0?
+                            <SearchResult/>
+                            :
+                            <CardText className="mb-5" style={{color: "white", textAlign: "center", fontSize: "28px"}}>I'm sorry ! There are no results ! :( </CardText> )
+                         :
                         
                         (  
                         categories.map((category,i)=>
