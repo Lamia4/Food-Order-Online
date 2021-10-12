@@ -63,8 +63,8 @@ function Login() {
 
       <Input type="text" className="contact-form-text" placeholder="User Name or Email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
       <Input type="password" className="contact-form-text" placeholder="Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-      {showError? (<CardText style={{color:"red", textDecoration:"underline"}}>Your password or email is incorrect!</CardText>): null }
-      <CardText>Einer neuer User erstelen <Link to="/register" style={{color: "white"}}>Register.</Link></CardText>
+      {showError? (<CardText style={{color:"yellow", textDecoration:"underline"}}>Your password or email is incorrect!</CardText>): null }
+      <CardText style={{color: "white"}}>Create Your Account:  <Link to="/register" style={{color: "yellow", marginLeft: "5px"}}>Register.</Link></CardText>
       <Button type="submit" className="contact-form-btn" onClick={handleLogin}>Send</Button>
       
 

@@ -1,5 +1,4 @@
 
-
   .contact-form{
     margin: auto;
     padding: 0 10px;
@@ -43,7 +42,7 @@
 
 .contact-form{
   border:2px solid rgb(231, 223, 223);
-  margin:100px auto 20px auto;
+  margin:100px auto 0px auto;
   padding: 20px;
   width: 50%;
   

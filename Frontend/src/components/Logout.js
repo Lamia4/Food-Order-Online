@@ -1,6 +1,7 @@
 import React,{useContext, useEffect} from 'react'
 import {LoginContext} from "./LoginProvider";
 import { useHistory } from "react-router-dom";
+import { CardText } from "reactstrap";
 
 function Logout() {
 
@@ -14,8 +15,8 @@ function Logout() {
     // }, [])
 
     return (
-        <div style={{textAlign:'center', marginTop: "30px", fontSize: "20px"}}>
-            <p>You are logged out!</p>
+        <div style={{textAlign:'center', marginTop: "7vh", fontSize: "25px"}}>
+            <CardText style={{color: "white"}}>You are logged out!</CardText>
         </div>
     )
 }

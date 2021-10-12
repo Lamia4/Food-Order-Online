@@ -101,7 +101,7 @@ function Shopping() {
                         (<CardText style={{textAlign: "center", fontSize: "25px", textTransform: "capitalize", color: "white"}}>your cart is empty! :(</CardText>) :
                         (<>
                         <Col xs={8} md={6} lg={4} className=" summaryCardCol">
-                        <CardText className ="summaryCard"><b>Summary:</b>{total.toFixed(2)}€</CardText>
+                        <CardText className ="summaryCard" style={{color:"white"}}><b>Summary:</b>{total.toFixed(2)}€</CardText>
                         </Col>
                         <Col className=" d-flex shoppingButton " xs={8} md={6} lg={4} style={{justifyContent:"space-between"}}>
                     <Button onClick={handleGoBack} className="cartButton" style={{padding:"5px", borderRadius: "10px", backgroundColor: "#A61C3C", color: "white", border:"none"}}>
@@ -120,7 +120,6 @@ function Shopping() {
                     <Row className="justify-content-center">
                     {isCheckout && <CheckoutCard/>}
                 </Row>
-                <p>{isTokenExpired()}</p>
         </Container>
     )
 }
