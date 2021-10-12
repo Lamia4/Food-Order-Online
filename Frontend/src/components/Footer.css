@@ -8,6 +8,10 @@
     text-align: left;
     margin: 5px;
 }
+a{
+    color: black;
+    text-decoration: none;
+}
 .listGroupItems{
     display: flex;   
     width: 250px;

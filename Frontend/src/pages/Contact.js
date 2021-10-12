@@ -23,16 +23,13 @@ function Contact() {
 
                 <Col className="col2 p-4 col-lg-8">
                 <MapContainer center={[DEFAULT_LATITUDE, DEFUALT_LANGITUDE]} zoom={13} >
-  <TileLayer
-    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  />
-  <Marker position={[DEFAULT_LATITUDE, DEFUALT_LANGITUDE]}>
-    <Popup>
-      A pretty CSS3 popup. <br /> Easily customizable.
-    </Popup>
-  </Marker>
-</MapContainer>
+                    <TileLayer attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+                        <Marker position={[DEFAULT_LATITUDE, DEFUALT_LANGITUDE]}>
+                            <Popup>
+                            Hier sind wir.
+                            </Popup>
+                        </Marker>
+                </MapContainer>
                 </Col>
 
                 <Col className="col1  col-lg-4">
