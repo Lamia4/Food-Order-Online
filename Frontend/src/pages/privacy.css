@@ -1,0 +1,28 @@
+@import url('http://fonts.cdnfonts.com/css/omnes');
+
+.privacy{
+    background-color: #fff;   
+                                         
+}
+.mainPrivacy{
+
+    padding:40px 10% 0;
+    font-family: 'Omnes', sans-serif;   
+    min-height: 100vh;  
+
+}
+article{
+    padding: 20px;
+}
+
+
+article h3{
+    font-size: 38px;
+}
+
+article p{
+    max-width: 85%;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 30px;
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import { Row,Col, ListGroup, ListGroupItem} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Footer.css";
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -12,8 +13,8 @@ function Footer() {
                     <Col md={4} lg={4}  className="columnCenter" >
                     <ListGroup className="listGroupItems ">
                         <h3  className="listFooterItem footerTitle ">Information</h3>
-                        <ListGroupItem className="listFooterItem"  href="https://www.instagram.com/" target="_blank" >Privacy & Terms</ListGroupItem>
-                        <ListGroupItem className="listFooterItem"  href="#" >FAQs</ListGroupItem>
+                        <ListGroupItem className="listFooterItem"><Link to="/privacy">Privacy & Terms</Link></ListGroupItem>
+                        <ListGroupItem className="listFooterItem"> <Link to="/faq">FAQs</Link></ListGroupItem>
                     </ListGroup>
                     </Col>
                     <Col md={4} lg={4} className="columnCenter" >
