@@ -79,7 +79,7 @@ function CheckoutCard() {
                     </FormGroup>
                     <FormGroup className="" style={{display:"flex", flexDirection:"row", justifyContent:"flex-end"}}>
 
-                        <Button type="submit" className="d-flex mb-4 " style={{borderRadius: "10px", backgroundColor: "#E75414", color: "white",border:"none",display:"flex", justifyContent:"flex-end"}} onClick={handleLogin}>Send</Button>
+                        <Button type="submit" className="d-flex mb-4 " style={{borderRadius: "10px", backgroundColor: "#A61C3C", color: "white",border:"none",display:"flex", justifyContent:"flex-end"}} onClick={handleLogin}>Send</Button>
                         <CardText style={{ width:"22px",height:"22px",alignItems:"center",paddingLeft:" 5px",justifyContent:"center",  position:"absolute", top:"2px", right:"2px", color:"red",  border:"1px solid ", cursor:"pointer"}} onClick={handleRemoveLogin}>X</CardText>
                     </FormGroup>
                 </Form>
@@ -101,7 +101,7 @@ function CheckoutCard() {
                     </FormGroup>
                     <FormGroup className="" style={{display:"flex", flexDirection:"row", justifyContent:"flex-end"}}>
 
-                        <Button type="submit" className="d-flex mb-4 " style={{borderRadius: "10px", backgroundColor: "#E75414", color: "white",border:"none",display:"flex", justifyContent:"flex-end"}} onClick={handleLogin}>Send</Button>
+                        <Button type="submit" className="d-flex mb-4 " style={{borderRadius: "10px", backgroundColor: "#A61C3C", color: "white",border:"none",display:"flex", justifyContent:"flex-end"}} onClick={handleLogin}>Send</Button>
                         <CardText style={{ width:"22px",height:"22px",alignItems:"center",paddingLeft:" 5px",justifyContent:"center",  position:"absolute", top:"2px", right:"2px", color:"red",  border:"1px solid ", cursor:"pointer"}} onClick={handleRemoveLogin}>X</CardText>
                     </FormGroup>
                 </Form>
