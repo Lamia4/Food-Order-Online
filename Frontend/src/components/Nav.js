@@ -47,10 +47,10 @@ function NavBar() {
 
                     <Collapse className="collapseRight" isOpen={isOpen} navbar style={{justifyContent: "space-between", justifyItems: "center"}}>
                         <nav style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "center", padding: "10px 0"}}>
-                            <NavLink style={{marginRight:"20px"}} className="" exact to="/">Home</NavLink>
-                            <NavLink style={{marginRight:"20px"}} to="/">Categories</NavLink>
-                            <NavLink style={{marginRight:"20px"}} to="/contact">Contact</NavLink>
-                            <NavLink  to="/about">About</NavLink>
+                            <NavLink style={{marginRight:"20px"}} className="nav_link" exact to="/">Home</NavLink>
+                            <NavLink style={{marginRight:"20px"}} className="nav_link" to="/categories">Categories</NavLink>
+                            <NavLink style={{marginRight:"20px"}} className="nav_link" to="/contact">Contact</NavLink>
+                            <NavLink className="nav_link" to="/about">About</NavLink>
                         </nav>
                         <nav className="navCenter" style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "flex-end"}}> 
                         { LoginFunctions.isLogged && userToken?  

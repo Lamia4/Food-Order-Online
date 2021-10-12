@@ -4,18 +4,21 @@
 }
 
 .navContainer a {
-    font-size: 19px;
+    font-size: 20px;
+    height: 4vh;
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
-.navContainer a:hover {
-    color: white;
-    transition: all 0.5s;
-}
+nav a.nav_link:hover {
+    cursor: pointer;
+    color: rgb(196, 103, 134);
+    background: black;
+    height: 3vh;
+  }
 
 .navContainer {
-    /* margin-bottom: 6.6vh !important; */
+    
     height: 5vh;
 }
 
