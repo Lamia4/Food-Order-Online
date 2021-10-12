@@ -98,7 +98,7 @@ function Shopping() {
                 
                     <Row className="justify-content-center mt-3 mb-0 cartFooterRow">
                         {cart.length === 0?
-                        (<CardText style={{textAlign: "center", fontSize: "25px", textTransform: "capitalize"}}>your cart is empty!</CardText>) :
+                        (<CardText style={{textAlign: "center", fontSize: "25px", textTransform: "capitalize", color: "white"}}>your cart is empty! :(</CardText>) :
                         (<>
                         <Col xs={8} md={6} lg={4} className=" summaryCardCol">
                         <CardText className ="summaryCard"><b>Summary:</b>{total.toFixed(2)}€</CardText>

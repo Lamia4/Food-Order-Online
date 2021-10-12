@@ -1,12 +1,12 @@
 import React from 'react';
-import {Input, Form , FormGroup,Button} from 'reactstrap';
+import {Input, Form , FormGroup, Button, CardTitle} from 'reactstrap';
 
 function Register() {
     return (
         
       <Form className="contact-form ">
 
-      <h1>Register</h1>
+      <CardTitle style={{color: "white", fontSize: "40px"}}>Register</CardTitle>
         <FormGroup className="row">
 
         <Input type="text" className="contact-form-text" placeholder="Name"/>
