@@ -83,10 +83,10 @@ export default {
         try {
             const {title, price, description, image, category} = req.body;
             
-            await Product.findByIdAndUpdate(req.params.id, {
+            const updatedProduct = await Product.findByIdAndUpdate(req.params.id, {
                 title: title, price, description, image, category
-            })
-            res.json({msg: "updated a product"})
+            }, {new: true})
+            res.json(updatedProduct)
         } catch (err) {
             return res.status(500).json({msg: err.message})
         }
