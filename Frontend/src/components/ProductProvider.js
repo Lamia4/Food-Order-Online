@@ -22,6 +22,8 @@ function ProductProvider({children}) {
         category: product.category });
     const [saved, setSaved] = useState(false);
     const [editProduct, setEditProduct] = useState({});
+    const [changedProduct, setChangedProduct] = useState({});
+    const [changedCategory, setChangedCategory] = useState({});
 
     const handleImage = async (e) =>{
         e.preventDefault();
@@ -46,7 +48,7 @@ function ProductProvider({children}) {
         setImage(false)
     }
     return (
-        <ProductContext.Provider value={{product, setProduct, image, setImage, categoryProducts, setCategoryProducts, categories, setCategories, category, setCategory, inputTitle, setInputTitle, inputDesc, setInputDesc, inputPrice, setInputPrice, productObj, setProductObj, saved, setSaved, handleImage, editProduct, setEditProduct, handleRemoveImage}}>
+        <ProductContext.Provider value={{product, setProduct, image, setImage, categoryProducts, setCategoryProducts, categories, setCategories, category, setCategory, inputTitle, setInputTitle, inputDesc, setInputDesc, inputPrice, setInputPrice, productObj, setProductObj, saved, setSaved, handleImage, editProduct, setEditProduct, handleRemoveImage, changedProduct, setChangedProduct, changedCategory, setChangedCategory}}>
             {children}
         </ProductContext.Provider>
     )

@@ -35,7 +35,7 @@
     top:0;
     left: 0;
     background: white;
-    color: rgb(250, 200, 107);
+    color: #C58882;
     font-size: 17rem;
     text-align: center;
     cursor: pointer;
@@ -73,3 +73,10 @@
      margin-bottom: 30px !important;
  }  
 }
+
+@media(max-width:776px){
+    .upload1{
+        width: 100% !important;
+        height: 450px !important;
+    }  
+   }

@@ -8,7 +8,7 @@ function Footer() {
         <div className="footerPosition">
 
             <div className="footerDiv d-flex justify-content-space-between">
-                <Row className="footerRow " >
+                <Row className="footerRow mt-3" >
                     <Col md={4} lg={4}  className="columnCenter" >
                     <ListGroup className="listGroupItems ">
                         <h3  className="listFooterItem footerTitle ">Information</h3>

@@ -59,7 +59,7 @@ export default {
             const {title, price, description, image, category} = req.body;
             if(!image) return res.status(400).json({msg: "pls add an image"});
             const newProduct = new Product({
-                title: title.toLowerCase(),
+                title: title,
                 price,
                 description,
                 image,
@@ -84,7 +84,7 @@ export default {
             const {title, price, description, image, category} = req.body;
             
             await Product.findByIdAndUpdate(req.params.id, {
-                title: title.toLowerCase(), price, description, image, category
+                title: title, price, description, image, category
             })
             res.json({msg: "updated a product"})
         } catch (err) {

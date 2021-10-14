@@ -4,7 +4,7 @@ import {
 } from 'reactstrap';
 import sampleImg from "../img/karePizza.jpg";
 import "./CreateProduct.css";
-import getCategories from '../API/getCategories.js';
+import {getCategories} from '../API/getCategories.js';
 import {postProduct} from '../API/postProduct.js';
 
 import {ProductContext} from "../components/ProductProvider.js";
@@ -79,7 +79,7 @@ function CreateProduct() {
             </FormGroup>
             </Col>
             
-            <Col className="formCard" style={{flexDirection:"column", display:"flex", backgroundColor:"darkorange"}} >
+            <Col className="formCard" style={{flexDirection:"column", display:"flex", backgroundColor:"#C58882"}} >
                        
                        <FormGroup style={{width:"100%", margin:"10px 0"}}>
                              <Label for="exampleTitle"><b>Title: </b></Label>
@@ -111,7 +111,7 @@ function CreateProduct() {
                             </Input>
                         </FormGroup>
                         <FormGroup style={{display:"flex", justifyContent:"flex-end"}}>
-                            <Button onClick={handleAddProduct} style={{width:"200px",backgroundColor:"white", color:"darkorange", 
+                            <Button onClick={handleAddProduct} style={{width:"200px",backgroundColor:"#A61C3C", color:"white", 
                             textTransform:"uppercase", fontWeight:"700", border:"none", borderRadius:"10px"}}>Add</Button>
                         </FormGroup>
                 </Col>

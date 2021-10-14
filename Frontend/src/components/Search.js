@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import {Form, Button, Input, Col, Row,FormGroup } from "reactstrap";
 import "./Search.css";
-import getCategories from '../API/getCategories.js';
+import {getCategories} from '../API/getCategories.js';
 import "../pages/Product.css";
 import {SearchContext} from "./SearchProvider.js";
 

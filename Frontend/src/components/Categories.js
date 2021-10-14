@@ -1,20 +1,22 @@
 import React, {useState, useEffect, useContext} from 'react';
-import { Container, Card, CardTitle, Button, CardImg,Row,Col,CardBody,Input, CardText } from 'reactstrap';
+import { Container, Card, CardTitle, Button, CardImg,Row,Col,CardBody, CardText } from 'reactstrap';
 import {Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Categories.css";
-import getCategories from '../API/getCategories';
+import {getCategories} from '../API/getCategories';
 import Search from "./Search.js";
 import SearchResult from "./SearchResult.js";
 import {SearchContext} from "./SearchProvider.js";
 import {LoginContext} from "./LoginProvider.js";
+import CreateCategory from "./CreateCategory.js";
+import EditCategory from "./EditCategory.js";
 
 
 
 function Categories() {
     const [categories, setCategories] = useState([]);
     const searchedProducts = useContext(SearchContext);
-    const {isAdmin} = useContext(LoginContext);
+    const {admin} = useContext(LoginContext);
 
     useEffect(() => {
         getCategories()
@@ -31,6 +33,7 @@ function Categories() {
                 <Row className="smCenter justify-content-md-space-between productRow mt-3">
                    <h1 style={{textAlign:"center", color: "white"}}>My Delicious Food Categories &#9825;</h1>
                     <Search />
+                    {admin && <CreateCategory/>}
                     {
                         searchedProducts.isSearched ? 
                         (searchedProducts.products.length !== 0?
@@ -40,9 +43,11 @@ function Categories() {
                          :
                         
                         (  
-                        categories.map((category,i)=>
-                        {
-                            return(
+                        categories.map((category,i)=>(
+                        
+                            admin?  <EditCategory category={category} key={i}/>
+                            :
+                            
                                     <Col key={i} xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-3">
                                     <div className="categoryCard">
                                         <Card className="d-flex " style={{color:"black", height:"100%"}}  inverse >
@@ -51,9 +56,7 @@ function Categories() {
                                             :"100%"}}
                                             />
                                                 <CardBody className="cardBody">
-                                                {
-                                                isAdmin && <Input type="checkbox" className="productCheckbox" />
-                                                }
+                                               
                                                     <CardTitle>
                                                         <h1>{category.name}</h1>
                                                     </CardTitle>
@@ -65,9 +68,9 @@ function Categories() {
                                         </div>
                                     </Col>
                                 
-                            );
-                        })
-                     )
+                           
+                        ))
+                        )
 
                     }
 

@@ -13,7 +13,7 @@ import EditProduct from "../components/EditProduct.js";
 
 function Category() {
     let {categoryName} = useParams();
-    const {isEditable, setIsEditable, categoryProducts, setCategoryProducts,editProduct, categories} = useContext(ProductContext);
+    const {isEditable, setIsEditable, categoryProducts, setCategoryProducts,editProduct, categories, editedProduct} = useContext(ProductContext);
     const {admin} = useContext(LoginContext);
     const currentCart = useContext(CartContext);
     // const [price, setPrice] = useState("");
@@ -40,6 +40,7 @@ function Category() {
        
     useEffect(() => {
         getCategoryProducts(); 
+        
     },[])
 
     
@@ -57,7 +58,7 @@ function Category() {
 
                         categoryProducts.map((product, i)=>(
 
-                                    admin? <EditProduct product={product} i={i}/> 
+                                    admin? <EditProduct product={product} key={i}/> 
                                     :
 
                                         <Col xs ={10}sm={9} md={12} lg={9} key={i} className=" mb-3  menuColumn">
@@ -68,9 +69,9 @@ function Category() {
                                         <CardBody className="productBody " style={{height:"100%", width:"50%"}}>
                                         <CardTitle style={{textTransform:"capitalize"}} className="productTitle mb-md-3 ">{product.title}</CardTitle>
                                         <CardText className="productText mb-md-5 ">{product.description}</CardText>
-                                        <CardSubtitle tag="h6" className="productPrice">{product.price}€</CardSubtitle>
                                         <div className="priceAndButtonDiv " style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
-                                        <Button style={{padding: "5px", borderRadius: "10px", background: "darkorange", color: "white", border:"none"}} className="productButton" onClick={() => currentCart.addToCart(product)} >ORDER</Button>
+                                        <CardSubtitle tag="h6" className="productPrice">{product.price}€</CardSubtitle>
+                                        <Button style={{padding: "5px", borderRadius: "10px", background: "#A61C3C", color: "white", border:"none"}} className="productButton" onClick={() => currentCart.addToCart(product)} >ORDER</Button>
               
                                         </div>
                                                 
