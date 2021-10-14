@@ -14,6 +14,7 @@ import EditProduct from "../components/EditProduct.js";
 function Category() {
     let {categoryName} = useParams();
     const {isEditable, setIsEditable, categoryProducts, setCategoryProducts,editProduct, categories, editedProduct} = useContext(ProductContext);
+    console.log("ich hab mich rerendert");
     const {admin} = useContext(LoginContext);
     const currentCart = useContext(CartContext);
     // const [price, setPrice] = useState("");

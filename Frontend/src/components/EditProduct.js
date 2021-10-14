@@ -7,13 +7,14 @@ import EditInputProduct from "./EditInputProduct.js";
 import EditPicture from "./EditPicture.js";
 
 function EditProduct({product, i}) {
-    const {categoryProducts, getCategoryProducts, categories, changedProduct} = useContext(ProductContext);
+    const {categoryProducts, setCategoryProducts, categories, changedProduct} = useContext(ProductContext);
     const [key, setKey] = useState("");
     const [isEditable, setIsEditable] = useState(false);
     const [chosenProduct, setChosenProduct] = useState(false);
     const [newProduct, setNewProduct] = useState({title:product.title, description:product.description, price:product.price, image:product.image});
-  
 
+
+    console.log("categoryProducts", categoryProducts);
     const handleRemove = async(category)=>{
         await deleteProduct(category._id);
         await deleteImage({public_id:category.image.public_id});
@@ -35,10 +36,11 @@ function EditProduct({product, i}) {
     }
 
     const handleSave = async() => {
-        await editProduct(product._id, changedProduct.title, parseInt(changedProduct.price), changedProduct.description, changedProduct.image, changedProduct.category);
+        const updatedProduct = await editProduct(product._id, changedProduct.title, parseInt(changedProduct.price), changedProduct.description, changedProduct.image, changedProduct.category);
+        const updatedProductsArray = categoryProducts.map(product => product._id===updatedProduct._id? updatedProduct: product)
+        setCategoryProducts(updatedProductsArray);
         setChosenProduct(false);
         setIsEditable(false);
-        console.log("newProductSaved", changedProduct);
     }
     return (
         <Col xs ={10}sm={9} md={12} lg={9} key={i} className=" mb-3  menuColumn">

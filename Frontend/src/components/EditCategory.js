@@ -57,6 +57,7 @@ function EditCategory({category, i}) {
                       }                  
                         {isEditable ?
                         <>
+                        <Link to={`/products/${category.name.toLowerCase()}`}><Button className="categoryButton">See more</Button></Link>
                         <Button className="categoryButton" onClick={() => handleCancelEdit()}>Cancel Edit</Button>
                         <Button className="categoryButton" onClick={() => handleSave()}>Save</Button>
                         </>

@@ -1,4 +1,4 @@
-import {useState, createContext} from 'react';
+import {useState, createContext, useEffect} from 'react';
 import uploadImage from "../API/uploadImage.js";
 import deleteImage from '../API/deleteImage';
 

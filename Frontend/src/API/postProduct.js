@@ -39,9 +39,7 @@ export async function editProduct(id, title,  price, description, image, categor
                 'Accept': 'application/json'
             }
         })
-        .then(function (response) {
-            response.json()
-        })
+        .then(response => response.json())
         .catch(err => console.log(err));
         console.log("fetchProduct", product);
     return product;
