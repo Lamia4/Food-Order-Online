@@ -37,7 +37,7 @@ router.post("/upload", (req, res) => {
     }
 })
 
-router.post("/deletepicture", auth, authAdmin, (req, res) => {
+router.post("/deletepicture", (req, res) => {
     try {
         const {public_id} = req.body;
         if(!public_id) return res.status(400).json({msg: "no images selected"})
