@@ -7,14 +7,14 @@ class APIfeatures {
     }
     filtering(){
         const queryObj = {...this.queryString} //queryString = req.query 
-        console.log(queryObj);
+        //console.log(queryObj);
         // const excludedFields = ["page", "sort", "limit"];
         // excludedFields.forEach(value => delete(queryObj[value]))
         // console.log(queryObj);
         let queryStr = JSON.stringify(queryObj);
 
         queryStr = queryStr.replace(/\b(gte|gt|lt|lte|regex)\b/g, match => "$" + match)
-        console.log({queryStr});
+        //console.log({queryStr});
 
         this.query.find(JSON.parse(queryStr))
         
@@ -23,7 +23,7 @@ class APIfeatures {
     sorting(){
         if(this.queryString.sort){
             const sortBy = this.queryString.sort.split(',').join('');
-            console.log(sortBy);
+            //console.log(sortBy);
             this.query = this.query.sort(sortBy)
         }else{
             this.query = this.query.sort("-createdAt")
@@ -99,9 +99,10 @@ export default {
             //     if(product.category.name === req.params.categoryName){
             //         return product
             //     }
-
+            
             // }
             // )
+            //console.log(products);
             const productsCategory = products.filter(product => product.category.name.toLowerCase() === req.params.categoryName.toLowerCase())
             res.json({
                 products: productsCategory
@@ -112,6 +113,7 @@ export default {
             // })
             // res.json(req.params.categoryName)
         } catch (err) {
+            console.log(err);
             return res.status(500).json({msg: err.message})
         }
         

@@ -6,9 +6,9 @@ import authAdmin from "../middleware/authAdmin.js";
 const router = express.Router();
 
 router.get("/products", productController.getProducts);
-router.post("/products", productController.createProduct);
-router.delete("/products/:id", productController.deleteProduct);
-router.put("/products/:id", productController.updateProduct);
+router.post("/products", authAdmin, productController.createProduct);
+router.delete("/products/:id", authAdmin, productController.deleteProduct);
+router.put("/products/:id",  productController.updateProduct);
 router.get("/products/:categoryName", productController.getProductsCategory)
 
 export default router

@@ -28,7 +28,7 @@ export default {
                 
             });
             await order.save();
-            res.json("you get the order");
+            res.status(200).json("you get the order");
         } catch (error) {
             next(error);
         }
