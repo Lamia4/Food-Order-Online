@@ -18,6 +18,7 @@ import Privacy from "./pages/Privacy.js";
 import FAQ from "./pages/FAQ.js";
 import Services from "./pages/Services.js";
 import Payment from "./pages/Payment.js";
+import History from "./pages/History.js";
 import {LoginContext} from "./components/LoginProvider.js"
 import {TokenContext} from "./components/TokenProvider.js"
 
@@ -65,7 +66,8 @@ function App() {
             <Route path="/faq" component={ FAQ } /> 
             <Route path="/services" component={ Services } /> 
             <Route path="/payment" component={ Payment } /> 
-            <Route path="/products/:categoryName" component={ Category } />         
+            <Route path="/products/:categoryName" component={ Category } />  
+            <Route path="/checkout" component={ History } />       
           </Switch>
           </main>
           <Footer/>
