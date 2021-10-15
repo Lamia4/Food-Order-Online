@@ -32,8 +32,9 @@ function NavBar() {
     }, [tokenResult])
     const handleUser =  () => {
         LoginFunctions.setIsLogged(false);
-        localStorage.removeItem('user');
-        LoginFunctions.setUser("")
+        localStorage.clear('user');
+        LoginFunctions.setUser("");
+        LoginFunctions.setAdmin(false);
     };
     return (
         

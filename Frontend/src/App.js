@@ -36,6 +36,10 @@ function App() {
         setIsLogged(true);
         setUser(localUser);
         setUserToken(localUser.token)
+      } else {
+        localStorage.clear("user");
+        setIsLogged(false);
+        setAdmin(false)
       }
       if (localUser.role === 1){
         setAdmin(true);
