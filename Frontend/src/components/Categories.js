@@ -19,21 +19,24 @@ function Categories() {
     const {admin} = useContext(LoginContext);
 
     useEffect(() => {
+        getCategoriesData();
+    },[]);
+
+    const getCategoriesData = () =>{
         getCategories()
         .then(categories => {
             setCategories(categories);
         })
+    }
 
-    },[]);
 
-    
     return (
         <div>
             <Container className=" cardContainer mt-5">
                 <Row className="smCenter justify-content-md-space-between productRow mt-3">
                    <h1 style={{textAlign:"center", color: "white"}}>My Delicious Food Categories &#9825;</h1>
                     <Search />
-                    {admin && <CreateCategory/>}
+                    {admin && <CreateCategory getCategoriesData={getCategoriesData}/>}
                     {
                         searchedProducts.isSearched ? 
                         (searchedProducts.products.length !== 0?
@@ -42,10 +45,12 @@ function Categories() {
                             <CardText className="mb-5" style={{color: "white", textAlign: "center", fontSize: "28px"}}>I'm sorry ! There are no results ! :( </CardText> )
                          :
                         
-                        (  
+                        ( 
+                        categories.length !==0 
+                        ?  
                         categories.map((category,i)=>(
                         
-                            admin?  <EditCategory category={category} key={i}/>
+                            admin?  <EditCategory category={category} key={i} getCategoriesData={getCategoriesData}/>
                             :
                             
                                     <Col key={i} xs ={10} md={6} lg={4} style={{height:"55vh"}} className=" mb-3">
@@ -70,6 +75,7 @@ function Categories() {
                                 
                            
                         ))
+                        : <div>loading...</div>
                         )
 
                     }

@@ -9,7 +9,7 @@ async function getLogin(email,password){
             }
             }).then(response => response.json())
             .then(data => {
-                if(data.token && data.role === 0){
+                if(data.token){
                     localStorage.setItem("user", JSON.stringify(data))
                 }
                 console.log("data", data);

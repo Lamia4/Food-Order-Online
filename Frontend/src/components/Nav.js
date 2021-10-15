@@ -53,6 +53,7 @@ function NavBar() {
                             <NavLink className="nav_link" to="/about">About</NavLink>
                         </nav>
                         <nav className="navCenter" style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "flex-end"}}> 
+                        {console.log(LoginFunctions.isLogged)}
                         { LoginFunctions.isLogged && userToken?  
                         (<NavLink to="/logout" style={{marginRight:"20px"}} className="" onClick={() => {handleUser()}}><img style={{height: "5vh"}} src= {logout} alt="logout"/></NavLink>):
                         (<NavLink  to="/login" style={{marginRight:"20px"}} className="" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink>)

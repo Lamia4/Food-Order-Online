@@ -5,19 +5,24 @@ import {deleteProduct, editProduct} from '../API/postProduct';
 import deleteImage from '../API/deleteImage';
 import EditInputProduct from "./EditInputProduct.js";
 import EditPicture from "./EditPicture.js";
+import {LoginContext} from "../components/LoginProvider.js";
 
-function EditProduct({product, i}) {
+function EditProduct({product, i, getCategoryProducts}) {
     const {categoryProducts, setCategoryProducts, categories, changedProduct} = useContext(ProductContext);
     const [key, setKey] = useState("");
     const [isEditable, setIsEditable] = useState(false);
     const [chosenProduct, setChosenProduct] = useState(false);
     const [newProduct, setNewProduct] = useState({title:product.title, description:product.description, price:product.price, image:product.image});
 
+    const {user} = useContext(LoginContext)
 
     console.log("categoryProducts", categoryProducts);
     const handleRemove = async(category)=>{
-        await deleteProduct(category._id);
+        const deletedProduct = await deleteProduct(category._id, user._id);
         await deleteImage({public_id:category.image.public_id});
+        getCategoryProducts()
+        // const productArray = categoryProducts.filter(categoryProduct => categoryProduct._id !== deletedProduct._id);
+        // setCategoryProducts(productArray);
         // await getCategoryProducts();
     }
     console.log("productId", product._id);
@@ -37,10 +42,11 @@ function EditProduct({product, i}) {
 
     const handleSave = async() => {
         const updatedProduct = await editProduct(product._id, changedProduct.title, parseInt(changedProduct.price), changedProduct.description, changedProduct.image, changedProduct.category);
-        const updatedProductsArray = categoryProducts.map(product => product._id===updatedProduct._id? updatedProduct: product)
-        setCategoryProducts(updatedProductsArray);
+        //const updatedProductsArray = categoryProducts.map(product => product._id===updatedProduct._id? updatedProduct: product)
+        //setCategoryProducts(updatedProductsArray);
         setChosenProduct(false);
         setIsEditable(false);
+        getCategoryProducts();
     }
     return (
         <Col xs ={10}sm={9} md={12} lg={9} key={i} className=" mb-3  menuColumn">

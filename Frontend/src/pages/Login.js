@@ -26,12 +26,13 @@ function Login() {
             console.log("userData after fetch", userData);
             if(userData.token) {
             setIsLogged(true);
-            const userObj = {
-                id: userData._id,
-                name: userData.name,
-                role: userData.role,
-                token: userData.token
-            };
+            // const userObj = {
+            //     id: userData._id,
+            //     name: userData.name,
+            //     role: userData.role,
+            //     token: userData.token
+            // };
+            const userObj = JSON.parse(localStorage.getItem("user"));
             setUser(userObj);
             setUserToken(userObj.token);
             if(userData.role === 1){

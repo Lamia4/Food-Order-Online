@@ -1,4 +1,5 @@
 import './App.css';
+import React, {useContext, useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home.js";
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
@@ -17,9 +18,32 @@ import Privacy from "./pages/Privacy.js";
 import FAQ from "./pages/FAQ.js";
 import Services from "./pages/Services.js";
 import Payment from "./pages/Payment.js";
-
+import {LoginContext} from "./components/LoginProvider.js"
+import {TokenContext} from "./components/TokenProvider.js"
 
 function App() {
+
+  const { setIsLogged, setUser, isLogged, setAdmin } = useContext(LoginContext);
+  const { setUserToken, isTokenExpired } = useContext(TokenContext)
+
+  useEffect(() => {
+    console.log((JSON.parse(localStorage.getItem("user"))))
+    if(localStorage.getItem("user")){
+      const localUser = JSON.parse(localStorage.getItem("user"))
+      console.log("tokenexp", isTokenExpired());
+      if(!isTokenExpired()){
+        setIsLogged(true);
+        setUser(localUser);
+        setUserToken(localUser.token)
+      }
+      if (localUser.role === 1){
+        setAdmin(true);
+      } else if(localUser.role === 0 ){
+        setAdmin(false);
+      }
+    }
+  }, [])
+ 
 
   return (
     <div className="App">

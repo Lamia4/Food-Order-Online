@@ -1,6 +1,5 @@
 export async function postProduct(product) {
     const url = "http://localhost:3438/api/products";
-
     await fetch(url, {
             method: "POST",
             body: JSON.stringify(product),
@@ -14,11 +13,16 @@ export async function postProduct(product) {
     return null;
 }
 
-export async function deleteProduct(id) {
+export async function deleteProduct(id, userId) {
+    const user = {userId: userId}
     const url = `http://localhost:3438/api/products/${id}`
     let products = null;
     products = await fetch(url, {
             method: "DELETE",
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
         .then(function (response) {
             response.json()

@@ -25,6 +25,7 @@ function TokenProvider({children}){
             return endResult
         }
         const endResult = false;
+        setUserToken(user.token)
         return endResult;
     } 
 

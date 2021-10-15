@@ -45,10 +45,7 @@ export async function deleteCategory(id){
     let category = await fetch(url, {
             method: "DELETE",
         })
-        .then(function (response) {
-            response.json()
-            console.log(response)
-        })
+        .then(response => response.json())
         .catch(err => console.log(err));
     return category;
 }
@@ -63,9 +60,8 @@ export async function editCategory(id, name, image){
             'Accept': 'application/json'
         }
         })
-        .then(function (response) {
-            response.json()
-        })
+        .then(response => response.json())
+        // .then(data => console.log("dataCategory", data))
         .catch(err => console.log(err));
         console.log("fetchCategory", category);
     return category;

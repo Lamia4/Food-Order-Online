@@ -8,11 +8,12 @@ import {getCategories} from '../API/getCategories.js';
 import {postProduct} from '../API/postProduct.js';
 
 import {ProductContext} from "../components/ProductProvider.js";
-
+import {LoginContext} from "../components/LoginProvider.js";
 
 function CreateProduct() {
     const {handleImage, image, setImage, categories, setCategories, category, setCategory, inputTitle, setInputTitle, inputDesc, setInputDesc, inputPrice, setInputPrice, categoryProducts, categoriesProduct, setCategoryProducts, handleRemoveImage} = useContext(ProductContext);
 
+    const {user} = useContext(LoginContext)
 
     useEffect(() => {
         getCategories()
@@ -50,6 +51,7 @@ function CreateProduct() {
             image: image,
             price: inputPrice,
             category: category, 
+            userId: user._id,
         }
 
         console.log(newProduct);

@@ -9,7 +9,7 @@ import uploadImage from "../API/uploadImage.js";
 import deleteImage from "../API/deleteImage.js";
 
 
-function CreateCategory() {
+function CreateCategory({getCategoriesData}) {
     const [image, setImage] = useState("")
     const {  categories, setCategories, inputTitle, setInputTitle} = useContext(ProductContext);
 
@@ -61,6 +61,7 @@ function CreateCategory() {
 
         setInputTitle("");
         setImage("");
+        getCategoriesData();
     }
     const handleInputTitle = (e) =>{
         setInputTitle(e.target.value)

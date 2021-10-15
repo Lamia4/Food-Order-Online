@@ -9,7 +9,7 @@ function LoginProvider({children}) {
     const[isLogged, setIsLogged] = useState(false);
     // const[isUser, setIsUser] = useState({name: "", role: "", token:""});
     const[user, setUser] = useState({});
-    const[isLoggedOut, setIsLoggedOut] = useState(false);
+    //const[isLoggedOut, setIsLoggedOut] = useState(false);
     const[showCartCount, setShowCartCount] = useState(true);
     const [showError, setShowError] = useState(false);
     const [admin, setAdmin] = useState(false);
@@ -18,7 +18,7 @@ function LoginProvider({children}) {
 
 
     return (
-        <LoginContext.Provider value={{isLogged, setIsLogged, user, setUser, isLoggedOut, setIsLoggedOut, showCartCount, setShowCartCount, email, setEmail, password, setPassword, showError, setShowError, admin, setAdmin, isCheckout, setIsCheckout, isNoOpacity, setIsNoOpacity}}>
+        <LoginContext.Provider value={{isLogged, setIsLogged, user, setUser, showCartCount, setShowCartCount, email, setEmail, password, setPassword, showError, setShowError, admin, setAdmin, isCheckout, setIsCheckout, isNoOpacity, setIsNoOpacity}}>
             {children}
         </LoginContext.Provider>
     )

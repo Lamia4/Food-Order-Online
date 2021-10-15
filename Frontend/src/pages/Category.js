@@ -20,31 +20,22 @@ function Category() {
     // const [price, setPrice] = useState("");
     // const [description, setDescription] = useState("");
     // const [title, setTitle] = useState("");
-    
 
+    useEffect(() => {
+        getCategoryProducts(); 
+    },[])
 
     const getCategoryProducts = async (e) => {
-        const result = await fetch(`http://localhost:3438/api/products/${categoryName}`,
-        {
-
+        const result = await fetch(`http://localhost:3438/api/products/${categoryName}`,{
             method: "GET",
-           
-        }).then(response=> response.json())
+        })
+        .then(response=> response.json())
         .then(data=>{
             setCategoryProducts(data.products);
-          
         });
         return result;
 
     };
-    
-       
-    useEffect(() => {
-        getCategoryProducts(); 
-        
-    },[])
-
-    
         
     
     return (
@@ -59,7 +50,7 @@ function Category() {
 
                         categoryProducts.map((product, i)=>(
 
-                                    admin? <EditProduct product={product} key={i}/> 
+                                    admin? <EditProduct product={product} key={i} getCategoryProducts={getCategoryProducts}/> 
                                     :
 
                                         <Col xs ={10}sm={9} md={12} lg={9} key={i} className=" mb-3  menuColumn">

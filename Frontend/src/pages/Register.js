@@ -13,7 +13,7 @@ function Register() {
 
       <Input type="email" className="contact-form-text" placeholder="Email"/>
       <Input type="password" className="contact-form-text" placeholder="Password"/>
-      {/* <Button type="submit" class="contact-form-btn" value="Send"/> */}
+      {/* <Button type="submit" className="contact-form-btn" value="Send"/> */}
       <Button type="submit" className="contact-form-btn">Send</Button>
 
   </FormGroup>

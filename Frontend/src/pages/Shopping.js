@@ -36,9 +36,9 @@ function Shopping() {
         if(isLogged) {
    
             const result = isTokenExpired(userToken);
-            if (result || isLogged) {
+            if (!result || isLogged) {
                 console.log(user, cart, total);
-                const userId = (user.id);
+                const userId = (user._id);
                 console.log("userId", userId);
                 const userCart = cart.map(cartItem => {
                     const obj = {productId : cartItem._id, 
@@ -48,8 +48,15 @@ function Shopping() {
                 const totalP = total;
                 console.log("total", totalP);
                 const finalResponse = await order(userId, userCart, totalP);
-                console.log("order", finalResponse);
-                history.push("/success") 
+                
+                if (finalResponse === "you get the order"){
+                    localStorage.clear("cart");
+                    setCart([])
+                    console.log("order", finalResponse);
+                    history.push("/success") 
+                } else{
+                    alert("Some Error happend!")
+                }
             }      
 
         }
