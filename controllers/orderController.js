@@ -34,4 +34,17 @@ export default {
         }
     },
 
+    getOrders: async(req, res) => {
+        try {
+            const orders = await Order.find().populate({
+                path: "userID"
+            }).populate({
+                path: "orderList.productId"
+            })
+            res.json(orders)
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+    }
+
 }
