@@ -3,6 +3,14 @@
     margin:0;
     padding:0;
 }
+.modal-open {
+    padding-right: 0 !important;
+  }
+
+  .modal-backdrop
+{
+    opacity:0.1 !important;
+}
 
 .history {
     background-image: linear-gradient(to top, #C58882 0%, #C58882 100%) !important;

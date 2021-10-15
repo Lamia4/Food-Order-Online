@@ -1,34 +1,62 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Table, Row,Col, Container ,Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import "./History.css";
 import {getOrders} from "../API/order.js";
 
 function History(props) {
-   
-      const [modal, setModal] = useState(false);
-      const {
+    const [allOrders, setAllOrders] = useState([]);
+    const [orderLength, setOrderLength] = useState(0)
+    const [name, setName] = useState("");
+    const [orderQuantity, setOrderQuantity] = useState("");
+    const [orderDate, setOrderDate] = useState("");
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [modal, setModal] = useState(false);
+    const[year, setYear] = useState(0);
+    const[month, setMonth] = useState(0);
+    const[date, setDate] = useState(0);
+    const[oneOrder, setOneOrder] =useState("")
+
+    const {
         buttonLabel,
         className
       } = props;
       const toggle = () => 
       {
-          setModal(!modal);
-
-         
+          setModal(!modal);  
       }
-    async function orders () {
 
-     const orders = await getOrders();
-     console.log("orders", orders);
-    };
-    orders();
+  
+    useEffect(() => {
+    ordersData()
+    }, [])
+
+    const ordersData =  () => {
+         getOrders()
+         .then(orders =>{
+             setAllOrders(orders);
+             setOrderLength(orders.length);
+             setOrderDate(orders[0].createdAt)
+            setOrderQuantity(orders[0].orderList)
+            
+         })
+    }
+    // console.log(orderDate);
+
+console.log(allOrders)
+// console.log(listQuantity);
+
+  
+    // const newDate = new Date(orderDate);
+    // const getOrderDate = newDate.getDate() + "." + (newDate.getMonth()+1) + "." + newDate.getFullYear() + " " + newDate.getHours()+ ":" + newDate.getMinutes();
+    // console.log(getOrderDate);
         
     return (
         <div className="history">
         <Container className="modalContainer"  style={{marginTop:"2vh",  justifyContent:"center"}} >
         <Row className=" modalRow " style={{display:"flex",justifyContent:"center"}}>
             <Col xs={12} md={10} lg={8} className="my-1 modalColumn">
-            <h1 style={{margin:"25px auto", textAlign:"center"}}>Order History</h1>
+            <h1 style={{margin:"35px auto 0", textAlign:"center"}}>Order History</h1>
+            <h4 style={{margin:"25px auto ", textAlign:"center"}}> You have {orderLength} Orders</h4>
                 <Table className=" modalTable"  style={{width:"100%"}}    >
                     <thead>
                         <tr>
@@ -39,16 +67,22 @@ function History(props) {
                         <th>Detail</th>
                         </tr>
                     </thead>
+                  
+            {
+                allOrders.map((order, i)=>(
                     <tbody>
                         <tr>
-                        <th scope="row">1</th>
-                        <td>Mark John</td>
-                        <td>6</td>
-                        <td>12.10.2021 10:10</td>
-                        <td style={{cursor:"pointer"}}>
-                        <td onClick={toggle}>View</td>
+                        <th scope="row">{i + 1}</th>
+                        <td> {order.userID.name[0].toUpperCase()+order.userID.name.substring(1) }</td>
+                        <td>{order.orderList.reduce((first,item)=>(
+                            first +(item.quantity)
+                        ),0)}</td>
+                        <td>
+                        {new Date(order.createdAt).getDate() + "." + (new Date(order.createdAt).getMonth()+1) + "." + new Date(order.createdAt).getFullYear() + " " + new Date(order.createdAt).getHours()+ ":" + new Date(order.createdAt).getMinutes() }
+                        </td>
+                        <td style={{cursor:"pointer"}} onClick={toggle}>View
                             <Modal isOpen={modal}  >
-                            <ModalHeader className="modalClassX"  toggle={toggle}>Mark John</ModalHeader>
+                            <ModalHeader className="modalClassX"  toggle={toggle}>{order.userID.name[0].toUpperCase()+order.userID.name.substring(1) }</ModalHeader>
                             <ModalBody>
                                 Pizza Veggie x 3 
                             </ModalBody>
@@ -72,23 +106,10 @@ function History(props) {
                             </Modal>
                         </td>
                         </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob Coffee</td>
-                        <td>4</td>
-                        <td>12.10.2021 10:30</td>
-                        <td onClick={toggle}  style={{cursor:"pointer"}}>view</td>
-
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td>Larry Valley</td>
-                        <td>3</td>
-                        <td>12.10.2021 12:09</td>
-                        <td onClick={toggle} style={{cursor:"pointer"}}>view</td>
-
-                        </tr>
-                    </tbody>
+                        
+                     </tbody>
+                ))
+            } 
                 </Table>
             </Col>
         </Row>
