@@ -8,7 +8,7 @@ import {LoginContext} from "../components/LoginProvider";
 import CheckoutCard from '../components/CheckoutCard.js';
 import { useHistory} from "react-router-dom";
 import {TokenContext} from "../components/TokenProvider.js";
-import order from "../API/order.js";
+import {order} from "../API/order.js";
 
 function Shopping() {
 

@@ -1,4 +1,4 @@
-async function order(userID, orderList, totalPrice){
+export async function order(userID, orderList, totalPrice){
 
     const user = JSON.parse(localStorage.getItem("user"));
     console.log("localstorage test", user);
@@ -16,4 +16,20 @@ async function order(userID, orderList, totalPrice){
     return order;
 }
 
-export default order
+
+export async function getOrders(){
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log("localstorage test", user);
+    const orders = await fetch('http://localhost:3438/api/checkout', {
+            method: 'GET',
+            headers:
+            {
+                "Content-Type": "application/json"
+            }
+            }).then(response => response.json())
+            .catch(err => console.log(err));
+            
+    console.log("orders", orders);        
+    return orders;
+}

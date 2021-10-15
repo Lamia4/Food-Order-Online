@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Table, Row,Col, Container ,Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import "./History.css";
+import {getOrders} from "../API/order.js";
+
 function History(props) {
    
       const [modal, setModal] = useState(false);
@@ -14,7 +16,13 @@ function History(props) {
 
          
       }
-     
+    async function orders () {
+
+     const orders = await getOrders();
+     console.log("orders", orders);
+    };
+    orders();
+        
     return (
         <div className="history">
         <Container className="modalContainer"  style={{marginTop:"2vh",  justifyContent:"center"}} >
