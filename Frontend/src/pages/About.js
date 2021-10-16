@@ -1,7 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card, CardImg, CardTitle, CardText, Button, CardBody} from 'reactstrap';
-import { Carousel } from 'react-bootstrap';
 import './About.css';
 function About() {
     return (

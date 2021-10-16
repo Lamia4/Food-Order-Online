@@ -1,4 +1,4 @@
-import React, {useState, useContext}from 'react';
+import React, {useContext}from 'react';
 import {Input, Form , FormGroup, Button, CardTitle} from 'reactstrap';
 import {LoginContext} from '../components/LoginProvider.js';
 import {TokenContext} from "../components/TokenProvider.js";
@@ -8,35 +8,29 @@ import {useHistory} from 'react-router-dom';
 function Register() {
 
     const history = useHistory();
-    const {setIsLogged, setUser,  setShowError, setEmail, setPassword, email, password, name, setName, surname, setSurname, street, setStreet, postalCode, setPostalCode, city, setCity, setIsCheckout, setIsNoOpacity, registered, setRegistered} = useContext(LoginContext);
+    const {setIsLogged, setUser,  setShowError, setEmail, setPassword, email, password, name, setName, surname, setSurname, street, setStreet, postalCode, setPostalCode, city, setCity, setRegistered} = useContext(LoginContext);
     const {setUserToken} = useContext(TokenContext);
 
     const handleRegister = async (e) => {
       e.preventDefault();
-      console.log("register wurde geklickt");
+
       try {
           const userData = await register(name, surname, street, postalCode, city, email, password);
-          console.log("userData after fetch", userData.token);
           if(userData.token) {
           setIsLogged(true);
           setRegistered(true);
           const userObj = JSON.parse(localStorage.getItem("user"));
           setUser(userObj);
           setUserToken(userObj.token);
-          console.log("userDataToken", userData.token);
           history.push("/successregister");
-          console.log("wurde registriert");
           } else {
               setShowError(true);
               setEmail("");
-              setPassword("");
-              console.log("wurde nicht registriert");     
+              setPassword("");  
           }
-          
-          
-          
+    
       }catch(error){
-          console.log(error)
+          return error
       } 
   };
     return (

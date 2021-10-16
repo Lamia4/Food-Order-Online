@@ -26,24 +26,16 @@ function CreateCategory({getCategoriesData}) {
     }
     const handleImage = async (e) =>{
         e.preventDefault();
-
         const file = e.target.files[0];
         let formData = new FormData();
-        formData.append('file', file);
-
-        
+        formData.append('file', file); 
         const data = await uploadImage(formData);
-        console.log("data", data);
-        console.log("image id:", data.public_id);
-        setImage(data);
-        
+        setImage(data);  
     }
 
     const handleRemoveImage = async () =>{
         const imagePublicId = {public_id:image.public_id};
-        const data = await deleteImage(imagePublicId);
-        console.log("data result:",data);     
-
+        await deleteImage(imagePublicId);
         setImage(false)
     }
     const handleAddCategory = async () =>{
@@ -52,13 +44,8 @@ function CreateCategory({getCategoriesData}) {
             name: inputTitle,
             image: image,
         }
-
-        console.log(" new category", newCategory)
-        console.log(newCategory);
         setCategories(...categories, newCategory);
         await postCategory(newCategory);
-
-
         setInputTitle("");
         setImage("");
         getCategoriesData();

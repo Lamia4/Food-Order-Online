@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect} from 'react';
+import React, { useContext, useState} from 'react';
 import { Card, CardTitle,CardSubtitle, Button,CardText, CardImg,Col,CardBody, } from 'reactstrap';
 import { ProductContext } from "./ProductProvider.js";
 import {deleteProduct, editProduct} from '../API/postProduct';
@@ -8,7 +8,7 @@ import EditPicture from "./EditPicture.js";
 import {LoginContext} from "../components/LoginProvider.js";
 
 function EditProduct({product, i, getCategoryProducts}) {
-    const {categoryProducts, setCategoryProducts, categories, changedProduct} = useContext(ProductContext);
+    const {categoryProducts, changedProduct} = useContext(ProductContext);
     const [key, setKey] = useState("");
     const [isEditable, setIsEditable] = useState(false);
     const [chosenProduct, setChosenProduct] = useState(false);
@@ -18,22 +18,16 @@ function EditProduct({product, i, getCategoryProducts}) {
 
     console.log("categoryProducts", categoryProducts);
     const handleRemove = async(category)=>{
-        const deletedProduct = await deleteProduct(category._id, user._id);
+        await deleteProduct(category._id, user._id);
         await deleteImage({public_id:category.image.public_id});
         getCategoryProducts()
-        // const productArray = categoryProducts.filter(categoryProduct => categoryProduct._id !== deletedProduct._id);
-        // setCategoryProducts(productArray);
-        // await getCategoryProducts();
     }
-    console.log("productId", product._id);
     const handleEdit = async(key)=>{
 
         setChosenProduct(true);
         setIsEditable(!isEditable);
         setKey(key);
-        console.log("key", key);
     }
-    console.log("products", categoryProducts);
     
     const handleCancelEdit = async() => {
         setChosenProduct(false)
@@ -41,9 +35,7 @@ function EditProduct({product, i, getCategoryProducts}) {
     }
 
     const handleSave = async() => {
-        const updatedProduct = await editProduct(product._id, changedProduct.title, parseInt(changedProduct.price), changedProduct.description, changedProduct.image, changedProduct.category);
-        //const updatedProductsArray = categoryProducts.map(product => product._id===updatedProduct._id? updatedProduct: product)
-        //setCategoryProducts(updatedProductsArray);
+        await editProduct(product._id, changedProduct.title, parseInt(changedProduct.price), changedProduct.description, changedProduct.image, changedProduct.category);
         setChosenProduct(false);
         setIsEditable(false);
         getCategoryProducts();

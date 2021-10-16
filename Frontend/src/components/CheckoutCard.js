@@ -14,7 +14,7 @@ function CheckoutCard() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-    const {setIsLogged, setUser, setShowError, setAdmin, setIsCheckout, setIsNoOpacity, isNoOpacity, setRegistered, surname, street, postalCode, city,setSurname, setStreet, setPostalCode, setCity } = useContext(LoginContext);
+    const {setIsLogged, setUser, setShowError, setAdmin, setIsCheckout, setIsNoOpacity, setRegistered, surname, street, postalCode, city,setSurname, setStreet, setPostalCode, setCity } = useContext(LoginContext);
     const { setUserToken } = useContext(TokenContext);
     const history = useHistory();
 
@@ -25,12 +25,6 @@ function CheckoutCard() {
             console.log("userData after fetch", userData);
             if(userData.token) {
             setIsLogged(true);
-            // const userObj = {
-            //     id: userData._id,
-            //     name: userData.name,
-            //     role: userData.role,
-            //     token: userData.token
-            // };
             const userObj = JSON.parse(localStorage.getItem("user"));
             setUser(userObj);
             setUserToken(userObj.token);
@@ -47,35 +41,30 @@ function CheckoutCard() {
             
             
         }catch(error){
-            console.log(error)
+            return error
         } 
     };
     const handleRegister = async (e) => {
         e.preventDefault();
-        console.log("register wurde geklickt");
         try {
             const userData = await register(name, surname, street, postalCode, city, email, password);
-            console.log("userData after fetch", userData.token);
             if(userData.token) {
             setIsLogged(true);
             setRegistered(true);
             const userObj = JSON.parse(localStorage.getItem("user"));
             setUser(userObj);
             setUserToken(userObj.token);
-            console.log("userDataToken", userData.token);
             history.push("/successregister");
-            console.log("wurde registriert");
             } else {
                 setShowError(true);
                 setEmail("");
-                setPassword("");
-                console.log("wurde nicht registriert");     
+                setPassword("");   
             }
             
             
             
         }catch(error){
-            console.log(error)
+            return error
         } 
     };
 
@@ -91,7 +80,6 @@ function CheckoutCard() {
 
     const handleToggle = ()=>{
         isDisplayLogin ? setIsDisplayLogin(false) : setIsDisplayLogin(true);
-        console.log(isDisplayLogin);
     }
    
     return(

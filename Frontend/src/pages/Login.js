@@ -1,29 +1,23 @@
 
-import React, {useState, useContext}from 'react';
+import React, {useContext}from 'react';
 import {Input, Form , FormGroup,Button, CardText, CardTitle} from 'reactstrap';
 import getLogin from "../API/getLogin";
 import {LoginContext} from '../components/LoginProvider.js';
-import {CartContext} from "../components/CartProvider.js";
 import {TokenContext} from "../components/TokenProvider.js";
-
 import {Link,useHistory} from 'react-router-dom';
 import "./Login.css"
 
-
 function Login() {
 
-    
     const history = useHistory();
     const {setIsLogged, setUser, showError, setShowError, setEmail, setPassword, email, password, admin, setAdmin} = useContext(LoginContext);
     const {setUserToken} = useContext(TokenContext);
-
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
         try {
             const userData = await getLogin(email, password);
-            console.log("userData after fetch", userData);
             if(userData.token) {
             setIsLogged(true);
             const userObj = JSON.parse(localStorage.getItem("user"));
@@ -32,17 +26,12 @@ function Login() {
             if(userData.role === 1){
                 setAdmin(true);
             };
-            console.log(admin);
             history.push("/");
-
             } else {
                 setShowError(true);
                 setEmail("");
                 setPassword("")      
-            }
-            
-            
-            
+            }            
         }catch(error){
             console.log(error)
         } 

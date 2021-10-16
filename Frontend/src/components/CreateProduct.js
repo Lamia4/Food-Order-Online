@@ -1,8 +1,7 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {
   CardImg, Button, Row, Col, Input,FormGroup,Label
 } from 'reactstrap';
-import sampleImg from "../img/karePizza.jpg";
 import "./CreateProduct.css";
 import {getCategories} from '../API/getCategories.js';
 import {postProduct} from '../API/postProduct.js';
@@ -21,14 +20,9 @@ function CreateProduct() {
             setCategories(categories);
         })
     },[]);
-
-
     const handleCategory = (e) =>{
         setCategory(e.target.value);    
-    }
-
-    
-    
+    }  
     const styleUpload = {
         display: image ? "block" : "none"
     }
@@ -53,14 +47,8 @@ function CreateProduct() {
             category: category, 
             userId: user._id,
         }
-
-        console.log(newProduct);
         postProduct(newProduct);
         categoryProducts.unshift(newProduct);
-        console.log("categoriesProduct", categoryProducts)
-        console.log(newProduct);
-
-
         setInputTitle("");
         setInputDesc("");
         setInputPrice("");

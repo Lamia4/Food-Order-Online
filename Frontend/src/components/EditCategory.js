@@ -13,36 +13,24 @@ function EditCategory({category, i, getCategoriesData}) {
     const [chosenProduct, setChosenProduct] = useState(false);
     const [key, setKey] = useState("");
     const [newCategory, setNewCategory] = useState({name:category.name, image:category.image});
-    const { categories, setCategories, changedCategory} = useContext(ProductContext);
+    const { changedCategory} = useContext(ProductContext);
 
     const handleRemove = async(category)=>{
-        const deletedCategory = await deleteCategory(category._id);
-        //console.log("deletedCategory after fetch", deletedCategory);
+        await deleteCategory(category._id);
         await deleteImage({public_id:category.image.public_id});
         getCategoriesData()
-        //const categoryArray = categories.filter(category => category._id !== deletedCategory._id);
-        //setCategories(categoryArray);
     }
     const handleEdit = async(key)=>{
         setChosenProduct(true);
         setIsEditable(!isEditable);
         setKey(key);
-
     }
     const handleCancelEdit = async() => {
         setChosenProduct(false)
         setIsEditable(false);
     }
-    console.log("category before fetch", category);
-    console.log("changedCategory before fetch", changedCategory);
-
     const handleSave = async() => {
-        const updatedCategory = await editCategory(category._id, changedCategory.name, changedCategory.image );
-        console.log("updatedCategory",updatedCategory);
-        //const newCategoryArray = categories.map(category => category._id === updatedCategory._id? updatedCategory : category );
-        //setCategories(newCategoryArray);
-        //newCategory artik gönderilebilir.
-        console.log("saved");
+        await editCategory(category._id, changedCategory.name, changedCategory.image );
         setChosenProduct(false);
         setIsEditable(false);
         getCategoriesData()

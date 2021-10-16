@@ -3,29 +3,16 @@ import { Table, Row,Col, Container ,Button, Modal, ModalHeader, ModalBody, Modal
 import "./History.css";
 import {getOrders} from "../API/order.js";
 
-function History(props) {
+function History() {
     const [allOrders, setAllOrders] = useState([]);
     const [orderLength, setOrderLength] = useState(0)
-    const [name, setName] = useState("");
-    const [orderQuantity, setOrderQuantity] = useState("");
-    const [orderDate, setOrderDate] = useState("");
-    const [totalPrice, setTotalPrice] = useState(0);
     const [modal, setModal] = useState(false);
-    const[year, setYear] = useState(0);
-    const[month, setMonth] = useState(0);
-    const[date, setDate] = useState(0);
-    const[oneOrder, setOneOrder] =useState("")
 
-    const {
-        buttonLabel,
-        className
-      } = props;
-      const toggle = () => 
-      {
-          setModal(!modal);  
-      }
+    const toggle = () => 
+    {
+        setModal(!modal);  
+    }
 
-  
     useEffect(() => {
     ordersData()
     }, [])
@@ -35,21 +22,10 @@ function History(props) {
          .then(orders =>{
              setAllOrders(orders);
              setOrderLength(orders.length);
-             setOrderDate(orders[0].createdAt)
-            setOrderQuantity(orders[0].orderList)
             
          })
     }
-    // console.log(orderDate);
 
-console.log(allOrders)
-// console.log(listQuantity);
-
-  
-    // const newDate = new Date(orderDate);
-    // const getOrderDate = newDate.getDate() + "." + (newDate.getMonth()+1) + "." + newDate.getFullYear() + " " + newDate.getHours()+ ":" + newDate.getMinutes();
-    // console.log(getOrderDate);
-        
     return (
         <div className="history">
         <Container className="modalContainer"  style={{marginTop:"2vh",  justifyContent:"center"}} >
@@ -72,7 +48,7 @@ console.log(allOrders)
                 allOrders.map((order, i)=>(
                     <tbody>
                         <tr>
-                        <th scope="row">{i + 1}</th>
+                        <th scope="row">{i+1}</th>
                         <td> {order.userID.name[0].toUpperCase()+order.userID.name.substring(1) }</td>
                         <td>{order.orderList.reduce((first,item)=>(
                             first +(item.quantity)
@@ -83,15 +59,13 @@ console.log(allOrders)
                         <td style={{cursor:"pointer"}} onClick={toggle}>View
                             <Modal isOpen={modal}  >
                             <ModalHeader className="modalClassX"  toggle={toggle}>{order.userID.name[0].toUpperCase()+order.userID.name.substring(1) }</ModalHeader>
-                            <ModalBody>
-                                Pizza Veggie x 3 
+                            {order.orderList.map((item,i)=>(
+                              
+                                <ModalBody key={i}>
+                                 { (item.productId.title.toUpperCase()) + " x " + (item.quantity)}
                             </ModalBody>
-                            <ModalBody>
-                                Hamburger Classic x 2
-                            </ModalBody>
-                            <ModalBody>
-                                Cookie x 1
-                            </ModalBody>
+                            ))}
+                            
                             <ModalBody className="modalAddress">
                                <b>Address: </b> 
                                 

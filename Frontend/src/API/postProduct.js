@@ -26,14 +26,12 @@ export async function deleteProduct(id, userId) {
         })
         .then(function (response) {
             response.json()
-            console.log(response)
         })
         .catch(err => console.log(err));
     return products;
 }
 
 export async function editProduct(id, title,  price, description, image, category){
-    console.log("editProduct from fetch");
     const url =`http://localhost:3438/api/products/${id}`
     const product = await fetch(url, {
             method: "PUT",
@@ -45,6 +43,5 @@ export async function editProduct(id, title,  price, description, image, categor
         })
         .then(response => response.json())
         .catch(err => console.log(err));
-        console.log("fetchProduct", product);
     return product;
 }

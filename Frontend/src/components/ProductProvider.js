@@ -1,4 +1,4 @@
-import {useState, createContext, useEffect} from 'react';
+import {useState, createContext} from 'react';
 import uploadImage from "../API/uploadImage.js";
 import deleteImage from '../API/deleteImage';
 
@@ -31,20 +31,15 @@ function ProductProvider({children}) {
         const file = e.target.files[0];
         let formData = new FormData();
         formData.append('file', file);
-
-        
+       
         const data = await uploadImage(formData);
-        console.log("data", data);
-        console.log("image id:", data.public_id);
         setImage(data);
         
     }
 
     const handleRemoveImage = async () =>{
         const imagePublicId = {public_id:image.public_id};
-        const data = await deleteImage(imagePublicId);
-        console.log("data result:",data);     
-
+        await deleteImage(imagePublicId);
         setImage(false)
     }
     return (

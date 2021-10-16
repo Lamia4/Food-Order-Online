@@ -13,13 +13,11 @@ function EditPicture({product, newProduct, setNewProduct}) {
         }
         useEffect (()=> {
             setNewProduct({...newProduct, image: image});
-            console.log("newProduct", newProduct);
         }, [image])
 
         const removePicture = async () =>{
             const imagePublicId = {public_id:product.image.public_id};
-            const data = await deleteImage(imagePublicId);
-            console.log("data result:",data); 
+            await deleteImage(imagePublicId);
             setShowImage(false)    
     
         }
@@ -30,20 +28,12 @@ function EditPicture({product, newProduct, setNewProduct}) {
             const file = e.target.files[0];
             let formData = new FormData();
             formData.append('file', file);
-    
-            
+                
             const data = await uploadImage(formData);
             setImage(data);
             setShowImage(true);
-            // console.log("data", data);
-            // console.log("image id:", data.public_id);
-            
             return data;
         }
-            console.log("chosenpictureProduct", product.image.public_id);
-       
-    console.log("newImage", image);
-
 
     return (
 

@@ -2,12 +2,10 @@ import React, {useContext} from 'react';
 import { Input } from "reactstrap";
 import { ProductContext } from "../components/ProductProvider.js";
 
-function EditInputProduct({product, i, handleSave, setNewProduct, newProduct}) {
+function EditInputProduct({product, setNewProduct, newProduct}) {
     
-    const {categories, changedProduct, setChangedProduct} = useContext(ProductContext);
+    const {categories, setChangedProduct} = useContext(ProductContext);
     setChangedProduct(newProduct);
-    // handleSave(newProduct);
-    console.log("newProductObject", newProduct);
     return (
         <>
             

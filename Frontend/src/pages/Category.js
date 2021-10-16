@@ -1,26 +1,20 @@
-import React, { useEffect , useState, useContext} from 'react';
-import { Container, Card, CardTitle,CardSubtitle, Button,CardText, CardImg,Row,Col,CardBody, Input } from 'reactstrap';
+import React, { useEffect, useContext} from 'react';
+import { Container, Card, CardTitle,CardSubtitle, Button,CardText, CardImg,Row,Col,CardBody} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Product.css";
 import { useParams } from 'react-router';
 import { CartContext } from '../components/CartProvider.js';
 import CreateProduct from "../components/CreateProduct.js";
 import { LoginContext } from "../components/LoginProvider.js";
-
-
 import { ProductContext } from "../components/ProductProvider.js";
 import EditProduct from "../components/EditProduct.js";
 
 function Category() {
     let {categoryName} = useParams();
-    const {isEditable, setIsEditable, categoryProducts, setCategoryProducts,editProduct, categories, editedProduct} = useContext(ProductContext);
-    console.log("ich hab mich rerendert");
+    const {categoryProducts, setCategoryProducts} = useContext(ProductContext);
     const {admin} = useContext(LoginContext);
     const currentCart = useContext(CartContext);
-    // const [price, setPrice] = useState("");
-    // const [description, setDescription] = useState("");
-    // const [title, setTitle] = useState("");
-
+    
     useEffect(() => {
         getCategoryProducts(); 
     },[])

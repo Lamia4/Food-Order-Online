@@ -25,14 +25,12 @@ import {TokenContext} from "./components/TokenProvider.js"
 
 function App() {
 
-  const { setIsLogged, setUser, isLogged, setAdmin } = useContext(LoginContext);
+  const { setIsLogged, setUser, setAdmin } = useContext(LoginContext);
   const { setUserToken, isTokenExpired } = useContext(TokenContext)
 
   useEffect(() => {
-    console.log((JSON.parse(localStorage.getItem("user"))))
     if(localStorage.getItem("user")){
       const localUser = JSON.parse(localStorage.getItem("user"))
-      console.log("tokenexp", isTokenExpired());
       if(!isTokenExpired()){
         setIsLogged(true);
         setUser(localUser);

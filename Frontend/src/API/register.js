@@ -11,10 +11,8 @@ async function register(name, surname, street, postalCode, city, email, password
                 if(data.token){
                     localStorage.setItem("user", JSON.stringify(data))
                 }
-                console.log("data", data);
             return data;
             });
-            console.log("userData", userData);
     return userData;
 }
 
