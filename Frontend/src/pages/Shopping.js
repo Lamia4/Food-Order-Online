@@ -13,7 +13,7 @@ import {order} from "../API/order.js";
 function Shopping() {
 
     const {cart, setCart, total, setTotal, removeFromCart, decrementCount, addToCart} = useContext(CartContext);
-    const {isLogged, user, isCheckout, setIsCheckout, isNoOpacity, setIsNoOpacity} = useContext(LoginContext);
+    const {isLogged, user, isCheckout, setIsCheckout, isNoOpacity, setIsNoOpacity, registered} = useContext(LoginContext);
     const {isTokenExpired, userToken} = useContext(TokenContext);
     const history = useHistory();
 
@@ -33,12 +33,12 @@ function Shopping() {
         console.log("user von checkout", user);
         setIsCheckout(true);
         setIsNoOpacity(false);
-        if(isLogged) {
+        if(isLogged & !registered) {
    
             const result = isTokenExpired(userToken);
             if (!result || isLogged) {
                 console.log(user, cart, total);
-                const userId = (user._id);
+                const userId = user._id;
                 console.log("userId", userId);
                 const userCart = cart.map(cartItem => {
                     const obj = {productId : cartItem._id, 
@@ -47,6 +47,8 @@ function Shopping() {
                 console.log("userCart", userCart); 
                 const totalP = total;
                 console.log("total", totalP);
+                console.log("for FinalResponse",userId);
+                console.log("userToksn befor finalresponse", user.token);
                 const finalResponse = await order(userId, userCart, totalP);
                 
                 if (finalResponse === "you get the order"){
@@ -59,6 +61,35 @@ function Shopping() {
                 }
             }      
 
+        } else if(registered){
+            const result = isTokenExpired(userToken);
+            if (!result || isLogged) {
+                console.log(user, cart, total);
+                console.log("userAfterRegisteredCheckout", user);
+                const userId = user.user._id;
+                console.log("userId", userId);
+                const userCart = cart.map(cartItem => {
+                    const obj = {productId : cartItem._id, 
+                                quantity: cartItem.quantity}
+                    return obj})
+                console.log("userCart", userCart); 
+                const totalP = total;
+                console.log("total", totalP);
+                console.log("for FinalResponse",userId);
+                console.log("userToksn befor finalresponse", user.token);
+                const finalResponse = await order(userId, userCart, totalP);
+                
+                if (finalResponse === "you get the order"){
+                    localStorage.clear("cart");
+                    setCart([])
+                    console.log("order", finalResponse);
+                    history.push("/success") 
+                } else{
+                    alert("Some Error happend!")
+                }
+            }      
+        } else {
+            setIsCheckout(true);
         }
     }
     const handleGoBack = () => {

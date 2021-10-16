@@ -19,6 +19,7 @@ import FAQ from "./pages/FAQ.js";
 import Services from "./pages/Services.js";
 import Payment from "./pages/Payment.js";
 import History from "./pages/History.js";
+import SuccessRegister from "./pages/SuccessRegister.js";
 import {LoginContext} from "./components/LoginProvider.js"
 import {TokenContext} from "./components/TokenProvider.js"
 
@@ -71,7 +72,8 @@ function App() {
             <Route path="/services" component={ Services } /> 
             <Route path="/payment" component={ Payment } /> 
             <Route path="/products/:categoryName" component={ Category } />  
-            <Route path="/checkout" component={ History } />       
+            <Route path="/checkout" component={ History } /> 
+            <Route path="/successregister" component={ SuccessRegister } />       
           </Switch>
           </main>
           <Footer/>

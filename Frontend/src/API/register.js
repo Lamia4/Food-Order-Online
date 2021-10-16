@@ -1,9 +1,8 @@
+async function register(name, surname, street, postalCode, city, email, password){
 
-async function getLogin(email,password){
-
-    const userData = await fetch('http://localhost:3438/user/login', {
+    const userData = await fetch('http://localhost:3438/user/register', {
             method: 'POST',
-            body: JSON.stringify({email, password}),
+            body: JSON.stringify({name, surname, street, postalCode, city, email, password}),
             headers: {
             'Content-type': "application/json", 
             }
@@ -19,5 +18,4 @@ async function getLogin(email,password){
     return userData;
 }
 
-export default getLogin
-
+export default register

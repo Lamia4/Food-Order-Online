@@ -26,12 +26,6 @@ function Login() {
             console.log("userData after fetch", userData);
             if(userData.token) {
             setIsLogged(true);
-            // const userObj = {
-            //     id: userData._id,
-            //     name: userData.name,
-            //     role: userData.role,
-            //     token: userData.token
-            // };
             const userObj = JSON.parse(localStorage.getItem("user"));
             setUser(userObj);
             setUserToken(userObj.token);
@@ -62,7 +56,7 @@ function Login() {
 
    <FormGroup className="row">
 
-      <Input type="text" className="contact-form-text" placeholder="User Name or Email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
+      <Input type="text" className="contact-form-text" placeholder="Email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
       <Input type="password" className="contact-form-text" placeholder="Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
       {showError? (<CardText style={{color:"yellow", textDecoration:"underline"}}>Your password or email is incorrect!</CardText>): null }
       <CardText style={{color: "white"}}>Create Your Account:  <Link to="/register" style={{color: "yellow", marginLeft: "5px"}}>Register.</Link></CardText>

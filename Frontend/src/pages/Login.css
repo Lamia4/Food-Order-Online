@@ -1,8 +1,9 @@
 
   .contact-form{
-    margin: auto;
+    /* margin: auto; */
     padding: 0 10px;
     overflow: hidden;
+    margin-bottom: 20px;
     
   }
   
@@ -30,7 +31,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: 0.5s;
-    margin: 10px 0 0 0;
+    margin: 10px 0 20px 0;
   }
   .contact-form-btn:hover{
     background: rgb(0, 0, 0);
