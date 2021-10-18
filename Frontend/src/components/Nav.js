@@ -35,6 +35,7 @@ function NavBar() {
         localStorage.clear('user');
         LoginFunctions.setUser("");
         LoginFunctions.setAdmin(false);
+        LoginFunctions.setRegistered(false);
     };
     return (
         
