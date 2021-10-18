@@ -87,7 +87,7 @@ function CheckoutCard() {
         {
             isDisplayLogin ? (
             <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border" style={{position:"relative", backgroundColor:"#C58882"}}>
-                <Form style={{display:"flex", flexDirection:"column"}}>
+                <Form style={{display:"flex", flexDirection:"column", width:"100%"}}>
                     <h1 style={{textAlign:"center", marginTop:"30px", marginBottom:"30px"}}>Login</h1>
                     <FormGroup className="m-3">
                         <Input type="text" className="mb-3 " placeholder="Your Email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
@@ -108,7 +108,7 @@ function CheckoutCard() {
             (
 
             <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border  " style={{display: isDisplayRegister ? "flex": "none", position:"relative",backgroundColor:"#C58882"}}>
-                <Form style={{display: "flex", flexDirection:"column"}}>
+                <Form style={{display: "flex", flexDirection:"column", width:"100%"}}>
                     <h1 style={{textAlign:"center", marginTop:"30px", marginBottom:"30px"}}>Register</h1>
                     <FormGroup className="m-3"  >
                     <Input type="text" className="mb-3 " placeholder="name"  value={name} onChange={(e) => setName(e.target.value)}/>
