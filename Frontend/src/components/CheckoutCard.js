@@ -87,7 +87,7 @@ function CheckoutCard() {
         {
             isDisplayLogin ? (
             <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border" style={{position:"relative", backgroundColor:"#C58882"}}>
-                <Form className="" style={{display:"flex", flexDirection:"column"}}>
+                <Form style={{display:"flex", flexDirection:"column"}}>
                     <h1 style={{textAlign:"center", marginTop:"30px", marginBottom:"30px"}}>Login</h1>
                     <FormGroup className="m-3">
                         <Input type="text" className="mb-3 " placeholder="Your Email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
@@ -95,7 +95,7 @@ function CheckoutCard() {
                         <CardTitle>Don't have an account </CardTitle>
                         <CardSubtitle style={{cursor:"pointer", textDecoration:"underline"}} onClick={handleToggle} >Register.</CardSubtitle>
                     </FormGroup>
-                    <FormGroup className="" style={{display:"flex", flexDirection:"row", justifyContent:"flex-end"}}>
+                    <FormGroup style={{display:"flex", flexDirection:"row", justifyContent:"flex-end"}}>
 
                         <Button type="submit" className="d-flex mb-4" style={{borderRadius: "10px", backgroundColor: "#A61C3C", color: "white",border:"none",display:"flex", justifyContent:"flex-end", marginRight:"20px"}} onClick={handleLogin}>Send</Button>
                         <CardText style={{ width:"22px",height:"22px",alignItems:"center",paddingLeft:" 5px",justifyContent:"center",  position:"absolute", top:"2px", right:"2px", color:"red",  border:"1px solid ", cursor:"pointer"}} onClick={handleRemoveLogin}>X</CardText>
@@ -108,20 +108,20 @@ function CheckoutCard() {
             (
 
             <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border  " style={{display: isDisplayRegister ? "flex": "none", position:"relative",backgroundColor:"#C58882"}}>
-                <Form className="" style={{display: "flex", flexDirection:"column"}}>
+                <Form style={{display: "flex", flexDirection:"column"}}>
                     <h1 style={{textAlign:"center", marginTop:"30px", marginBottom:"30px"}}>Register</h1>
-                    <FormGroup className=""  >
-                    <Input type="text" className="contact-form-text" placeholder="Name"  value={name} onChange={(e) => setName(e.target.value)}/>
-                    <Input type="text" className="contact-form-text" placeholder="surname"  value={surname} onChange={(e) => setSurname(e.target.value)}/>
-                    <Input type="text" className="contact-form-text" placeholder="Street"  value={street} onChange={(e) => setStreet(e.target.value)}/>
-                    <Input type="number" className="contact-form-text" placeholder="postalCode"  value={postalCode} onChange={(e) => setPostalCode(e.target.value)}/>
-                    <Input type="text" className="contact-form-text" placeholder="city"  value={city} onChange={(e) => setCity(e.target.value)}/>
-                    <Input type="email" className="contact-form-text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    <Input type="password" className="contact-form-text" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <FormGroup className="m-3"  >
+                    <Input type="text" className="mb-3 " placeholder="name"  value={name} onChange={(e) => setName(e.target.value)}/>
+                    <Input type="text" className="mb-3 " placeholder="surname"  value={surname} onChange={(e) => setSurname(e.target.value)}/>
+                    <Input type="text" className="mb-3 " placeholder="street"  value={street} onChange={(e) => setStreet(e.target.value)}/>
+                    <Input type="number" className="mb-3 " placeholder="postalCode"  value={postalCode} onChange={(e) => setPostalCode(e.target.value)}/>
+                    <Input type="text" className="mb-3 " placeholder="city"  value={city} onChange={(e) => setCity(e.target.value)}/>
+                    <Input type="email" className="mb-3 " placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <Input type="password" className="mb-3 " placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     </FormGroup>
-                    <FormGroup className="" style={{display:"flex", flexDirection:"row", justifyContent:"flex-end"}}>
+                    <FormGroup style={{display:"flex", flexDirection:"row", justifyContent:"flex-end"}}>
 
-                        <Button type="submit" className="d-flex mb-4 " style={{borderRadius: "10px", backgroundColor: "#A61C3C", color: "white",border:"none",display:"flex", justifyContent:"flex-end"}} onClick={handleRegister}>Send</Button>
+                        <Button type="submit" className="d-flex mb-4 " style={{borderRadius: "10px", backgroundColor: "#A61C3C", color: "white",border:"none",display:"flex", justifyContent:"flex-end", marginRight:"20px"}} onClick={handleRegister}>Send</Button>
                         <CardText style={{ width:"22px",height:"22px",alignItems:"center",paddingLeft:" 5px",justifyContent:"center",  position:"absolute", top:"2px", right:"2px", color:"red",  border:"1px solid ", cursor:"pointer"}} onClick={handleRemoveLogin}>X</CardText>
                     </FormGroup>
                 </Form>
