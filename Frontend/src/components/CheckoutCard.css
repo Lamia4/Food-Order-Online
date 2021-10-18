@@ -1,9 +1,12 @@
 .checkoutcard{
     position:fixed;
+    display:flex;
+    justify-content:center;
     top:50%;
-    left:85%;
+    left:50%;
     opacity: 1 !important;
     transform:translate(-50%,-50%);
     z-index: 100;
     overflow-y: scroll;
 }
+

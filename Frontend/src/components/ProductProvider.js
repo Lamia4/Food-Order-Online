@@ -22,6 +22,8 @@ function ProductProvider({children}) {
         category: product.category });
     const [saved, setSaved] = useState(false);
     const [editProduct, setEditProduct] = useState({});
+    const [changedProduct, setChangedProduct] = useState({});
+    const [changedCategory, setChangedCategory] = useState({});
 
     const handleImage = async (e) =>{
         e.preventDefault();
@@ -29,24 +31,19 @@ function ProductProvider({children}) {
         const file = e.target.files[0];
         let formData = new FormData();
         formData.append('file', file);
-
-        
+       
         const data = await uploadImage(formData);
-        console.log("data", data);
-        console.log("image id:", data.public_id);
         setImage(data);
         
     }
 
     const handleRemoveImage = async () =>{
         const imagePublicId = {public_id:image.public_id};
-        const data = await deleteImage(imagePublicId);
-        console.log("data result:",data);     
-
+        await deleteImage(imagePublicId);
         setImage(false)
     }
     return (
-        <ProductContext.Provider value={{product, setProduct, image, setImage, categoryProducts, setCategoryProducts, categories, setCategories, category, setCategory, inputTitle, setInputTitle, inputDesc, setInputDesc, inputPrice, setInputPrice, productObj, setProductObj, saved, setSaved, handleImage, editProduct, setEditProduct, handleRemoveImage}}>
+        <ProductContext.Provider value={{product, setProduct, image, setImage, categoryProducts, setCategoryProducts, categories, setCategories, category, setCategory, inputTitle, setInputTitle, inputDesc, setInputDesc, inputPrice, setInputPrice, productObj, setProductObj, saved, setSaved, handleImage, editProduct, setEditProduct, handleRemoveImage, changedProduct, setChangedProduct, changedCategory, setChangedCategory}}>
             {children}
         </ProductContext.Provider>
     )

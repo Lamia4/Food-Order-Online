@@ -1,6 +1,4 @@
 import {useState, createContext} from 'react';
-import Buffer from "buffer";
-import { ifError } from 'assert';
 
 export const TokenContext = createContext({});
 
@@ -10,7 +8,6 @@ function TokenProvider({children}){
     
     function isTokenExpired() {
         const user = JSON.parse(localStorage.getItem("user"));
-        console.log("user", user); 
         if(!user || !user.token) {
             return false
         }
@@ -25,6 +22,7 @@ function TokenProvider({children}){
             return endResult
         }
         const endResult = false;
+        setUserToken(user.token)
         return endResult;
     } 
 

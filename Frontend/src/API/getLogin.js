@@ -9,21 +9,13 @@ async function getLogin(email,password){
             }
             }).then(response => response.json())
             .then(data => {
-                if(data.token && data.role === 0){
+                if(data.token){
                     localStorage.setItem("user", JSON.stringify(data))
                 }
-                console.log("data", data);
             return data;
             });
-            console.log("userData", userData);
     return userData;
 }
 
 export default getLogin
 
-//1633426610
-//1633431610
-      //5000
-
-      //token müsste so umgewandelt werden, dass man die expires zahl sehen kann und mit Date.now(millisekunden) ein vergleich aufstellen kann
-      //atob

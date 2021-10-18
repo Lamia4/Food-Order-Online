@@ -14,7 +14,7 @@ cloudinary.config({
 
 router.post("/upload", (req, res) => {
     try {
-        console.log(req.files);
+        //console.log(req.files);
         if(!req.files || Object.keys(req.files).length === 0) return res.status(400).send({msg: "no files uploaded"});
         const file = req.files.file;
         if(file.size > 1024*1024) {
@@ -37,7 +37,7 @@ router.post("/upload", (req, res) => {
     }
 })
 
-router.post("/deletepicture", auth, authAdmin, (req, res) => {
+router.post("/deletepicture", (req, res) => {
     try {
         const {public_id} = req.body;
         if(!public_id) return res.status(400).json({msg: "no images selected"})

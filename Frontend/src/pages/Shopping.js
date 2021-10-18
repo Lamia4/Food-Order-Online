@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useEffect, useContext} from 'react';
 import "./Category.js";
 import { CartContext } from '../components/CartProvider.js';
 import { Container, Card, CardTitle,CardSubtitle, Button,CardText, CardImg,Row,Col,CardBody } from 'reactstrap';
@@ -8,12 +8,12 @@ import {LoginContext} from "../components/LoginProvider";
 import CheckoutCard from '../components/CheckoutCard.js';
 import { useHistory} from "react-router-dom";
 import {TokenContext} from "../components/TokenProvider.js";
-import order from "../API/order.js";
+import {order} from "../API/order.js";
 
 function Shopping() {
 
     const {cart, setCart, total, setTotal, removeFromCart, decrementCount, addToCart} = useContext(CartContext);
-    const {isLogged, user, isCheckout, setIsCheckout, isNoOpacity, setIsNoOpacity} = useContext(LoginContext);
+    const {isLogged, user, isCheckout, setIsCheckout, isNoOpacity, setIsNoOpacity, registered} = useContext(LoginContext);
     const {isTokenExpired, userToken} = useContext(TokenContext);
     const history = useHistory();
 
@@ -30,28 +30,50 @@ function Shopping() {
     }, [cart])
 
     const handleCheckout = async ()=>{
-        console.log("user von checkout", user);
         setIsCheckout(true);
         setIsNoOpacity(false);
-        if(isLogged) {
+        if(isLogged & !registered) {
    
             const result = isTokenExpired(userToken);
-            if (result || isLogged) {
-                console.log(user, cart, total);
-                const userId = (user.id);
-                console.log("userId", userId);
+            if (!result || isLogged) {
+                const userId = user._id;
                 const userCart = cart.map(cartItem => {
                     const obj = {productId : cartItem._id, 
                                 quantity: cartItem.quantity}
                     return obj})
-                console.log("userCart", userCart); 
                 const totalP = total;
-                console.log("total", totalP);
                 const finalResponse = await order(userId, userCart, totalP);
-                console.log("order", finalResponse);
-                history.push("/success") 
+                
+                if (finalResponse === "you get the order"){
+                    localStorage.clear("cart");
+                    setCart([])
+                    history.push("/success") 
+                } else{
+                    alert("Some Error happend!")
+                }
             }      
 
+        } else if(registered){
+            const result = isTokenExpired(userToken);
+            if (!result || isLogged) {
+                const userId = user.user._id;
+                const userCart = cart.map(cartItem => {
+                    const obj = {productId : cartItem._id, 
+                                quantity: cartItem.quantity}
+                    return obj})
+                const totalP = total;
+                const finalResponse = await order(userId, userCart, totalP);
+                
+                if (finalResponse === "you get the order"){
+                    localStorage.clear("cart");
+                    setCart([])
+                    history.push("/success") 
+                } else{
+                    alert("Some Error happend!")
+                }
+            }      
+        } else {
+            setIsCheckout(true);
         }
     }
     const handleGoBack = () => {

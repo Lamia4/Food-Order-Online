@@ -28,10 +28,23 @@ export default {
                 
             });
             await order.save();
-            res.json("you get the order");
+            res.status(200).json("you get the order");
         } catch (error) {
             next(error);
         }
     },
+
+    getOrders: async(req, res) => {
+        try {
+            const orders = await Order.find().populate({
+                path: "userID"
+            }).populate({
+                path: "orderList.productId"
+            })
+            res.json(orders)
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+    }
 
 }

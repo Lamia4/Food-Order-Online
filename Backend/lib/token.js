@@ -12,7 +12,7 @@ export default {
     
         const options = {
             algorithm: "HS256",
-            expiresIn: "500000000s"
+            expiresIn: "500s"
         };
     
         const token = jwt.sign(user, secret, options);

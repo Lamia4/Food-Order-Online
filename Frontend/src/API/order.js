@@ -1,7 +1,6 @@
-async function order(userID, orderList, totalPrice){
+export async function order(userID, orderList, totalPrice){
 
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log("localstorage test", user);
     const order = await fetch('http://localhost:3438/api/checkout', {
             method: 'POST',
             body: JSON.stringify({userID, orderList, totalPrice}),
@@ -10,10 +9,20 @@ async function order(userID, orderList, totalPrice){
             'Authorization': user.token,
             }
             }).then(response => response.json())
-            .catch(err => console.log(err));
-            
-    console.log(order);        
+            .catch(err => console.log(err));     
     return order;
 }
 
-export default order
+
+export async function getOrders(){
+
+    const orders = await fetch('http://localhost:3438/api/checkout', {
+            method: 'GET',
+            headers:
+            {
+                "Content-Type": "application/json"
+            }
+            }).then(response => response.json())
+            .catch(err => console.log(err));       
+    return orders;
+}

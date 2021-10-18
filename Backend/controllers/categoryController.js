@@ -25,17 +25,17 @@ const categoryController = {
     },
     deleteCategory: async (req, res) => {
         try {
-            await Category.findByIdAndDelete(req.params.id)
-            res.json({msg: "deleted this category"})
+            const deletedCategory = await Category.findByIdAndDelete(req.params.id)
+            res.json(deletedCategory)
         } catch (err) {
             return res.status(500).json({msg: err.message})
         }
     },
     updateCategory: async (req, res) => {
         try {
-            const {name} = req.body;
-            await Category.findOneAndUpdate({_id: req.params.id}, {name})
-            res.json({msg: "updated category"})
+            const {name, image} = req.body;
+            const updatedCategory = await Category.findOneAndUpdate({_id: req.params.id}, {name, image}, {new:true})
+            res.json(updatedCategory)
         } catch (err) {
             return res.status(500).json({msg: err.message})
         }

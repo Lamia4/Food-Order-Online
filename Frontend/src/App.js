@@ -1,4 +1,5 @@
 import './App.css';
+import React, {useContext, useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home.js";
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
@@ -17,9 +18,36 @@ import Privacy from "./pages/Privacy.js";
 import FAQ from "./pages/FAQ.js";
 import Services from "./pages/Services.js";
 import Payment from "./pages/Payment.js";
-
+import History from "./pages/History.js";
+import SuccessRegister from "./pages/SuccessRegister.js";
+import {LoginContext} from "./components/LoginProvider.js"
+import {TokenContext} from "./components/TokenProvider.js"
 
 function App() {
+
+  const { setIsLogged, setUser, setAdmin } = useContext(LoginContext);
+  const { setUserToken, isTokenExpired } = useContext(TokenContext)
+
+  useEffect(() => {
+    if(localStorage.getItem("user")){
+      const localUser = JSON.parse(localStorage.getItem("user"))
+      if(!isTokenExpired()){
+        setIsLogged(true);
+        setUser(localUser);
+        setUserToken(localUser.token)
+      } else {
+        localStorage.clear("user");
+        setIsLogged(false);
+        setAdmin(false)
+      }
+      if (localUser.role === 1){
+        setAdmin(true);
+      } else if(localUser.role === 0 ){
+        setAdmin(false);
+      }
+    }
+  }, [])
+ 
 
   return (
     <div className="App">
@@ -41,7 +69,9 @@ function App() {
             <Route path="/faq" component={ FAQ } /> 
             <Route path="/services" component={ Services } /> 
             <Route path="/payment" component={ Payment } /> 
-            <Route path="/products/:categoryName" component={ Category } />         
+            <Route path="/products/:categoryName" component={ Category } />  
+            <Route path="/checkout" component={ History } /> 
+            <Route path="/successregister" component={ SuccessRegister } />       
           </Switch>
           </main>
           <Footer/>
