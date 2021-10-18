@@ -89,7 +89,7 @@ function CheckoutCard() {
             <Col xs ={10}sm={9} md={6} lg={4} xl={3} className=" border" style={{position:"relative", backgroundColor:"#C58882"}}>
                 <Form className="" style={{display:"flex", flexDirection:"column"}}>
                     <h1 style={{textAlign:"center", marginTop:"30px", marginBottom:"30px"}}>Login</h1>
-                    <FormGroup className=""  >
+                    <FormGroup className="m-3">
                         <Input type="text" className="mb-3 " placeholder="Your Email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
                         <Input type="password" className="mb-3" placeholder="Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         <CardTitle>Don't have an account </CardTitle>
@@ -97,7 +97,7 @@ function CheckoutCard() {
                     </FormGroup>
                     <FormGroup className="" style={{display:"flex", flexDirection:"row", justifyContent:"flex-end"}}>
 
-                        <Button type="submit" className="d-flex mb-4 " style={{borderRadius: "10px", backgroundColor: "#A61C3C", color: "white",border:"none",display:"flex", justifyContent:"flex-end"}} onClick={handleLogin}>Send</Button>
+                        <Button type="submit" className="d-flex mb-4" style={{borderRadius: "10px", backgroundColor: "#A61C3C", color: "white",border:"none",display:"flex", justifyContent:"flex-end", marginRight:"20px"}} onClick={handleLogin}>Send</Button>
                         <CardText style={{ width:"22px",height:"22px",alignItems:"center",paddingLeft:" 5px",justifyContent:"center",  position:"absolute", top:"2px", right:"2px", color:"red",  border:"1px solid ", cursor:"pointer"}} onClick={handleRemoveLogin}>X</CardText>
                     </FormGroup>
                 </Form>

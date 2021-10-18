@@ -7,3 +7,15 @@
     z-index: 100;
     overflow-y: scroll;
 }
+
+@media (max-width:767px) {
+    .checkoutcard{
+        left:60%;
+    }
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+    .checkoutcard{
+        left:75%;
+    }
+}
