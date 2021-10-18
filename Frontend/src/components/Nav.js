@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
-import login from "../img/login.png"
-import logout from "../img/logout.png"
-import shopping from "../img/shopping3.png";
+import login from "../img/userLogin.png"
+import logout from "../img/logout9.png"
+import shopping from "../img/shopping1.png";
 import "./Nav.css";
 import { NavLink, useHistory } from 'react-router-dom';
 import { Container, Collapse, Navbar, NavbarToggler } from "reactstrap";
