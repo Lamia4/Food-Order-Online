@@ -64,7 +64,7 @@ function Search() {
             </Col>
             <Col sm={12} md={6} lg={5}  className="searchColumn">
                 <FormGroup className="align-items-center mr-5 d-flex flex-direction-row mb-3" >
-                    <Input onChange={e => setSearch(e.target.value.toLowerCase())}
+                    <Input onChange={e => setSearch(e.target.value)}
                     value={search}
                     type="text"
                     name="searchbar"
