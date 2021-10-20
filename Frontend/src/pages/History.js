@@ -65,14 +65,21 @@ function History() {
                                  { (item.productId.title.toUpperCase()) + " x " + (item.quantity)}
                             </ModalBody>
                             ))}
-                            
+                            <ModalBody className="modalAddress">
+                               <b>Total price: </b> 
+                                
+                            </ModalBody>
+                            <ModalBody className="modalAddress">
+                               {order.totalPrice} €
+                                
+                            </ModalBody>
                             <ModalBody className="modalAddress">
                                <b>Address: </b> 
                                 
                             </ModalBody>
                             <ModalBody>
                                  
-                                Hamburger Str. 40, 01095 Berlin
+                                {order.userID.street}, {order.userID.postalCode} {order.userID.city}
                             </ModalBody>
                             <ModalFooter>
                                 <Button color="success" onClick={toggle}>Close</Button>
