@@ -15,7 +15,7 @@ function About() {
 
             <Col className="col-lg-4 col-md-4 col-12">
             <Card className="picstyle"> 
-                <CardImg src="https://media-exp1.licdn.com/dms/image/D4D35AQFlpX4L2af6dA/profile-framedphoto-shrink_200_200/0/1626249002718?e=1634090400&v=beta&t=hDzLMmV8mVH3QRIhJMKiKCO_iLnnsaPPv8-Axl7gq_4"
+                <CardImg src="https://media-exp1.licdn.com/dms/image/D4D35AQFlpX4L2af6dA/profile-framedphoto-shrink_200_200/0/1626249002718?e=1634803200&v=beta&t=KlLBHmGgjYZjj770jqszlenwMfvIxkgOq_b1kY8XYCk"
                     alt="" className="rounded-circle shadow-lg CardImg " style={{width: "180px", height: "180px", backgroundColor: '#333', borderColor: '#333' }}/>
 
                 <CardBody>

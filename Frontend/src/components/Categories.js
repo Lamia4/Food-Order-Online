@@ -34,8 +34,8 @@ function Categories() {
         <div>
             <Container className=" cardContainer mt-5">
                 <Row className="smCenter justify-content-md-space-between productRow mt-3">
-                   <h1 style={{textAlign:"center", color: "white"}}>My Delicious Food Categories &#9825;</h1>
-                    <Search />
+                   <h1 style={{textAlign:"center", color: "white", marginBottom: "5vh"}}>My Delicious Food Categories &#9825;</h1>
+                    {!admin && <Search />}
                     {admin && <CreateCategory getCategoriesData={getCategoriesData}/>}
                     {
                         searchedProducts.isSearched ? 
