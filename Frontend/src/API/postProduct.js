@@ -1,5 +1,5 @@
 export async function postProduct(product) {
-    const url = "http://localhost:3438/api/products";
+    const url = `${process.env.REACT_APP_BACKEND_SERVER}/api/products`;
     await fetch(url, {
             method: "POST",
             body: JSON.stringify(product),
@@ -15,7 +15,7 @@ export async function postProduct(product) {
 
 export async function deleteProduct(id, userId) {
     const user = {userId: userId}
-    const url = `http://localhost:3438/api/products/${id}`
+    const url = `${process.env.REACT_APP_BACKEND_SERVER}/api/products/${id}`
     let products = null;
     products = await fetch(url, {
             method: "DELETE",
@@ -32,7 +32,7 @@ export async function deleteProduct(id, userId) {
 }
 
 export async function editProduct(id, title,  price, description, image, category){
-    const url =`http://localhost:3438/api/products/${id}`
+    const url =`${process.env.REACT_APP_BACKEND_SERVER}/api/products/${id}`
     const product = await fetch(url, {
             method: "PUT",
             body: JSON.stringify({title, price, description, image, category}),
