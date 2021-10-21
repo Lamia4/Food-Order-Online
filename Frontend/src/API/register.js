@@ -1,6 +1,6 @@
 async function register(name, surname, street, postalCode, city, email, password){
 
-    const userData = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}/user/register`, {
+    const userData = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}user/register`, {
             method: 'POST',
             body: JSON.stringify({name, surname, street, postalCode, city, email, password}),
             headers: {
