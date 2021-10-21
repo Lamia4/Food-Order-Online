@@ -31,6 +31,26 @@ const UserSchema = new mongoose.Schema({
         required: true,
 		trim: true
     },
+	surname:  {
+        type: String,
+        required: true,
+		trim: true
+    },
+	street:  {
+        type: String,
+		required: true,
+		trim: true
+	},
+	postalCode:  {
+        type: Number,
+		required: true,
+		trim: true
+	},
+	city:  {
+        type: String,
+		required: true,
+		trim: true
+	},
     email: {
         type: String,
         required: true,
@@ -55,15 +75,19 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", UserSchema);
 
-async function register (nameP, emailP, passwordP) {
+async function register (name, surname, street, postalCode, city, email, password) {
 	const SALT_ROUNDS = 12;
 	console.log("before hash");
-	const newBcrypt = bcrypt.hashSync(passwordP, SALT_ROUNDS);
+	const newBcrypt = bcrypt.hashSync(password, SALT_ROUNDS);
 	console.log(newBcrypt);
 	const user = new User({
-		name: nameP,
-		email: emailP,
-        password: newBcrypt
+		name,
+		surname,
+		street,
+		postalCode,
+		city,
+		email,
+        password: newBcrypt,
 	});
 	console.log("before save");
 	return await user.save();
