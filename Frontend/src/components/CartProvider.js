@@ -41,10 +41,11 @@ function CartProvider({children}) {
 
         if(!isProductInCart){
             const newProduct = {...product, quantity: 1};
-            newArray.push(newProduct)
+            newArray.push(newProduct);
         }
        
         setCart(newArray);
+        
         localStorage.setItem("cart", JSON.stringify(newArray));
     }
 

@@ -22,7 +22,6 @@ function CheckoutCard() {
         e.preventDefault();
         try {
             const userData = await getLogin(email, password);
-            console.log("userData after fetch", userData);
             if(userData.token) {
             setIsLogged(true);
             const userObj = JSON.parse(localStorage.getItem("user"));

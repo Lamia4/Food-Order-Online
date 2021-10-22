@@ -76,24 +76,25 @@ function Shopping() {
             setIsCheckout(true);
         }
     }
-    const handleGoBack = () => {
+    const handleHomepage = () => {
         history.push("/")
 
-    } 
+    };
+
     
     return (
         <Container className="menuItem " style={{position: "relative"}}>
-            <div>
-            <div style={{zIndex: isNoOpacity ? "3" : "1", opacity:isNoOpacity ? "1" : "0.3"}}>
+            
+            <div style={{zIndex: isNoOpacity ? "3" : "1", opacity:isNoOpacity ? "1" : "0.3", marginTop:"6vh"}}>
                 {isLogged? 
-                (<h1 style={{marginTop:"25px"}}>Hi {user.name}</h1>) :
+                (<h1 style={{marginTop:"5vh", color:"white"}}>{registered? `Hi ${user.user.name}`: `Hi ${user.name}`}</h1>) :
                 null }
                 <Row className=" justify-content-center mt-5 ">
                 {cart.map((shoppingCartItem,i) => {
                     return(
-                        <Col xs ={10}sm={9} md={12} lg={9} key={i} className=" mb-2  menuColumnCart">
+                        <Col xs ={10}sm={9} md={12} lg={9} key={i} className=" mb-4  menuColumnCart">
                             <Card className="border-2 d-flex flex-md-row" style={{height:"100%",position:"relative"}}>
-                                    <Button className="d-flex justify-content-center" style={{ width:"25px",height:"25px", alignItems:"center", position:"absolute", top:"0", left:"0", color:"red", fontSize:"22px", border:"1px solid ", cursor:"pointer"}} onClick={() => removeFromCart(i)}>X</Button>
+                                    <Button className="d-flex justify-content-center" style={{ width:"30px",height:"30px", alignItems:"center", position:"absolute", top:"0", left:"0", color:"white", fontSize:"22px", border:"1px solid ", cursor:"pointer", backgroundColor:"red"}} onClick={() => removeFromCart(i)}>X</Button>
                                 <CardImg className="menuImg"   style={{height:"100%", width:"50%", objectFit:"cover" }} src={shoppingCartItem.image.url} alt="Card image cap" />
                                 <CardBody className="menuBody " style={{height:"100%", width:"50%", position:"relative"}}>
                                     <CardTitle className="menuTitle mb-md-3" tag="h5"><b>Title: </b>{shoppingCartItem.title}</CardTitle>
@@ -118,16 +119,16 @@ function Shopping() {
                 </Row>
                 </div>
                 
-                    <Row className="justify-content-center mt-3 mb-0 cartFooterRow">
+                    <Row className="justify-content-center mt-3 mb-5 cartFooterRow">
                         {cart.length === 0?
-                        (<CardText style={{textAlign: "center", fontSize: "25px", textTransform: "capitalize", color: "white"}}>your cart is empty! :(</CardText>) :
+                        (<><CardText style={{textAlign: "center", fontSize: "25px", textTransform: "capitalize", color: "white"}}>Your cart is empty!</CardText><Button style={{marginRight:"20px", backgroundColor:"#A61C3C", border:"none", borderRadius:"10px", width:"100px"}} onClick={handleHomepage}>Homepage</Button></>) :
                         (<>
                         <Col xs={8} md={6} lg={4} className=" summaryCardCol">
                         <CardText className ="summaryCard" style={{color:"white"}}><b>Summary:</b>{total.toFixed(2)}€</CardText>
                         </Col>
                         <Col className=" d-flex shoppingButton " xs={8} md={6} lg={4} style={{justifyContent:"space-between"}}>
-                    <Button onClick={handleGoBack} className="cartButton" style={{padding:"5px", borderRadius: "10px", backgroundColor: "#A61C3C", color: "white", border:"none"}}>
-                        Go Back
+                    <Button onClick={handleHomepage} className="cartButton" style={{padding:"5px", borderRadius: "10px", backgroundColor: "#A61C3C", color: "white", border:"none"}}>
+                        Homepage
                     </Button>
                     <Button onClick={handleCheckout} className="bg-success cartButton" style={{padding:"5px", borderRadius: "10px", color: "white", border:"none"}}>
                         Checkout
@@ -138,7 +139,6 @@ function Shopping() {
                     }
                         
                     </Row>
-                    </div>
                     <Row className="justify-content-center">
                     {isCheckout && <CheckoutCard/>}
                 </Row>

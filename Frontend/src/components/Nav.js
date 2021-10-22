@@ -39,7 +39,7 @@ function NavBar() {
     };
     return (
         
-            <Container fluid className="p-0 navContainer" style={{justifyItems: 'stretch', backgroundColor:"darkorange"}}>
+            <Container fluid className="p-0 navContainer" style={{justifyItems: 'stretch', backgroundColor:"#A61C3C"}}>
                 <Navbar style={{backgroundColor:"#A61C3C"}} dark expand="md" fixed="top" className="py-2 px-0">
                     <NavLink className="logo" to="/">
                         <h1 className="headerLogo">Logo</h1>  
@@ -56,7 +56,6 @@ function NavBar() {
                             {LoginFunctions.admin && <NavLink className="nav_link" to="/checkout">History</NavLink>}
                         </nav>
                         <nav className="navCenter" style={{display: "flex", flexGrow: "1", flexWrap: "wrap",justifyContent: "flex-end"}}> 
-                        {console.log(LoginFunctions.isLogged)}
                         { LoginFunctions.isLogged && userToken?  
                         (<NavLink to="/logout" style={{marginRight:"20px"}} className="" onClick={() => {handleUser()}}><img style={{height: "5vh"}} src= {logout} alt="logout"/></NavLink>):
                         (<NavLink  to="/login" style={{marginRight:"20px"}} className="" ><img style={{height: "5vh"}} src= {login} alt="login"/></NavLink>)
