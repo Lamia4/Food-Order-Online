@@ -1,5 +1,5 @@
 async function getSearch(searchValue, category, sort){
-    const url = `${process.env.REACT_APP_BACKEND_SERVER}api/products?${category}&title[regex]=${searchValue}&${sort}`;
+    const url = `http://localhost:3438/api/products?${category}&title[regex]=${searchValue}&${sort}`;
     let products = [];
     products = await fetch(url,
         {

@@ -20,7 +20,7 @@ function Category() {
     },[])
 
     const getCategoryProducts = async (e) => {
-        const result = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}api/products/${categoryName}`,{
+        const result = await fetch(`http://localhost:3438/api/products/${categoryName}`,{
             method: "GET",
         })
         .then(response=> response.json())

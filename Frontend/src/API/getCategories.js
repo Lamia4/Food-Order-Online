@@ -1,5 +1,5 @@
 export async function getCategories(){
-    const url =  `${process.env.REACT_APP_BACKEND_SERVER}api/category`;
+    const url =  `http://localhost:3438/api/category`;
     let categories = [];
 
     categories = await  fetch(url,
@@ -22,7 +22,7 @@ export async function getCategories(){
 
 
 export async function postCategory(categoryInfo){
-    const url = `${process.env.REACT_APP_BACKEND_SERVER}api/category`;
+    const url = `http://localhost:3438/api/category`;
 
     const newCategory= await fetch(url,
         {
@@ -40,7 +40,7 @@ export async function postCategory(categoryInfo){
 }
 
 export async function deleteCategory(id){
-    const url = `${process.env.REACT_APP_BACKEND_SERVER}api/category/${id}`;
+    const url = `http://localhost:3438/api/category/${id}`;
 
     let category = await fetch(url, {
             method: "DELETE",
