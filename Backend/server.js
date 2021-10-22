@@ -40,5 +40,5 @@ server.use("/api", uploadRouter);
 server.use("/api", productRouter);
 server.use("/api", orderRouter);
 
-server.use(express.static("./app/")); 
+// server.use(express.static("./app/")); 
 // server.use((req, res) => res.sendFile("./index.html")); 
