@@ -51,7 +51,7 @@ export async function deleteCategory(id){
 }
 
 export async function editCategory(id, name, image){
-    const url =`${process.env.REACT_APP_BACKEND_SERVER}api/category/${id}`
+    const url =`http://localhost:3438/api/category/${id}`
     const category = await fetch(url, {
         method: "PUT",
         body: JSON.stringify({name, image}),

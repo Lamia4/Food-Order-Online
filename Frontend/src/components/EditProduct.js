@@ -15,8 +15,6 @@ function EditProduct({product, i, getCategoryProducts}) {
     const [newProduct, setNewProduct] = useState({title:product.title, description:product.description, price:product.price, image:product.image});
 
     const {user} = useContext(LoginContext)
-
-    console.log("categoryProducts", categoryProducts);
     const handleRemove = async(category)=>{
         await deleteProduct(category._id, user._id);
         await deleteImage({public_id:category.image.public_id});

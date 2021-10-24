@@ -19,7 +19,8 @@ function Search() {
         getCategories()
         .then(categories => {
             setCategories(categories);
-        })
+        });
+        searchedProducts.setIsSearched(false);
     },[]);
     
     const handleCategory = (e) =>{
