@@ -91,8 +91,8 @@ function CheckoutCard() {
                     <FormGroup className="m-3">
                         <Input type="text" className="mb-3 " placeholder="Your Email"  value={email} onChange={(e) => setEmail(e.target.value)}/>
                         <Input type="password" className="mb-3" placeholder="Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                        <CardTitle>Don't have an account </CardTitle>
-                        <CardSubtitle style={{cursor:"pointer", textDecoration:"underline"}} onClick={handleToggle} >Register.</CardSubtitle>
+                        <CardTitle>Don't have an account? Click here: </CardTitle>
+                        <CardSubtitle style={{cursor:"pointer", textDecoration:"underline", color:"#A61C3C"}} onClick={handleToggle} >Register.</CardSubtitle>
                     </FormGroup>
                     <FormGroup style={{display:"flex", flexDirection:"row", justifyContent:"flex-end"}}>
 
@@ -117,6 +117,8 @@ function CheckoutCard() {
                     <Input type="text" className="mb-3 " placeholder="city"  value={city} onChange={(e) => setCity(e.target.value)}/>
                     <Input type="email" className="mb-3 " placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                     <Input type="password" className="mb-3 " placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <CardTitle>Do you have an account? Click here: </CardTitle>
+                    <CardSubtitle style={{cursor:"pointer", textDecoration:"underline", color:"#A61C3C"}} onClick={handleToggle} >Login.</CardSubtitle>
                     </FormGroup>
                     <FormGroup style={{display:"flex", flexDirection:"row", justifyContent:"flex-end"}}>
 

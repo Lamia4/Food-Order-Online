@@ -48,8 +48,8 @@ function Register() {
       <Input type="text" className="p-2 mb-3" placeholder="City"  value={city} onChange={(e) => setCity(e.target.value)}/>
       <Input type="email" className="p-2 mb-3" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
       <Input type="password" className="p-2 mb-3" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-      <CardText style={{color: "white"}}>You have an account? Click here:  <Link to="/login" style={{color: "yellow", marginLeft: "5px"}}>Login.</Link></CardText>
-      <Button  type="submit" className="p-2 mb-3 bg-success" onClick={handleRegister}>SEND</Button >
+      <CardText style={{color: "white"}}>Do you have an account? Click here:  <Link to="/login" style={{color: "yellow", marginLeft: "5px"}}>Login.</Link></CardText>
+      <Button  type="submit" className="p-2 mb-3" style={{backgroundColor:"#A61C3C"}} onClick={handleRegister}>SEND</Button >
 
     </FormGroup>
 

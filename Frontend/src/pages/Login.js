@@ -51,7 +51,7 @@ function Login() {
       <Input type="password" className=" p-2 mb-3" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
       {showError? (<CardText style={{color:"yellow", textDecoration:"underline"}}>Your password or email is incorrect!</CardText>): null }
       <CardText style={{color: "white"}}>Create Your Account:  <Link to="/register" style={{color: "yellow", marginLeft: "5px"}}>Register.</Link></CardText>
-      <Button type="submit" className="p-2 mb-3 bg-success" onClick={handleLogin}>SEND</Button>
+      <Button type="submit" className="p-2 mb-3" style={{backgroundColor:"#A61C3C"}} onClick={handleLogin}>SEND</Button>
       
 
 

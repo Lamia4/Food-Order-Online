@@ -13,7 +13,7 @@ import {order} from "../API/order.js";
 function Shopping() {
 
     const {cart, setCart, total, setTotal, removeFromCart, decrementCount, addToCart} = useContext(CartContext);
-    const {isLogged, user, isCheckout, setIsCheckout, isNoOpacity, setIsNoOpacity, registered} = useContext(LoginContext);
+    const {isLogged, user, isCheckout, setIsCheckout, isNoOpacity, setIsNoOpacity, registered, admin} = useContext(LoginContext);
     const {isTokenExpired, userToken} = useContext(TokenContext);
     const history = useHistory();
 
@@ -45,7 +45,10 @@ function Shopping() {
                 const finalResponse = await order(userId, userCart, totalP);
                 
                 if (finalResponse === "you get the order"){
-                    localStorage.clear("cart");
+                    var user2 = localStorage.getItem('user');
+                    localStorage.clear();
+                    localStorage.setItem('user',user2);
+                    // localStorage.clear("cart");
                     setCart([])
                     history.push("/success") 
                 } else{
@@ -65,7 +68,10 @@ function Shopping() {
                 const finalResponse = await order(userId, userCart, totalP);
                 
                 if (finalResponse === "you get the order"){
-                    localStorage.clear("cart");
+                    var user1 = localStorage.getItem('user');
+                    localStorage.clear();
+                    localStorage.setItem('user',user1);
+                    // localStorage.clear("cart");
                     setCart([])
                     history.push("/success") 
                 } else{
@@ -86,7 +92,7 @@ function Shopping() {
         <Container className="menuItem " style={{position: "relative"}}>
             
             <div style={{zIndex: isNoOpacity ? "3" : "1", opacity:isNoOpacity ? "1" : "0.3", marginTop:"6vh"}}>
-                {isLogged? 
+                {isLogged & !admin? 
                 (<h1 style={{marginTop:"5vh", color:"white"}}>{registered? `Hi ${user.user.name}`: `Hi ${user.name}`}</h1>) :
                 null }
                 <Row className=" justify-content-center mt-5 ">
