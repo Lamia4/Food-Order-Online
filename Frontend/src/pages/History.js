@@ -49,7 +49,7 @@ function History() {
                     <tbody>
                         <tr>
                         <th scope="row">{i+1}</th>
-                        <td> {order.userID.name[0].toUpperCase()+order.userID.name.substring(1)  + " " + order.userID.surname[0].toUpperCase()+order.userID.surname.substring(1)}</td>
+                        <td> {order.userID.name[0].toUpperCase()+order.userID.name.substring(1) + " " + order.userID.surname[0].toUpperCase()+order.userID.surname.substring(1) }</td>
                         <td>{order.orderList.reduce((first,item)=>(
                             first +(item.quantity)
                         ),0)}</td>
@@ -58,7 +58,7 @@ function History() {
                         </td>
                         <td style={{cursor:"pointer"}} onClick={toggle}>View
                             <Modal isOpen={modal}  >
-                            <ModalHeader className="modalClassX"  toggle={toggle}>{order.userID.name[0].toUpperCase()+order.userID.name.substring(1)  + " " + order.userID.surname[0].toUpperCase()+order.userID.surname.substring(1) }</ModalHeader>
+                            <ModalHeader className="modalClassX"  toggle={toggle}>{order.userID.name[0].toUpperCase()+order.userID.name.substring(1) + " " + order.userID.surname[0].toUpperCase()+order.userID.surname.substring(1) }</ModalHeader>
                             {order.orderList.map((item,i)=>(
                               
                                 <ModalBody key={i}>
