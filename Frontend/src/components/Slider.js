@@ -1,8 +1,8 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import img from "../img/slid2.png";
-import hamburger from "../img/hamburger.png";
-import dessert from "../img/dessert.png";
+import pizza from "../img/2.png";
+import hamburger from "../img/1.png";
+import dessert from "../img/5.png";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../components/Slider.css"
@@ -18,7 +18,7 @@ function Slider() {
 
 
       <Carousel.Item>
-        <img className="d-block w-100" src= {img} alt="First slide"/> 
+        <img className="d-block w-100" src= {pizza} alt="First slide"/> 
       </Carousel.Item>
 
 

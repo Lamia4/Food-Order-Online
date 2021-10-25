@@ -1,0 +1,77 @@
+@import url('http://fonts.cdnfonts.com/css/omnes');
+
+.faqs h1 ,  .services h1, .payment{
+    margin: 50px auto 20px;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-family: 'Omnes', sans-serif; 
+}
+
+.text{
+    color: #fff;
+    font-family: 'Omnes', sans-serif; 
+    margin: 0 15% 1%;
+    border-bottom: 1px solid gray ;
+    padding-bottom: 15px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 35px;
+
+}
+
+.services h1{
+    border-bottom: 1px solid rgb(255, 255, 255) ;
+    width: 70%;
+    padding: 0 0 15px 0;
+}
+
+.text h3{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+ .services .text{
+     border: none;
+ }
+
+
+ /*----------------------------------payment Styling----------------------------------- */
+
+
+ .payment h4{
+     font-weight: 400;
+
+ }
+
+ .payment img{
+     width: 30%;
+ }
+
+
+ @media (max-width: 1200px) {
+    .payment img{
+        width: 50%;
+        
+     
+    }
+    
+  }
+
+
+ @media (max-width: 600px) {
+    .payment img{
+        width: 80%;
+        
+     
+    }
+    
+  }
+
+
+  
+
+
+  
+
+

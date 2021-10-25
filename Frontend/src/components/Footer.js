@@ -20,8 +20,8 @@ function Footer() {
                     <Col md={4} lg={4} className="columnCenter" >
                     <ListGroup className=" listGroupItems footerTitle">
                         <h3 className="listFooterItem ">Services</h3>
-                        <ListGroupItem  className="listFooterItem"   href="#" >Best Service</ListGroupItem>
-                        <ListGroupItem  className="listFooterItem"  href="#" >Safe Payment</ListGroupItem>
+                        <ListGroupItem  className="listFooterItem"   href="#" > <Link to="/services">Best Service</Link></ListGroupItem>
+                        <ListGroupItem  className="listFooterItem"  href="#" > <Link to="/payment">Safe Payment</Link></ListGroupItem>
                        
                     </ListGroup>
                     </Col>
