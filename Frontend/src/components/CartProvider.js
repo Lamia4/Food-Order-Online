@@ -41,10 +41,10 @@ function CartProvider({children}) {
 
         if(!isProductInCart){
             
+            alert("This product has been added to your cart!");
             const newProduct = {...product, quantity: 1};
             newArray.push(newProduct);
         }
-        alert("This product has been added to your cart!");
         setCart(newArray);
         localStorage.setItem("cart", JSON.stringify(newArray));
     }
