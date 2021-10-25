@@ -49,7 +49,7 @@ function History() {
                     <tbody>
                         <tr>
                         <th scope="row">{i+1}</th>
-                        <td> {order.userID.name[0].toUpperCase()+order.userID.name.substring(1) }</td>
+                        <td> {order.userID.name[0].toUpperCase()+order.userID.name.substring(1) + " " + order.userID.surname[0].toUpperCase()+order.userID.surname.substring(1) }</td>
                         <td>{order.orderList.reduce((first,item)=>(
                             first +(item.quantity)
                         ),0)}</td>
