@@ -4,29 +4,29 @@ import"./FAQ.css"
 function Services() {
     return (
         <div className="services">
-            <h1>Unsere wichtigsten Eigenschaften:</h1>
+            <h1>Our most important properties:</h1>
              
             <p className="text">
 
-                <h5>Eine erneuerte und kundenfreundliche Internetseite: Essen bestellen war noch nie so einfach!</h5>
+                <h5>A renewed and customer-friendly website: Ordering food has never been easier!</h5>
 
-                Über vier einfache Schritte haben Sie im Handumdrehen Ihr Essen bestellt. Schnell und unkompliziert! Möchten Sie mehr Optionen benutzen, wie zum Beispiel das Kennzeichnen Ihrer Lieblings-Lieferdienste oder das Zufügen von mehreren Lieferadressen? Dann erstellen Sie sich einen Account.
+                You can order your meal in no time using four simple steps. Quick and easy! Would you like to use more options, such as labeling your favorite delivery services or adding multiple delivery addresses? Then create an account.
 
                 </p>
 
 
                 
                 <p className="text">
-                <h5>Essen bestellen, wo Sie auch sind</h5>
+                <h5>Order food wherever you are</h5>
                     
-                    Zu Hause, auf der Arbeit oder unterwegs? Wo auch immer Sie sind, Sie können zu jeder Zeit, über unsere mobile Seite oder mit einer unserer Apps für das iPhone und Androidhandys, Essen bestellen.
+                At home, at work or on the go? Wherever you are, you can order food at any time, via our mobile site or with one of our apps for iPhone and Android phones.
                 </p>
 
 
                 <p className="text">
-                <h5>Ein herausragender Kundenservice</h5>
+                <h5>Outstanding customer service</h5>
                     
-                Wir haben einen herausragenden Kundenservice aufzuweisen, der sieben Tage die Woche zwischen 10:00-22:00 Uhr Ihre Fragen beantwortet und Ihnen bei Problemen zur Seite steht. Unseren Kundenservice können Konsumenten sowohl als auch Restaurants in Anspruch nehmen.
+                we have an outstanding customer service, which answers your questions seven days a week between 10 a.m. and 10 p.m. and is at your side if you have any problems. Both consumers and restaurants can take advantage of our customer service.
                 </p>
         </div>
     )
