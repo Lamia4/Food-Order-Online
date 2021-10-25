@@ -9,6 +9,7 @@ import "../pages/Category.js";
 import { CartContext } from '../components/CartProvider.js';
 import { LoginContext } from '../components/LoginProvider.js';
 import { TokenContext } from "../components/TokenProvider.js";
+import logoHome from "../img/logohome.png"
 
 function NavBar() {
 
@@ -41,8 +42,8 @@ function NavBar() {
         
             <Container fluid className="p-0 navContainer" style={{justifyItems: 'stretch', backgroundColor:"#A61C3C"}}>
                 <Navbar style={{backgroundColor:"#A61C3C"}} dark expand="md" fixed="top" className="py-2 px-0">
-                    <NavLink className="logo" to="/">
-                        <h1 className="headerLogo">Logo</h1>  
+                    <NavLink className="logo" style={{display:"flex", alignItems:"center"}} to="/" >
+                    <img style={{height: "10vh"}} src= {logoHome} alt="logoHome"/>
                     </NavLink>
 
                     <NavbarToggler onClick={toggle} />
