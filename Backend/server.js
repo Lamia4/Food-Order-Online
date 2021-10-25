@@ -39,5 +39,6 @@ server.use("/api", categoryRouter);
 server.use("/api", uploadRouter);
 server.use("/api", productRouter);
 server.use("/api", orderRouter);
-//server.use("/products", verifyToken, productRouter);
-// verifyToken nur bei Bestellung abschicken oder bei der Bezahlung
+
+// server.use(express.static("./app/")); 
+// server.use((req, res) => res.sendFile("./index.html")); 

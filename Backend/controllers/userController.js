@@ -15,24 +15,28 @@ export default {
 
     register: async function (req, res, next) {
         try {
-            const { name, email, password } = req.body;
-            const user = await User.emailExist(email)
-            if(user) return res.status(400).json({msg: "the email already exist"});
+            const { name, surname, street, postalCode, city, email, password } = req.body;
+            const user2 = await User.emailExist(email)
+            if(user2) return res.status(400).json({msg: "the email already exist"});
             if(password.length < 6) return res.status(400).json({msg: "password must be at least 6 characters"})
-            const newUser = await User.register(
+            const user = await User.register(
                 name,
+                surname,
+                street,
+                postalCode,
+                city,
                 email,
-                password
+                password,
             );
-            const accessToken = getToken.createToken({id :newUser._id});
-            const refreshToken = getToken.refreshToken({id :newUser._id});
+            const accessToken = getToken.createToken({id :user._id});
+            const refreshToken = getToken.refreshToken({id :user._id});
 
             res.cookie("refreshToken", refreshToken, {
                 httpOnly: true,
                 path: "user/refresh_token"
             })
-            res.json({tokenNewUser: accessToken, newUser: newUser});
-        } catch (error) {
+            res.json({token: accessToken, user: user});
+        } catch (err) {
             return res.status(500).json({msg: err.message});
         }
     },

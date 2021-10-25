@@ -1,9 +1,9 @@
 import React, {useContext}from 'react';
-import {Input, Form , FormGroup, Button, CardTitle, Col, Row} from 'reactstrap';
+import {Input, Form , FormGroup, Button, CardTitle, Col, Row, CardText} from 'reactstrap';
 import {LoginContext} from '../components/LoginProvider.js';
 import {TokenContext} from "../components/TokenProvider.js";
 import register from "../API/register.js";
-import {useHistory} from 'react-router-dom';
+import {useHistory, Link} from 'react-router-dom';
 
 function Register() {
 
@@ -36,19 +36,20 @@ function Register() {
     return (
         
     <Row style={{justifyContent:"center",  width:"100%"}} className="mx-0 p-0">   
-    <Col style={{}} xs={9} sm={8} md={8} lg={6} xl={4}>
-      <Form  style={{marginTop: "10vh", marginBottom:"5vh"}}>
+    <Col style={{marginTop: "8vh", border: "white 3px solid"}} xs={9} sm={8} md={8} lg={6} xl={4}>
+      <Form className=" p-4" style={{margin: "auto"}}>
 
       <CardTitle style={{color: "white", fontSize: "40px", textAlign:"center"}}>Register</CardTitle>
       <FormGroup className="row">
-      <Input type="text" className=" p-2 mb-2" placeholder="name"  value={name} onChange={(e) => setName(e.target.value)}/>
-      <Input type="text" className="p-2 mb-2" placeholder="surname"  value={surname} onChange={(e) => setSurname(e.target.value)}/>
-      <Input type="text" className="p-2 mb-2" placeholder="street"  value={street} onChange={(e) => setStreet(e.target.value)}/>
-      <Input type="number" className="p-2 mb-2" placeholder="postalCode"  value={postalCode} onChange={(e) => setPostalCode(e.target.value)}/>
-      <Input type="text" className="p-2 mb-2" placeholder="city"  value={city} onChange={(e) => setCity(e.target.value)}/>
-      <Input type="email" className="p-2 mb-2" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-      <Input type="password" className="p-2 mb-2" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-      <Button  type="submit" className="p-2 mb-2" onClick={handleRegister}>Send</Button >
+      <Input type="text" className=" p-2 mb-3" placeholder="Name"  value={name} onChange={(e) => setName(e.target.value)}/>
+      <Input type="text" className="p-2 mb-3" placeholder="Surname"  value={surname} onChange={(e) => setSurname(e.target.value)}/>
+      <Input type="text" className="p-2 mb-3" placeholder="Street"  value={street} onChange={(e) => setStreet(e.target.value)}/>
+      <Input type="number" className="p-2 mb-3" placeholder="PostalCode"  value={postalCode} onChange={(e) => setPostalCode(e.target.value)}/>
+      <Input type="text" className="p-2 mb-3" placeholder="City"  value={city} onChange={(e) => setCity(e.target.value)}/>
+      <Input type="email" className="p-2 mb-3" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+      <Input type="password" className="p-2 mb-3" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+      <CardText style={{color: "white"}}>You have an account? Click here:  <Link to="/login" style={{color: "yellow", marginLeft: "5px"}}>Login.</Link></CardText>
+      <Button  type="submit" className="p-2 mb-3 bg-success" onClick={handleRegister}>SEND</Button >
 
     </FormGroup>
 

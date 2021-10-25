@@ -1,5 +1,5 @@
 export async function postProduct(product) {
-    const url = "http://localhost:3438/api/products";
+    const url = `http://localhost:3438/api/products`;
     await fetch(url, {
             method: "POST",
             body: JSON.stringify(product),

@@ -1,9 +1,11 @@
 import React, {useState,useEffect} from 'react';
-import {Form, Button, Input, Col, Row,FormGroup } from "reactstrap";
+import { Button, Input, Col, Row, FormGroup } from "reactstrap";
 import "./Search.css";
 import {getCategories} from '../API/getCategories.js';
 import "../pages/Product.css";
 import {SearchContext} from "./SearchProvider.js";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import  {Form}  from "react-bootstrap";
 
 
 function Search() {
@@ -17,7 +19,8 @@ function Search() {
         getCategories()
         .then(categories => {
             setCategories(categories);
-        })
+        });
+        searchedProducts.setIsSearched(false);
     },[]);
     
     const handleCategory = (e) =>{
@@ -48,8 +51,9 @@ function Search() {
 
             <Col sm={12} md={2} lg={2} className="searchColumn">
                 <FormGroup className="mr-3 align-items-center mb-3">
-                    <Input type="select" name="category" value={category} onChange={handleCategory} id="categoryOption"  style={{borderRadius: "20px"}}>
-                            <option value="">All Foods</option>
+                <Form.Select aria-label="Default select example" value={category} onChange={handleCategory} id="categoryOption"  style={{borderRadius: "20px"}}>
+
+                            <option value="">Select category</option>
                         {
                             categories.map((category)=>
                             {
@@ -59,12 +63,13 @@ function Search() {
                             })
                         
                         }  
-                    </Input>
+                    </Form.Select>
                 </FormGroup>
             </Col>
+            
             <Col sm={12} md={6} lg={5}  className="searchColumn">
                 <FormGroup className="align-items-center mr-5 d-flex flex-direction-row mb-3" >
-                    <Input onChange={e => setSearch(e.target.value.toLowerCase())}
+                    <Input onChange={e => setSearch(e.target.value)}
                     value={search}
                     type="text"
                     name="searchbar"
@@ -74,20 +79,25 @@ function Search() {
                     style={{display: "flex", padding: "5px 10px", marginRight: "5px", borderRadius: "20px"}}
                     />
                     <Button type="submit" className="searchButton p-1" style={{marginRight: "3px", borderRadius: "10px", backgroundColor: "#A61C3C", color: "white", border:"none"}}>Search</Button> 
-                    <Button onClick={handleBack} className="searchButton p-1"  style={{borderRadius: "10px", backgroundColor: "#A61C3C", color: "white",border:"none"}}>Return</Button>
+                    {searchedProducts.isSearched && <Button onClick={handleBack} className="searchButton p-1"  style={{borderRadius: "10px", backgroundColor: "#A61C3C", color: "white",border:"none"}}>Delete</Button>
+                    }
+                    
                 </FormGroup>
             </Col>
             <Col sm={12} md={2} lg={2}  className="searchColumn ">
                 <FormGroup className="mr-5 align-items-center   mb-sm-3" >
-                    <Input type="select" name="select" id="priceOption" value={sort} style={{borderRadius: "20px"}}
+                <Form.Select aria-label="Default select example" value={sort} style={{borderRadius: "20px"}}
                     onChange={e => setSort(e.target.value)}>
-                        <option value="">Sort by:</option>
+                        <option value="">Sort by price</option>
                         <option value="sort=-price">High-Low</option>
                         <option value="sort=price">Low-High</option>
-                    </Input>
+                </Form.Select>
                 </FormGroup>
             </Col>
             </Form>
+            <Col>
+            
+            </Col>
             </Row>    
         </div>
         
