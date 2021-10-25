@@ -25,7 +25,7 @@ server.listen(process.env.PORT, () => {
     console.log("server is listening");
 });
 
-server.use(cors());
+// server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({extended: true}));
 server.use(cookieParser());
@@ -40,5 +40,5 @@ server.use("/api", uploadRouter);
 server.use("/api", productRouter);
 server.use("/api", orderRouter);
 
-// server.use(express.static("./app/")); 
-// server.use((req, res) => res.sendFile("./index.html")); 
+server.use(express.static("./app/")); 
+server.use((req, res) => res.sendFile("./index.html")); 

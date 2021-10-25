@@ -1,0 +1,81 @@
+[{
+    "_id": {
+      "$oid": "616a82dfed8ec3d493994356"
+    },
+    "name": "Lamia",
+    "surname": "Elmas",
+    "street": "Hasenheide 94",
+    "postalCode": 10967,
+    "city": "Berlin",
+    "email": "lamia@gmail.com",
+    "password": "$2b$12$7Bv4.3JScyErPu6pRux/iea.Wp.VbhN.eORbqtv/3zTYRUWxvi2Ty",
+    "role": 0,
+    "cart": [],
+    "createdAt": {
+      "$date": "2021-10-16T07:44:31.258Z"
+    },
+    "updatedAt": {
+      "$date": "2021-10-16T07:44:31.258Z"
+    },
+    "__v": 0
+  },{
+    "_id": {
+      "$oid": "616a8477ed8ec3d493994359"
+    },
+    "name": "Zeynep",
+    "surname": "Gültekin",
+    "street": "Vetschauer Straße 32",
+    "postalCode": 11111,
+    "city": "Dresden",
+    "email": "zeynep@gmail.com",
+    "password": "$2b$12$QEW4p9NelXFzNqYPdxTgqeTSLTRD31ca03F1BKNhbmIZSU6N.3H4e",
+    "role": 0,
+    "cart": [],
+    "createdAt": {
+      "$date": "2021-10-16T07:51:19.691Z"
+    },
+    "updatedAt": {
+      "$date": "2021-10-16T07:51:19.691Z"
+    },
+    "__v": 0
+  },{
+    "_id": {
+      "$oid": "616b2b04ed8ec3d493994379"
+    },
+    "name": "admin",
+    "surname": "true",
+    "street": "adminstreet 1",
+    "postalCode": 11111,
+    "city": "Berlin",
+    "email": "admin@gmail.com",
+    "password": "$2b$12$9Huy5QJ.5PCzslZ1Jh9MeuFHmflyx/QoQ4rRkHhWQvq5.jWlOfow6",
+    "role": 1,
+    "cart": [],
+    "createdAt": {
+      "$date": "2021-10-16T19:41:56.528Z"
+    },
+    "updatedAt": {
+      "$date": "2021-10-16T19:41:56.528Z"
+    },
+    "__v": 0
+  },{
+    "_id": {
+      "$oid": "61711d33ecf593aabf495c66"
+    },
+    "name": "test",
+    "surname": "test",
+    "street": "Hasenheide 94",
+    "postalCode": 10967,
+    "city": "Berlin",
+    "email": "test@gmail.com",
+    "password": "$2b$12$JCd7vQ27zyfw0jL0hwQFqeWVOyXejKtaNv17aWbZ9yqLl8yP/2avC",
+    "role": 0,
+    "cart": [],
+    "createdAt": {
+      "$date": "2021-10-21T07:56:35.249Z"
+    },
+    "updatedAt": {
+      "$date": "2021-10-21T07:56:35.249Z"
+    },
+    "__v": 0
+  }]
