@@ -1,5 +1,5 @@
 export async function getCategories(){
-    const url =  `http://localhost:3438/api/category`;
+    const url =  `/api/category`;
     let categories = [];
 
     categories = await  fetch(url,
@@ -22,7 +22,7 @@ export async function getCategories(){
 
 
 export async function postCategory(categoryInfo){
-    const url = `http://localhost:3438/api/category`;
+    const url = `/api/category`;
 
     const newCategory= await fetch(url,
         {
@@ -40,7 +40,7 @@ export async function postCategory(categoryInfo){
 }
 
 export async function deleteCategory(id){
-    const url = `http://localhost:3438/api/category/${id}`;
+    const url = `/api/category/${id}`;
 
     let category = await fetch(url, {
             method: "DELETE",
@@ -51,7 +51,7 @@ export async function deleteCategory(id){
 }
 
 export async function editCategory(id, name, image){
-    const url =`http://localhost:3438/api/category/${id}`
+    const url =`/api/category/${id}`
     const category = await fetch(url, {
         method: "PUT",
         body: JSON.stringify({name, image}),

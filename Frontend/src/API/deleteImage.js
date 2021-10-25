@@ -1,5 +1,5 @@
 async function deleteImage(imagePublicId){
-    const url =   `http://localhost:3438/api/deletepicture`;
+    const url =   `/api/deletepicture`;
     const result= await fetch(url,
         {
             method: "POST",

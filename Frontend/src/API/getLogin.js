@@ -1,7 +1,7 @@
 
 async function getLogin(email,password){
 
-    const userData = await fetch(`http://localhost:3438/user/login`, {
+    const userData = await fetch(`/user/login`, {
             method: 'POST',
             body: JSON.stringify({email, password}),
             headers: {

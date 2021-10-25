@@ -1,5 +1,5 @@
 async function uploadImage(image){
-    const url = `http://localhost:3438/api/upload`;
+    const url = `/api/upload`;
 
     const result= await fetch(url,
         {

@@ -1,7 +1,7 @@
 export async function order(userID, orderList, totalPrice){
 
     const user = JSON.parse(localStorage.getItem("user"));
-    const order = await fetch( `http://localhost:3438/api/checkout`, {
+    const order = await fetch( `/api/checkout`, {
             method: 'POST',
             body: JSON.stringify({userID, orderList, totalPrice}),
             headers: {
@@ -16,7 +16,7 @@ export async function order(userID, orderList, totalPrice){
 
 export async function getOrders(){
 
-    const orders = await fetch(`http://localhost:3438/api/checkout`, {
+    const orders = await fetch(`/api/checkout`, {
             method: 'GET',
             headers:
             {
