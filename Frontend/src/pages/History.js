@@ -58,7 +58,7 @@ function History() {
                         </td>
                         <td style={{cursor:"pointer"}} onClick={toggle}>View
                             <Modal isOpen={modal}  >
-                            <ModalHeader className="modalClassX"  toggle={toggle}>{order.userID.name[0].toUpperCase()+order.userID.name.substring(1) }</ModalHeader>
+                            <ModalHeader className="modalClassX"  toggle={toggle}>{order.userID.name[0].toUpperCase()+order.userID.name.substring(1) + " " + order.userID.surname[0].toUpperCase()+order.userID.surname.substring(1) }</ModalHeader>
                             {order.orderList.map((item,i)=>(
                               
                                 <ModalBody key={i}>
