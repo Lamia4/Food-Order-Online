@@ -57,7 +57,7 @@ function History() {
                         {new Date(order.createdAt).getDate() + "." + (new Date(order.createdAt).getMonth()+1) + "." + new Date(order.createdAt).getFullYear() + " " + new Date(order.createdAt).getHours()+ ":" + new Date(order.createdAt).getMinutes() }
                         </td>
                         <td style={{cursor:"pointer"}} onClick={toggle}>View
-                            <Modal isOpen={modal}  >
+                            <Modal isOpen={modal}>
                             <ModalHeader className="modalClassX"  toggle={toggle}>{order.userID.name[0].toUpperCase()+order.userID.name.substring(1) + " " + order.userID.surname[0].toUpperCase()+order.userID.surname.substring(1) }</ModalHeader>
                             {order.orderList.map((item,i)=>(
                               
