@@ -17,14 +17,7 @@
     min-height: 80vh !important;
 }
 .modalClassX button{
-    width: 40px;
-    border: none;
-    font-size: 20px;
-    background-color: white !important;
-}
-.modalClassX button span{
-    font-size: 28px !important;
-
+    display: none;
 }
 .modal-content .modalAddress {
     margin-bottom: 0 !important;

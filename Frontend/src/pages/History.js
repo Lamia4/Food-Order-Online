@@ -1,16 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import { Table, Row,Col, Container ,Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
+import {Table, Row,Col, Container} from 'reactstrap';
 import "./History.css";
 import {getOrders} from "../API/order.js";
+import ModalComponent from "../components/ModalComponent.js";
 
 function History() {
     const [allOrders, setAllOrders] = useState([]);
-    const [orderLength, setOrderLength] = useState(0)
-    const [modal, setModal] = useState(false);
+    const [orderLength, setOrderLength] = useState(0);
+    const [orderDetails, setOrderDetails] = useState(null);
 
-    const toggle = () => 
+    const toggle = (order) => 
     {
-        setModal(!modal);  
+        setOrderDetails(order);
     }
 
     useEffect(() => {
@@ -54,37 +55,10 @@ function History() {
                             first +(item.quantity)
                         ),0)}</td>
                         <td>
-                        {new Date(order.createdAt).getDate() + "." + (new Date(order.createdAt).getMonth()+1) + "." + new Date(order.createdAt).getFullYear() + " " + new Date(order.createdAt).getHours()+ ":" + new Date(order.createdAt).getMinutes() }
+                        {new Date(order.createdAt).getDate() + "." + (new Date(order.createdAt).getMonth()+1) + "." + new Date(order.createdAt).getFullYear() + " " + (new Date(order.createdAt).getHours()<10? "0" +new Date(order.createdAt).getHours() : new Date(order.createdAt).getHours() )+ ":" + (new Date(order.createdAt).getMinutes()<10? "0" + new Date(order.createdAt).getMinutes() : new Date(order.createdAt).getMinutes()) }
                         </td>
-                        <td style={{cursor:"pointer"}} onClick={toggle}>View
-                            <Modal isOpen={modal}>
-                            <ModalHeader className="modalClassX"  toggle={toggle}>{order.userID.name[0].toUpperCase()+order.userID.name.substring(1) + " " + order.userID.surname[0].toUpperCase()+order.userID.surname.substring(1) }</ModalHeader>
-                            {order.orderList.map((item,i)=>(
-                              
-                                <ModalBody key={i}>
-                                 { (item.productId.title.toUpperCase()) + " x " + (item.quantity)}
-                            </ModalBody>
-                            ))}
-                            <ModalBody className="modalAddress">
-                               <b>Total price: </b> 
-                                
-                            </ModalBody>
-                            <ModalBody className="modalAddress">
-                               {order.totalPrice} €
-                                
-                            </ModalBody>
-                            <ModalBody className="modalAddress">
-                               <b>Address: </b> 
-                                
-                            </ModalBody>
-                            <ModalBody>
-                                 
-                                {order.userID.street}, {order.userID.postalCode} {order.userID.city}
-                            </ModalBody>
-                            <ModalFooter>
-                                <Button color="success" onClick={toggle}>Close</Button>
-                            </ModalFooter>
-                            </Modal>
+                        <td style={{cursor:"pointer"}} onClick={()=>toggle(order)}>View
+                        {orderDetails && <ModalComponent toggle={toggle} order={order} orderDetails={orderDetails} setOrderDetails={setOrderDetails}/> }
                         </td>
                         </tr>
                         
