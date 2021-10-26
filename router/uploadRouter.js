@@ -14,7 +14,7 @@ cloudinary.config({
 
 router.post("/upload", (req, res) => {
     try {
-        //console.log(req.files);
+        
         if(!req.files || Object.keys(req.files).length === 0) return res.status(400).send({msg: "no files uploaded"});
         const file = req.files.file;
         if(file.size > 1024*1024) {
