@@ -33,7 +33,7 @@ function EditProduct({product, i, getCategoryProducts}) {
     }
 
     const handleSave = async() => {
-        await editProduct(product._id, changedProduct.title, parseInt(changedProduct.price), changedProduct.description, changedProduct.image, changedProduct.category);
+        await editProduct(product._id, changedProduct.title, Number(changedProduct.price), changedProduct.description, changedProduct.image, changedProduct.category);
         setChosenProduct(false);
         setIsEditable(false);
         getCategoryProducts();
