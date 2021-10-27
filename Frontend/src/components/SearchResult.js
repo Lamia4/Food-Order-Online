@@ -25,7 +25,7 @@ function SearchResult({products}) {
                                             <CardText className="productText mb-md-5 ">{product.description}</CardText>
                                                 <div className="priceAndButtonDiv" style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
                                                     <CardSubtitle  tag="h6" className=" productPrice  ">{product.price}€</CardSubtitle>
-                                                    <Button className="productButton" style={{padding: "5px", borderRadius: "10px", background: "#A61C3C", color: "white", border:"none"}} onClick={() => currentCart.addToCart(product)} >ORDER</Button>
+                                                    <Button className="productButton" style={{padding: "5px", borderRadius: "10px", background: "#A61C3C", color: "white", border:"none"}} onClick={() => currentCart.addToCart(product)} >ADD</Button>
                                                 </div>
                                         </CardBody>
                                     </Card>

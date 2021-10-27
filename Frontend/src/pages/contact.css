@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
 
 .contact{
-   /* background-image: linear-gradient(to top, #09203f 0%, #537895 100%); */
     min-height: 90vh; 
 }
 
@@ -62,8 +61,6 @@
 .col2{
     color:#fff;
     text-align: center;
-    /* border-left: 2px solid rgb(172, 162, 162);
-    border-bottom: 2px solid rgb(172, 162, 162); */
     margin: 100px auto;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
     
