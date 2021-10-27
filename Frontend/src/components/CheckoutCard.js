@@ -57,7 +57,12 @@ function CheckoutCard() {
             } else {
                 setShowError(true);
                 setEmail("");
-                setPassword("");   
+                setPassword(""); 
+                setStreet("") ;
+                setSurname("");
+                setName("");
+                setPostalCode("");
+                setCity("")  
             }
             
             

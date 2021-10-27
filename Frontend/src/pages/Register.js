@@ -26,7 +26,12 @@ function Register() {
           } else {
               setShowError(true);
               setEmail("");
-              setPassword("");  
+              setPassword(""); 
+              setStreet("") ;
+              setSurname("");
+              setName("");
+              setPostalCode("");
+              setCity("")
           }
     
       }catch(error){
